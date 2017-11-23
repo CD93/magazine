@@ -10,3 +10,4 @@
 /spip/plugins/*
 !/spip/plugins/voeux2018
 .DS_Store
+package-lock.json
