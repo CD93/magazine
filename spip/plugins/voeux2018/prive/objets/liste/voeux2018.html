@@ -1,0 +1,36 @@
+[(#SET{defaut_tri,#ARRAY{
+	date,-1,
+	id_voeux2018,1,
+	points,-1
+}})]<B_liste_voeux2018>
+#ANCRE_PAGINATION
+<div class="liste-objets voeux2018">
+<table class="spip liste">
+	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{voeux2018:info_1_voeux2018,voeux2018:info_nb_voeux2018}})</strong></caption>]
+	<thead>
+		<tr class="first_row">
+			<th class="picto" scope="col"></th>
+			<th class="" scope="col">[(#TRI{,<:voeux2018:champ__label:>,ajax})]</th>
+			<th class="date" scope="col">[(#TRI{date,<:date:>,ajax})]</th> 
+			<th class="id" scope="col">[(#TRI{id_voeux2018,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_voeux2018(VOEUX2018){id_mot?}{id_auteur?}{where?}{recherche?}{tri #ENV{par,num },#GET{defaut_tri}}{par }{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class="picto">[(#CHEMIN_IMAGE{voeux2018-16.png}|balise_img)]</td>
+			<td class=" principale">[(#LOGO_VOEUX2018|image_reduire{20,26})]<a href="[(#ID_VOEUX2018|generer_url_entite{voeux2018})]" title="<:info_numero_abbreviation|attribut_html:> #ID_VOEUX2018">[(#RANG). ]#</a></td>
+			<td class="date secondaire">[(#DATE|affdate_jourcourt)]</td> 
+			<td class="id">[(#AUTORISER{modifier,voeux2018,#ID_VOEUX2018}|?{
+				<a href="[(#URL_ECRIRE{voeux2018_edit,id_voeux2018=#ID_VOEUX2018})]">#ID_VOEUX2018</a>,
+				#ID_VOEUX2018
+			})]</td>
+		</tr>
+	</BOUCLE_liste_voeux2018>
+	</tbody>
+</table>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+</div>
+</B_liste_voeux2018>[
+<div class="liste-objets voeux2018 caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_voeux2018>

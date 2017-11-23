@@ -1,0 +1,12 @@
+
+/node_modules
+/spip
+!/spip
+/spip/*
+!/spip/service-worker.js
+!/spip/sw.js
+!/spip/manifest.json
+!/spip/plugins/
+/spip/plugins/*
+!/spip/plugins/voeux2018
+.DS_Store
