@@ -1,6 +1,6 @@
 requirejs.config({
     //By default load any module IDs from js/lib
-    baseUrl: 'plugins/voeux2018js',
+    baseUrl: 'plugins/voeux2018/js',
     //except, if the module ID starts with "app",
     //load it from the js/app directory. paths
     //config is relative to the baseUrl, and
@@ -14,44 +14,18 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
-			var decal;
-			$(".paragraphe").css("display","none");
-      $("h2 button.titrepara").attr('aria-expanded','false');
-			if(cookie.get('menuouvert')=='oui'){
-        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
-        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
-				if($( document ).width() > 800) {
-					var offsets = $('#main').offset();
-					var left = offsets.left;
-					decal = 0;
-					if(left <= 300) {
-						decal = 300 - left ;
-						$("#main").css("left",decal);
-					}
-					$('#menu_ferme').show();
-					$("#nav-collapse").css("left","0");
-				}
-			}else {
-				$('#menu_ferme').hide();
-				$("#nav-collapse").css("left","-280px");
-			}
-			$('#nav-toggle').click(function(e) {
-				e.preventDefault();
-				cookie.set('menuouvert', 'oui');
-				console.log(cookie.get('menuouvert'));
-				$("#nav-collapse").css("left","0px");
-				var offsets = $('#main').offset();
+      $('area').on('click', function(e) {
+        e.preventDefault();
+        var target = $(this).attr('href');
+        $("#panneau").css("left","0px");
+				var offsets = $('#carte').offset();
 				var left = offsets.left;
 				decal = 0;
-				if(left <= 300) {
-					decal = 300 - left ;
-					$("#main, .logoMDPH").css("left",decal);
+				if(left <= 500) {
+					decal = 500 - left ;
+					$("#carte").css("left",decal);
 				}
-        $('#menu_ferme').show(250);
-        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
-        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
-				findInsiders($('#menu_ferme'));
-			});
+      });
 			$('#fermer_menu').click(function(e) {
 				e.preventDefault();
 				cookie.set('menuouvert', 'non');
@@ -63,77 +37,12 @@ require(['domReady'], function (domReady) {
         $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
 			});
-			$("h2 button").click(function(e) {
-				$(this).toggleClass( "active" ).parent().next('div').slideToggle(300);
-				if ($(this).hasClass("active")) {
-					$(this).css("background-image","url(squelettes/images/fhaut.png)");
-					$(this).attr('aria-expanded','true');
-				}
-				else {
-					$(this).css("background-image","url(squelettes/images/fbas.png)");
-					$(this).attr('aria-expanded','false');
-				}
-				$(".pliage button.btn-collapse-up").show();
-			});
-			$(".pliage button.btn-collapse-down").click(function(e) {
-				$('.paragraphe').slideDown(300);
-				$('.titrepara').css("background-image","url(squelettes/images/fhaut.png)");
-				$('.titrepara').attr('aria-expanded','true');
-				$('.titrepara').addClass( "active" );
-				$(".pliage button.btn-collapse-up").show();
-				$(this).hide();
-			});
-			$(".pliage button.btn-collapse-up").click(function(e) {
-				$('.paragraphe').slideUp(300);
-				$('.titrepara').css("background-image","url(squelettes/images/fbas.png)");
-				$('.titrepara').attr('aria-expanded','false');
-				$('.titrepara').removeClass( "active" );
-				$(".pliage button.btn-collapse-down").show();
-				$(this).hide();
-			});
-      // on récupère l'ancre
-      if (window.location.hash) {
-        var ancre=$("h2 button"+window.location.hash);
-        ancre.addClass( "active" ).parent().next('div').slideToggle(300);
-        ancre.css("background-image","url(squelettes/images/fhaut.png)");
-        ancre.attr('aria-expanded','true');
-        $(".pliage button.btn-collapse-up").show();
-      }
-      //Valider les messages par la touche entrée
-      $('#message').on('keydown', function(e) {
-        if(e.which == 13 && !e.shiftKey) { // KeyCode de la touche entrée
-          e.preventDefault();
-          $('#form_question').submit();
-        }
-      });
-			//focustrap
-			var findInsiders = function(elem) {
-				var tabbable = elem.find('select, input, textarea, button, a').filter(':visible');
-			    var firstTabbable = tabbable.first();
-			    var lastTabbable = tabbable.last();
-			    /*set focus on first input*/
-			    firstTabbable.focus();
-				/*redirect last tab to first input*/
-			    lastTabbable.on('keydown', function (e) {
-			       if ((e.which === 9 && !e.shiftKey)) {
-			           e.preventDefault();
-			           firstTabbable.focus();
-			       }
-			    });
-				/*redirect first shift+tab to last input*/
-			    firstTabbable.on('keydown', function (e) {
-			        if ((e.which === 9 && e.shiftKey)) {
-			            e.preventDefault();
-			            lastTabbable.focus();
-			        }
-			    });
-			    /* allow escape key to close insiders div */
-			    elem.on('keyup', function(e){
-			      if (e.keyCode === 27 ) {
-			        elem.hide();
-			      };
-			    });
-			};
+        //image map responsive
+        var $img = $('img[usemap]');
+    		var rwdImageMap=function(){$img.each(function(){if(void 0!==$(this).attr("usemap")){var t=this,a=$(t);$("<img />").on("load",function(){var t="width",r="height",i=a.attr(t),e=a.attr(r);if(!i||!e){var n=new Image;n.src=a.attr("src"),i||(i=n.width),e||(e=n.height)}var h=a.width()/100,s=a.height()/100,c=a.attr("usemap").replace("#",""),d="coords";$('map[name="'+c+'"]').find("area").each(function(){var t=$(this);t.data(d)||t.data(d,t.attr(d));for(var a=t.data(d).split(","),r=new Array(a.length),n=0;n<r.length;++n)r[n]=n%2==0?parseInt(a[n]/i*100*h):parseInt(a[n]/e*100*s);t.attr(d,r.toString())})}).attr("src",a.attr("src"))}})};
+    			var decal;
+          rwdImageMap();
+          $(window).resize(rwdImageMap).trigger('resize');
 		});
 	});
 });

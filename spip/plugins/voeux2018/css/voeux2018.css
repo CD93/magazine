@@ -36,11 +36,23 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 #carte {
-    margin: 50px
-    max-width: 1200px;
+  position: relative;
+  left: 0;
+  margin: 50px;
+  max-width: 1200px;
+}
+#panneau {
+  overflow: auto;
+  width: 70%;
+	max-width: 500px;
+	background-color: #4A4A4A;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: -500px;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.22), 0 10px 10px 0 rgba(0,0,0,0.30);
 }
 footer {
   position: fixed;
