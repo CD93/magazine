@@ -13,8 +13,8 @@ var cache = require('gulp-cache');
 
 gulp.task('watch',['browserSync'], function(){
   gulp.watch('spip/plugins/voeux2018/css/*.css',browserSync.reload);
-  gulp.watch('spip/plugins/voeux2018/**/*.html', browserSync.reload);
-  gulp.watch('spip/splugins/voeux2018/js/**/*.js', browserSync.reload);
+  gulp.watch('spip/plugins/voeux2018/*.html', browserSync.reload);
+  gulp.watch('spip/splugins/voeux2018/js/*.js', browserSync.reload);
   // autres observations
 });
 
