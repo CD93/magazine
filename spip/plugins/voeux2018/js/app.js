@@ -14,35 +14,28 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
-      $('area').on('click', function(e) {
+      $('#carte button').on('click', function(e) {
+        var theme =  $(this).data("theme");
+        $.get( "../panneau.html", {theme: theme}).done(function( data ) {
+
+        });
         e.preventDefault();
-        var target = $(this).attr('href');
-        $("#panneau").css("left","0px");
+        $( "#panneau" ).animate({
+            left: "+=500"
+          }, 250 );
 				var offsets = $('#carte').offset();
 				var left = offsets.left;
 				decal = 0;
 				if(left <= 500) {
 					decal = 500 - left ;
-					$("#carte").css("left",decal);
+          $("#carte" ).animate({
+              left: "+=" + decal
+            }, 250 );
 				}
       });
 			$('#fermer_menu').click(function(e) {
 				e.preventDefault();
-				cookie.set('menuouvert', 'non');
-				console.log(cookie.get('menuouvert'));
-				$("#nav-collapse").css("left","-280px");
-				$("#main").css("left",0);
-				$('#menu_ferme').hide(250);
-        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','false');
-        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
-				findInsiders($('#menu_ferme'));
 			});
-        //image map responsive
-        var $img = $('img[usemap]');
-    		var rwdImageMap=function(){$img.each(function(){if(void 0!==$(this).attr("usemap")){var t=this,a=$(t);$("<img />").on("load",function(){var t="width",r="height",i=a.attr(t),e=a.attr(r);if(!i||!e){var n=new Image;n.src=a.attr("src"),i||(i=n.width),e||(e=n.height)}var h=a.width()/100,s=a.height()/100,c=a.attr("usemap").replace("#",""),d="coords";$('map[name="'+c+'"]').find("area").each(function(){var t=$(this);t.data(d)||t.data(d,t.attr(d));for(var a=t.data(d).split(","),r=new Array(a.length),n=0;n<r.length;++n)r[n]=n%2==0?parseInt(a[n]/i*100*h):parseInt(a[n]/e*100*s);t.attr(d,r.toString())})}).attr("src",a.attr("src"))}})};
-    			var decal;
-          rwdImageMap();
-          $(window).resize(rwdImageMap).trigger('resize');
 		});
 	});
 });
