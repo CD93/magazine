@@ -40,13 +40,61 @@ img {
 #carte {
   position: relative;
   left: 0;
-  margin: 50px;
+  margin: 10px 20px;
+  width: 100%;
+  height: auto;
   max-width: 1200px;
+  display: grid;
+  grid-template-columns: 40.6% 8.2% 18.8% 32.4%;
+  grid-template-rows: 32.7% 30.3% 38%;
+  grid-template-areas: "fond_orange fond_orange photo1 photo1"
+                      "photo2 fond_bleu fond_bleu photo3"
+                      "photo4 photo5 photo5 photo5"
+
+}
+#carte button {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+#carte button:hover, #carte button:focus {
+  box-shadow: 1px 1px 12px #555;
+  cursor: pointer;
+}
+#fond_orange{
+  grid-area: fond_orange;
+  background-color: #F5A429;
+}
+#photo1 {
+  grid-area: photo1
+}
+#photo2 {
+  grid-area: photo2
+}
+#photo3 {
+  grid-area: photo3
+}
+#photo4 {
+  grid-area: photo4;
+  background-color: #EF4F5F;
+}
+#photo5 {
+  grid-area: photo5;
+
+}
+#fond_bleu{
+  grid-area: fond_bleu;
+  background-color: #00A8CD;
+}
+#fond_rouge{
+  grid-area: rouge;
+  background-color: #EF4F5F;
 }
 #panneau {
+  z-index: 10;
   overflow: auto;
-  width: 70%;
-	max-width: 500px;
+  width: 90%;
+	max-width: 490px;
 	background-color: #4A4A4A;
 	height: 100%;
 	position: fixed;
