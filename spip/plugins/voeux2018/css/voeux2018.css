@@ -28,9 +28,14 @@ a:focus,a:hover {
   text-decoration: underline;
   color: inherit;
 }
-img {
+button img {
   width: 100%;
   height: auto;
+  transition: 0.5s all cubic-bezier(0.075,0.82,0.165,1);
+}
+button:hover img {
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: 2s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 #main {
   display: flex;
@@ -66,13 +71,13 @@ img {
   background-color: #F5A429;
 }
 #photo1 {
-  grid-area: photo1
+  grid-area: photo1;
 }
 #photo2 {
-  grid-area: photo2
+  grid-area: photo2;
 }
 #photo3 {
-  grid-area: photo3
+  grid-area: photo3;
 }
 #photo4 {
   grid-area: photo4;

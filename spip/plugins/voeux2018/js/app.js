@@ -16,8 +16,8 @@ require(['domReady'], function (domReady) {
 		require(['jquery','cookie'], function ($, cookie) {
       $('#carte button').on('click', function(e) {
         var theme =  $(this).data("theme");
-        $.get( "../panneau.html", {theme: theme}).done(function( data ) {
-
+        $.get( "/?page=panneau", {theme: theme}).done(function( data ) {
+            $("#panneau").html("des photos");
         });
         e.preventDefault();
         $( "#panneau" ).animate({
