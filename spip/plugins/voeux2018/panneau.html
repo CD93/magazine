@@ -1,12 +1,19 @@
+<div id="inner_pan">
 <BOUCLE_rub(RUBRIQUES){id_rubrique=(#ENV{theme}||table_valeur{0})}>
-    <h1>#TITRE</h1>
+    <h2>#TITRE</h2>
 </BOUCLE_rub>
+<p class="texte">Choisir une image</p>
 <B_article>
 
 <ul>
 <BOUCLE_article(ARTICLES){id_rubrique = (#ENV{theme}||table_valeur{0})}>
   <li>
-    <h2>#TITRE</h2>
-    <div class="choix_photo">#LOGO_ARTICLE</div></li>
+    <button class="image" data-image="[(#LOGO_ARTICLE|fichier)]">#LOGO_ARTICLE</button>
+    <button class="voir_suite"><img src="#CHEMIN{images/youtube.png}" height="20px" width="20px"/> &nbsp; En savoir plus</button>
+    <div class="la_suite">
+        #TEXTE
+    </div>
+  </li>
 </BOUCLE_article>
 </ul>
+</div>

@@ -17,15 +17,18 @@ require(['domReady'], function (domReady) {
       $('#carte button').on('click', function(e) {
         var theme =  $(this).data("theme");
         $( "#panneau" ).load( "/?page=panneau", { "theme[]": [theme] } );
-      
         e.preventDefault();
         $( "#panneau" ).animate({
             left: "+=600"
           }, 250 );
       });
-			$('#fermer_menu').click(function(e) {
-				e.preventDefault();
-			});
+			$('#inner_pan button.image').on('click', function(e) {
+
+      });
+      $('#inner_pan .voir_suite').on('click', function(e) {
+        alert("yufegyu");
+        $(this).next(".la_suite").show();
+      });
 		});
 	});
 });
