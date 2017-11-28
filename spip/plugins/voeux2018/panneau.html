@@ -1,0 +1,12 @@
+<BOUCLE_rub(RUBRIQUES){id_rubrique=(#ENV{theme}||table_valeur{0})}>
+    <h1>#TITRE</h1>
+</BOUCLE_rub>
+<B_article>
+
+<ul>
+<BOUCLE_article(ARTICLES){id_rubrique = (#ENV{theme}||table_valeur{0})}>
+  <li>
+    <h2>#TITRE</h2>
+    <div class="choix_photo">#LOGO_ARTICLE</div></li>
+</BOUCLE_article>
+</ul>

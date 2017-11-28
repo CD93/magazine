@@ -16,22 +16,12 @@ require(['domReady'], function (domReady) {
 		require(['jquery','cookie'], function ($, cookie) {
       $('#carte button').on('click', function(e) {
         var theme =  $(this).data("theme");
-        $.get( "/?page=panneau", {theme: theme}).done(function( data ) {
-            $("#panneau").html("des photos");
-        });
+        $( "#panneau" ).load( "/?page=panneau", { "theme[]": [theme] } );
+      
         e.preventDefault();
         $( "#panneau" ).animate({
-            left: "+=500"
+            left: "+=600"
           }, 250 );
-				var offsets = $('#carte').offset();
-				var left = offsets.left;
-				decal = 0;
-				if(left <= 500) {
-					decal = 500 - left ;
-          $("#carte" ).animate({
-              left: "+=" + decal
-            }, 250 );
-				}
       });
 			$('#fermer_menu').click(function(e) {
 				e.preventDefault();
