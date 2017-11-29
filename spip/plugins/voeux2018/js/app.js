@@ -14,20 +14,14 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
-      $('#carte button').on('click', function(e) {
+      $('#table_carte button').on('click', function(e) {
+        e.preventDefault();
         var theme =  $(this).data("theme");
         $( "#panneau" ).load( "/?page=panneau", { "theme[]": [theme] } );
-        e.preventDefault();
+        $("#blanco").show('250');
         $( "#panneau" ).animate({
             left: "+=600"
           }, 250 );
-      });
-			$('#inner_pan button.image').on('click', function(e) {
-
-      });
-      $('#inner_pan .voir_suite').on('click', function(e) {
-        alert("yufegyu");
-        $(this).next(".la_suite").show();
       });
 		});
 	});

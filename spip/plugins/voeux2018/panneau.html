@@ -1,19 +1,41 @@
 <div id="inner_pan">
 <BOUCLE_rub(RUBRIQUES){id_rubrique=(#ENV{theme}||table_valeur{0})}>
-    <h2>#TITRE</h2>
+    <h2>#TITRE #ID_RUBRIQUE</h2>
+    #SET{id_rub,#ID_RUBRIQUE}
 </BOUCLE_rub>
 <p class="texte">Choisir une image</p>
 <B_article>
 
 <ul>
 <BOUCLE_article(ARTICLES){id_rubrique = (#ENV{theme}||table_valeur{0})}>
+#SET{id_art,#ID_ARTICLE}
   <li>
-    <button class="image" data-image="[(#LOGO_ARTICLE|fichier)]">#LOGO_ARTICLE</button>
-    <button class="voir_suite"><img src="#CHEMIN{images/youtube.png}" height="20px" width="20px"/> &nbsp; En savoir plus</button>
+    <button class="image#ID_ARTICLE" data-image="img[(#ID_ARTICLE)]">#LOGO_ARTICLE</button>
+    <div class="voir_suite">
+    <button><img src="#CHEMIN{images/youtube.png}" height="20px" width="20px"/> &nbsp; En savoir plus</button>
+  </div>
     <div class="la_suite">
-        #TEXTE
+      <p class="chapo">#TITRE</p>
+      <p class="texte">#CHAPO</p>
+      <p class="texte">#TEXTE</p>
     </div>
   </li>
+  <script>
+  $('button.image#ID_ARTICLE').on('click', function(e) {
+    $("input[name='rub#GET{id_rub}']").attr("value","img#ID_ARTICLE");
+    $("#imt#GET{id_rub}").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg")
+    $( "#panneau" ).animate({
+        left: "-=600"
+      }, 250 );
+    $("#blanco").hide('250');
+  });
+  </script>
 </BOUCLE_article>
 </ul>
 </div>
+<script>
+$('.voir_suite').on('click', function(e) {
+  $(this).next(".la_suite").slideToggle('200');
+});
+
+</script>

@@ -20,7 +20,9 @@ h1 {
   font-size: 2em;
   color: #EF4F5F;
   font-weight: 800;
+  text-transform: uppercase;
 }
+
 .chapo {
   font-size: 1.1em;
   color: #000000;
@@ -32,6 +34,28 @@ h1 {
   font-size: 1em;
   color: #113572;
 }
+@media screen and (min-width: 800px) {
+    h1 {
+      font-size: 3em;
+    }
+    .chapo {
+      font-size: 1.3em;
+    }
+    .texte {
+      font-size: 1.1em;
+    }
+}
+#blanco {
+  position: fixed;
+  opacity: 0.8;
+  top:0;
+  left:0;
+  background-color: #fff;
+  z-index: 5;
+  width:100%;
+  height: 1550px;
+  display: none;
+}
 #main {
   display: flex;
   justify-content: center;
@@ -40,8 +64,8 @@ h1 {
   margin-top: 3em;
   margin: 3em 20px;
 }
-#sans_grid {
-  display: none;
+
+#table_carte {
   position: relative;
   left: 0;
   margin-top: 1em;
@@ -49,38 +73,30 @@ h1 {
   height: auto;
   max-width: 1000px;
 }
-@supports (display: grid) {
-  #sans_grid {
-    content: block;
-  }
-  #carte {
-    display: none;
-  }
+#table_carte table{
+  border-spacing : 0;
+  border-collapse : collapse;
+  padding: O;
+  margin-bottom: -2px;
 }
-#carte {
-  position: relative;
-  left: 0;
-  margin-top: 1em;
+#table_carte table a{
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+#table_carte img {
   width: 100%;
   height: auto;
-  max-width: 1000px;
-  display: grid;
-  grid-template-columns: 40.3% 8% 18% 33.7%;
-  grid-template-rows: 32.7% 27% 40.3%;
-  grid-template-areas: "fond_orange fond_orange photo1 photo1"
-                      "photo2 fond_bleu fond_bleu photo3"
-                      "photo4 photo5 photo5 photo5";
 }
 button {
   padding: 0;
   margin: 0;
   border: none;
   overflow: hidden;
-  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: auto;
   background-color: transparent;
 }
 
@@ -88,7 +104,7 @@ button:hover, button:focus {
   cursor: pointer;
 }
 
-#carte button span {
+#table_carte button span {
   position: absolute;
   text-transform: uppercase;
   font-size: 1.1em;
@@ -96,38 +112,6 @@ button:hover, button:focus {
   background-color: #fff;
   padding: 5px 10px;
   display: none;
-}
-#carte img {
-  width: 100%;
-  height: 100%;
-}
-#carte button:hover span {
-  display: inline-block;
-}
-#fond_orange{
-  grid-area: fond_orange;
-}
-#photo1 {
-  grid-area: photo1;
-}
-
-#photo2 {
-  grid-area: photo2;
-}
-#photo3 {
-  grid-area: photo3;
-}
-#photo4 {
-  grid-area: photo4;
-
-}
-#photo5 {
-  grid-area: photo5;
-
-}
-#fond_bleu{
-  grid-area: fond_bleu;
-  background-color: #00A8CD;
 }
 
 #panneau {
@@ -161,11 +145,35 @@ button:hover, button:focus {
   margin-top: 1.3em;
   margin-bottom: 0.3em;
 }
-#inner_pan * .voir_suite {
+.voir_suite button{
   font-weight: bold;
 }
-#inner_pan * .la_suite {
+.la_suite {
   display: none;
+}
+form {
+  margin:1em 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+}
+form textarea{
+  border: 1px solid #E1E1E1;
+  padding:2%;
+  font-size: 1em;
+  color: #113572;
+  font-family: 'Open Sans', sans-serif;
+}
+form button {
+  align-self: flex-end;
+  background: #000000;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  padding:0.2em 0.5em;
+  color: #FFFFFF;
+  margin-top: 0.5em;
 }
 footer {
   position: fixed;
@@ -176,7 +184,7 @@ footer {
   bottom: 0px;
   width: 100%;
 
-  font-size:1em; }
+  font-size:0.8em; }
   footer ul {
     display: flex;
     align-items: center; }
