@@ -134,14 +134,15 @@ button:hover, button:focus {
   font-size: 1.1em;
   font-weight: 600;
   line-height: 19px;
-  margin-bottom: 0.5em;
+
 }
+
 #inner_pan li img.spip_logo{
   width: 100%;
   height: auto;
-
+  margin-bottom: 0.5em;
 }
-#inner_pan .image {
+#inner_pan li {
   margin-top: 1.3em;
   margin-bottom: 0.3em;
 }
