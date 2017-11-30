@@ -3,3 +3,4 @@
 - [ ] créer les articles de chaques photos
 - [ ] finaliser les images
 - [ ] Animation des actions, les interactions, les hovers et focus
+- [ ] Corriger le bug de la ligne blanche sous safarie et chrome
