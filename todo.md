@@ -2,3 +2,4 @@
 - [ ] afficher ensuite les bouton de partage / mail / téléchargement
 - [ ] créer les articles de chaques photos
 - [ ] finaliser les images
+- [ ] Animation des actions, les interactions, les hovers et focus
