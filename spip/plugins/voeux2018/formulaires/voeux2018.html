@@ -1,11 +1,23 @@
-<form>
-  <input type="hidden" name="rub95" value="img12"/>
-  <input type="hidden" name="rub96" value="img15"/>
-  <input type="hidden" name="rub97" value="img16"/>
-  <input type="hidden" name="rub98" value="img17"/>
-  <input type="hidden" name="rub99" value="img18"/>
-  <textarea name="mesvoeux" id="mesvoeux">
-    Mon texte de voeux
-  </textarea>
-  <button>valider</button>
-</form>
+<div class="ajax">
+  <div class="formulaire_spip formulaire_editer formulaire_editer_voeux2018 formulaire_editer_voeux2018-#ENV{id_site,nouveau}">
+    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+  <a id="voeux2018" name="voeux2018"></a>
+  <form action="#ENV{action}" method="get">
+      #ACTION_FORMULAIRE{#ENV{action}}
+      <div class="editer-groupe">
+          <div class="editer editer_mesvoeux [ (#ENV**{erreurs}|table_valeur{mesvoeux}|oui)erreur]">
+            <label for="mesvoeux">Mes Voeux</label>
+            [<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{mesvoeux})</span>]
+            <textarea name='mesvoeux' id='mesvoeux' rows='2' cols='40'>[(#ENV**{mesvoeux})]</textarea>
+          </div>
+      </div>
+      <input type="hidden" name="rub95" value="img12"/>
+      <input type="hidden" name="rub96" value="img15"/>
+      <input type="hidden" name="rub97" value="img16"/>
+      <input type="hidden" name="rub98" value="img17"/>
+      <input type="hidden" name="rub99" value="img18"/>
+    	<p class='boutons spip_bouton'><input type='submit' class='submit' name='envoyer' value='valider' /></p>
+    </form>
+  </div>
+</div>
