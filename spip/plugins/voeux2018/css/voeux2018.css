@@ -47,7 +47,7 @@ h1 {
 }
 #blanco {
   position: fixed;
-  opacity: 0.8;
+  opacity: 0;
   top:0;
   left:0;
   background-color: #fff;
@@ -74,16 +74,9 @@ h1 {
   max-width: 1000px;
 }
 #table_carte table{
-  border-spacing : 0;
-  border-collapse : collapse;
   padding: O;
-  margin-bottom: -2px;
+  width: 100%;
 }
-#table_carte table a{
-  display: inline-block;
-  margin-bottom: -3px;
-}
-
 #table_carte img {
   width: 100%;
   height: auto;
@@ -103,7 +96,6 @@ button {
 button:hover, button:focus {
   cursor: pointer;
 }
-
 #table_carte button span {
   position: absolute;
   text-transform: uppercase;
@@ -111,9 +103,13 @@ button:hover, button:focus {
   font-weight: 600;
   background-color: #fff;
   padding: 5px 10px;
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
-
+#table_carte button:hover span, #table_carte button:focus span {
+  opacity: 0.8;
+}
 #panneau {
   z-index: 10;
   overflow: auto;
@@ -126,6 +122,19 @@ button:hover, button:focus {
 	left: -600px;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.22), 0 10px 10px 0 rgba(0,0,0,0.30);
 }
+#panneau button span {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 5px 10px;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  }
+  #panneau button:hover span, #panneau button:focus span {
+  opacity: 0.8;
+  }
 #inner_pan {
   margin: 2em 10%;
 }
@@ -167,14 +176,36 @@ form textarea{
   font-family: 'Open Sans', sans-serif;
 }
 form button {
-  align-self: flex-end;
+  align-self: center;
   background: #000000;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 1em;
-  padding:0.2em 0.5em;
+  font-weight: 600;
+  font-size: 1.4em;
+  padding:0.2em 0.8em;
   color: #FFFFFF;
   margin-top: 0.5em;
+}
+#video  {
+  display: flex;
+  flex-direction: column;
+  background-color: #D8D8D8;
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 3em;
+  padding: 2em;
+  align-items: center;
+}
+#video  a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.3em;
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+}
+#video  a img {
+  margin-bottom: 1em;
 }
 footer {
   position: fixed;

@@ -18,10 +18,11 @@ require(['domReady'], function (domReady) {
         e.preventDefault();
         var theme =  $(this).data("theme");
         $( "#panneau" ).load( "/?page=panneau", { "theme[]": [theme] } );
-        $("#blanco").show('250');
+        $("#blanco").show().animate({opacity: "0.8"
+      }, 400 );
         $( "#panneau" ).animate({
             left: "+=600"
-          }, 250 );
+          }, 400 );
       });
 		});
 	});
