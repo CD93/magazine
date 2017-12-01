@@ -17,12 +17,13 @@
 	<div id="blanco">
 	</div>
 <main role="main" id="main">
+	<p>La Seine-Saint-Denis vous souhaite une</p>
 	<h1>Belle année 2018</h1>
 
 	<div class="chapo">
 			Personnalisez notre carte pour envoyer vos voeux à vos proches
 	</div>
-	<div class="texte">cliquez sur les images et le texte pour personnaliser votre carte, puis valider</div>
+	<div class="texte">cliquez sur les images pour créer votre propre carte</div>
 
 	<div id="table_carte">
 			<table>
@@ -30,41 +31,53 @@
 					<td>
 						<img src="#CHEMIN{images/fond_orange.jpg}" />
 					</td>
-					<td >
-						<button data-theme="95"><img id="imt95" src="[(#CHEMIN{images/img1158.jpg}|url_absolue)]" /></button>
+					<td>
+						<button data-theme="95"><img id="imt95" src="[(#CHEMIN{images/img1158.jpg}|url_absolue)]"/>
+								<span>#INFO_TITRE{rubrique, 95}</span>
+						</button>
 					</td>
 				</tr>
 			</table>
 			<table>
 				<tr>
 					<td>
-						<button data-theme="96"><img id="imt96" src="#CHEMIN{images/img1268.jpg}"/></button>
+						<button data-theme="96"><img id="imt96" src="#CHEMIN{images/img1268.jpg}" />
+							<span>#INFO_TITRE{rubrique, 96}</span>
+						</button>
 					</td>
 					<td>
 						<img src="#CHEMIN{images/fond_bleu.jpg}"/>
 					</td>
 					<td>
-						<button data-theme="97"><img id="imt97" src="#CHEMIN{images/img1278.jpg}"/></button>
+						<button data-theme="97"><img id="imt97" src="#CHEMIN{images/img1278.jpg}" />
+						<span>#INFO_TITRE{rubrique, 97}</span>
+						</button>
 					</td>
 				</tr>
 			</table>
 			<table>
 				<tr>
 					<td>
-						<button data-theme="98"><img id="imt98" src="#CHEMIN{images/img1274.jpg}"/></button>
+						<button data-theme="98"><img id="imt98" src="#CHEMIN{images/img1274.jpg}"/>
+								<span>#INFO_TITRE{rubrique, 98}</span>
+						</button>
 					</td>
 					<td>
-						<button data-theme="99"><img id="imt99" src="#CHEMIN{images/img1276.jpg}"/></button>
+						<button data-theme="99"><img id="imt99" src="#CHEMIN{images/img1276.jpg}"/>
+							<span>#INFO_TITRE{rubrique, 99}</span>
+						</button>
 					</td>
 				</tr>
 			</table>
 	</div>
+
+
 	#FORMULAIRE_VOEUX2018
 	<div id="video">
-		<button>
-			<img src="#CHEMIN{images/youtube.png}" />
+		<a href="#">
+			<img src="#CHEMIN{images/youtube.png}" width="100px" height="100px"/>
 			<p>Voir la vidéo des vœux</p>
-		</button>
+		</a>
 	</div>
 	<div id="ensemble">
 		<img src="#CHEMIN{images/construire.png}"/>
