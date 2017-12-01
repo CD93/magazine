@@ -62,21 +62,70 @@ h1 {
   align-items: center;
   flex-direction: column;
   margin-top: 3em;
-  margin: 3em 20px;
+  margin: 3em 5%;
 }
 
 #table_carte {
   position: relative;
   left: 0;
   margin-top: 1em;
-  width: 100%;
   height: auto;
-  max-width: 1000px;
+  width: 1000px;
 }
 #table_carte table{
   padding: O;
   width: 100%;
+  margin-bottom: -3px;
 }
+@media screen and (max-width: 1100px) {
+  #table_carte {
+    width: 850px;
+  }
+}
+@media screen and (max-width: 920px) {
+  #table_carte {
+    width: 660px;
+  }
+  #table_carte table{
+    margin-bottom: -3px;
+  }
+  #table_carte table:first-child tr td img{
+    height:250px;
+  }
+}
+@media screen and (max-width: 700px) {
+  #table_carte {
+    width: 500px;
+  }
+  #table_carte table:first-child tr td img{
+    height:auto;
+  }
+}
+@media screen and (max-width: 520px) {
+  #table_carte {
+    width: 333px;
+  }
+  #table_carte table{
+    margin-bottom: -5px;
+  }
+  #table_carte table:first-child tr td img{
+    height:126px;
+  }
+}
+@media screen and (max-width: 350px) {
+  #table_carte {
+    width: 250px;
+  }
+  #table_carte table:first-child tr td img{
+    height:95px;
+  }
+  #table_carte table:first-child {
+    margin-bottom: -2px;
+  }
+}
+
+
+
 #table_carte img {
   width: 100%;
   height: auto;
