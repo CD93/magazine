@@ -25,6 +25,8 @@
   <script>
   $('button.image#ID_ARTICLE').on('click', function(e) {
     $("input[name='rub#GET{id_rub}']").attr("value","img#ID_ARTICLE");
+    urlimg = updateURLParameter(urlimg, 'rub#GET{id_rub}', 'img#ID_ARTICLE');
+    $("#telecharger").attr("href",urlimg);
     $("#imt#GET{id_rub}").css("opacity","0.5").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg").animate({
       opacity: "1"
     }, 2000 );
@@ -40,6 +42,11 @@
       });
     });
   });
+
+  /**
+ * fonction d'ecriture des urls de l'images
+ */
+
   </script>
 </BOUCLE_article>
 </ul>
@@ -48,5 +55,23 @@
 $('.voir_suite').on('click', function(e) {
   $(this).next(".la_suite").slideToggle('200');
 });
-
+var urlimg="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274";
+function updateURLParameter(url, param, paramVal){
+  var newAdditionalURL = "";
+  var tempArray = url.split("?");
+  var baseURL = tempArray[0];
+  var additionalURL = tempArray[1];
+  var temp = "";
+  if (additionalURL) {
+      tempArray = additionalURL.split("&");
+      for (var i=0; i<tempArray.length; i++){
+          if(tempArray[i].split('=')[0] != param){
+              newAdditionalURL += temp + tempArray[i];
+              temp = "&";
+          }
+      }
+  }
+  var rows_txt = temp + "" + param + "=" + paramVal;
+  return baseURL + "?" + newAdditionalURL + rows_txt;
+}
 </script>

@@ -5,6 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:url"           content="ssd.fr/voeux2108" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Bonne année 2018 !" />
+  <meta property="og:description"   content="Your description" />
+  <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
 	<link rel="stylesheet" href="#CHEMIN{css/voeux2018.css}" type="text/css">
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
@@ -79,8 +84,10 @@
 	<input type="hidden" name="rub99" value="img18"/>
 	<div id="envoyer">
 		<h3><strong>Votre carte est finie ?</strong> vous pouvez la partager sur les reseaux sociaux, l'envoyer par mail ou télécharger l'image pour vous en servir comme vous le souhaitez.</h3>
-			<div id="btn_action"><button id="partage_fb"><img src="#CHEMIN{images/facebook.png}" width="60px" height="60px"/></button>
-			<button id="partage_twitter"><img src="#CHEMIN{images/twitter.png}" width="60px" height="60px"/></button>
+			<div id="btn_action"><a id="partage_fb" href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|urlencode)]"><img src="#CHEMIN{images/facebook.png}" width="60px" height="60px"/></a>
+			<a id="partage_twitter" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=&text=&tw_p=tweetbutton&url=&via=seinesaintdenis"><img src="#CHEMIN{images/twitter.png}" width="60px" height="60px"/></a>
+			<button id="envoyer_mail"><img src="#CHEMIN{images/enveloppe.png}" width="60px" height="60px"/></button>
+			<a href="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" id="telecharger"><img src="#CHEMIN{images/telecharger.png}" width="60px" height="60px"/></a>
 		</div>
 	</div>
 	<div id="video">

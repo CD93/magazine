@@ -14,6 +14,7 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
+      
       $('#table_carte button').on('click', function(e) {
         e.preventDefault();
         var theme =  $(this).data("theme");

@@ -229,7 +229,7 @@ button:hover, button:focus {
   max-width: 50%;
   transition: 0.5s all cubic-bezier(0.075,0.82,0.165,1);
 }
-#btn_action button:hover {
+#btn_action button:hover, #btn_action a:hover{
     transform: scale3d(1.2, 1.2, 1.2);
     transition: 2s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
