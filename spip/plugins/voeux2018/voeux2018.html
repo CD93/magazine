@@ -81,11 +81,11 @@
 	<div id="envoyer">
 		<h3><strong>Votre carte est finie ?</strong> vous pouvez la partager sur les reseaux sociaux, l'envoyer par mail ou télécharger l'image pour vous en servir comme vous le souhaitez.</h3>
 			<div id="btn_action"><a id="partage_fb"
-				#SET{lien,#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1273} href="https://www.facebook.com/sharer/sharer.php?u=[(#GET{lien}|urlencode)]"><img src="#CHEMIN{images/facebook.png}"/></a>
+ href="https://www.facebook.com/sharer/sharer.php?u=http://lemag.seinesaintdenis.fr/imgpage"><img src="#CHEMIN{images/facebook.png}"/></a>
 				<a id="partage_twitter"
 				href="https://twitter.com/share"
 				data-text="Bonne année 2018 !"
-				data-url="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274"
+				data-url="http://lemag.seinesaintdenis.fr/imgpage"
 				data-hashtags="SSD93,InSeineSaintDenis"
 				data-via="seinesaintdenis"
 				>
@@ -94,7 +94,7 @@
 			<button id="envoyer_mail"><img src="#CHEMIN{images/enveloppe.png}" /></button>
 			<a href="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" id="telecharger" download="voeux2018.jpg"><img src="#CHEMIN{images/telecharger.png}"/></a>
 		</div>
-		<div id="form_mail">
+		<div id="form_mail" class="ajax">
 			#FORMULAIRE_VOEUX2018MAIL
 		</div>
 	</div>

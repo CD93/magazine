@@ -4,7 +4,8 @@
     [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
     [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
   <a id="voeux2018" name="voeux2018"></a>
-  <form action="#ENV{action}" method="get">
+  <form action="#ENV{action}" method="post">
+    #ACTION_FORMULAIRE{#ENV{action}}
     <fieldset id="mail">
       <legend for="mail">Envoyer votre carte de voeux par mail</legend>
       #ACTION_FORMULAIRE{#ENV{action}}
