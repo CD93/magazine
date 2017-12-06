@@ -15,23 +15,21 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-function formulaires_voeux2018_charger() {
+function formulaires_voeux2018mail_charger() {
   $valeurs = array(
     'mesvoeux' => 'Bonne année 2018 !',
   );
   return $valeurs;
 }
-function formulaires_voeux2018_verifier() {
+function formulaires_voeux2018mail_verifier() {
   $erreurs = array();
   return $erreurs;
 }
 function formulaires_voeux2018_traiter() {
-  $rub95 = _request('rub95');
-  $rub96 = _request('rub96');
-  $rub97 = _request('rub97');
-  $rub98 = _request('rub98');
-  $rub99 = _request('rub99');
-  $message = "Vous pouvez partager vos voeux ! <a href='plugins/voeux2018/imagevoeux2018.php?rub95=$rub95&rub96=$rub96&rub97=$rub97&rub98=$rub98&rub99=$rub99'>voir ici</a>";
+  $mail_dest = _request('mail_dest');
+  $mail_exp = _request('mail_exp');
+  $texte = _request('mesvoeux');
+  $message = "envoyer la carte";
   return array(
     'message_ok' => $message,
     'message_erreur' => $erreurs

@@ -14,7 +14,7 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
-      
+
       $('#table_carte button').on('click', function(e) {
         e.preventDefault();
         var theme =  $(this).data("theme");
@@ -24,6 +24,9 @@ require(['domReady'], function (domReady) {
         $( "#panneau" ).animate({
             left: "+=600"
           }, 400 );
+      });
+      $('#envoyer_mail').on('click', function(e) {
+        $('#form_mail').slideToggle('300');
       });
 		});
 	});

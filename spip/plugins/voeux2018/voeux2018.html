@@ -9,8 +9,8 @@
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="Bonne année 2018 !" />
   <meta property="og:description"   content="Le département de la Seine-Saint-Denis vous souhaite une très belle année 2018 !" />
-  <meta property="og:image"         content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
-	<meta property="og:image:url" content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
+  <meta id="imagefb" property="og:image"         content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
+	<meta id="imagefburl" property="og:image:url" content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
 	<meta property="og:image:width" content="1000" />
 	<meta property="og:image:height" content="1166" />
 	<link rel="stylesheet" href="#CHEMIN{css/voeux2018.css}" type="text/css">
@@ -40,7 +40,7 @@
 						<img src="#CHEMIN{images/fond_orange.jpg}" />
 					</td>
 					<td>
-						<button data-theme="95"><img id="imt95" src="[(#CHEMIN{images/img1158.jpg}|url_absolue)]"/>
+						<button data-theme="95"><img id="imt95" src="[(#CHEMIN{images/img95a.jpg}|url_absolue)]"/>
 								<span><img src="#CHEMIN{images/add-button.png}" /></span>
 						</button>
 					</td>
@@ -49,7 +49,7 @@
 			<table>
 				<tr>
 					<td>
-						<button data-theme="96"><img id="imt96" src="#CHEMIN{images/img1268.jpg}" />
+						<button data-theme="96"><img id="imt96" src="#CHEMIN{images/img96a.jpg}" />
 							<span><img src="#CHEMIN{images/add-button.png}" /></span>
 						</button>
 					</td>
@@ -57,7 +57,7 @@
 						<img src="#CHEMIN{images/fond_bleu.jpg}"/>
 					</td>
 					<td>
-						<button data-theme="97"><img id="imt97" src="#CHEMIN{images/img1278.jpg}" />
+						<button data-theme="97"><img id="imt97" src="#CHEMIN{images/img97a.jpg}" />
 						<span><img src="#CHEMIN{images/add-button.png}" /></span>
 						</button>
 					</td>
@@ -66,12 +66,12 @@
 			<table>
 				<tr>
 					<td>
-						<button data-theme="98"><img id="imt98" src="#CHEMIN{images/img1274.jpg}"/>
+						<button data-theme="98"><img id="imt98" src="#CHEMIN{images/img98a.jpg}"/>
 								<span><img src="#CHEMIN{images/add-button.png}" /></span>
 						</button>
 					</td>
 					<td>
-						<button data-theme="99"><img id="imt99" src="#CHEMIN{images/img1276.jpg}"/>
+						<button data-theme="99"><img id="imt99" src="#CHEMIN{images/img99a.jpg}"/>
 							<span><img src="#CHEMIN{images/add-button.png}" /></span>
 						</button>
 					</td>
@@ -80,10 +80,22 @@
 	</div>
 	<div id="envoyer">
 		<h3><strong>Votre carte est finie ?</strong> vous pouvez la partager sur les reseaux sociaux, l'envoyer par mail ou télécharger l'image pour vous en servir comme vous le souhaitez.</h3>
-			<div id="btn_action"><a id="partage_fb" href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|urlencode)]"><img src="#CHEMIN{images/facebook.png}"/></a>
-			<a id="partage_twitter" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=&text=&tw_p=tweetbutton&url=&via=seinesaintdenis"><img src="#CHEMIN{images/twitter.png}" width="60px" height="60px"/></a>
+			<div id="btn_action"><a id="partage_fb"
+				#SET{lien,#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1273} href="https://www.facebook.com/sharer/sharer.php?u=[(#GET{lien}|urlencode)]"><img src="#CHEMIN{images/facebook.png}"/></a>
+				<a id="partage_twitter"
+				href="https://twitter.com/share"
+				data-text="Bonne année 2018 !"
+				data-url="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274"
+				data-hashtags="SSD93,InSeineSaintDenis"
+				data-via="seinesaintdenis"
+				>
+				<img src="#CHEMIN{images/twitter.png}" width="60px" height="60px"/>
+				</a>
 			<button id="envoyer_mail"><img src="#CHEMIN{images/enveloppe.png}" /></button>
 			<a href="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" id="telecharger" download="voeux2018.jpg"><img src="#CHEMIN{images/telecharger.png}"/></a>
+		</div>
+		<div id="form_mail">
+			#FORMULAIRE_VOEUX2018MAIL
 		</div>
 	</div>
 	<div id="video">
@@ -98,9 +110,7 @@
 </main>
 <footer role="contentinfo" id="footer">
 	<ul>
-		<li><a href="#">comment ça marche ?</a></li>
-		<li><a href="#">retour au mag</a></li>
-		<li><a href="#">mentions légales</a></li>
+		<li><a href="http://ssd.fr/lemag">lemag.seinesaintdnenis.fr</a></li>
 	</ul>
 </footer>
 <script data-main="#CHEMIN{plugins/voeux2018/js/app.js}" src="#CHEMIN{js/require.js}" async></script>

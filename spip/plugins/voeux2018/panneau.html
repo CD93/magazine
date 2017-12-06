@@ -26,10 +26,13 @@
   $('button.image#ID_ARTICLE').on('click', function(e) {
     $("input[name='rub#GET{id_rub}']").attr("value","img#ID_ARTICLE");
     var urlimgact = $("#telecharger").attr("href");
+    var urlimgfbact = $("#partage_fb").attr("href");
     urlimg = updateURLParameter(urlimgact, 'rub#GET{id_rub}', 'img#ID_ARTICLE');
+    urlimgfb = updateURLParameter(urlimgfbact, 'rub#GET{id_rub}', 'img#ID_ARTICLE');
     $("#telecharger").attr("href",urlimg);
-    $('meta[name=og\\:image]').attr('content', urlimg);
-    $('meta[name=og\\:image\\:url]').attr('content', urlimg);
+    $("#partage_fb").attr("href",urlimgfb);
+    $('#imagefb').attr('content', urlimg);
+    $('#imagefburl').attr('content', urlimg);
     $("#imt#GET{id_rub}").css("opacity","0").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg").animate({
       opacity: "1"
     }, 3000 );

@@ -1,0 +1,27 @@
+
+<div class="ajax">
+  <div class="formulaire_spip formulaire_editer formulaire_editer_voeux2018 formulaire_editer_voeux2018-#ENV{id_site,nouveau}">
+    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+  <a id="voeux2018" name="voeux2018"></a>
+  <form action="#ENV{action}" method="get">
+    <fieldset id="mail">
+      <legend for="mail">Envoyer votre carte de voeux par mail</legend>
+      #ACTION_FORMULAIRE{#ENV{action}}
+            <label for="mesvoeux">Mon message</label>
+            [<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{mesvoeux})</span>]
+            <textarea placeholder="[(#ENV**{mesvoeux})]"name='mesvoeux' id='mesvoeux' ></textarea>
+      <label for="mail_dest">Adresse du destinataire</label>
+      <input type="email" name="mail_dest" id="mail_dest"/>
+      <label for="mail_exp">Mon adresse</label>
+      <input type="email" name="mail_exp" id="mail_exp"/>
+      <input type="hidden" name="rub95" value="1158"/>
+      <input type="hidden" name="rub96" value="1268"/>
+      <input type="hidden" name="rub97" value="1278"/>
+      <input type="hidden" name="rub98" value="1274"/>
+      <input type="hidden" name="rub99" value="1276"/>
+    	<input type='submit' class='submit' name='envoyer' id="btn_envoyer" value='valider' />
+    </fieldset>
+    </form>
+  </div>
+</div>
