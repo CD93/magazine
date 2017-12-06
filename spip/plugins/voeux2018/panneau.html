@@ -27,7 +27,7 @@
     $("input[name='rub#GET{id_rub}']").attr("value","img#ID_ARTICLE");
     urlimg = updateURLParameter(urlimg, 'rub#GET{id_rub}', 'img#ID_ARTICLE');
     $("#telecharger").attr("href",urlimg);
-    $("#imt#GET{id_rub}").css("opacity","0.5").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg").animate({
+    $("#imt#GET{id_rub}").css("opacity","0").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg").animate({
       opacity: "1"
     }, 3000 );
     $("button.image#ID_ARTICLE span img").hide("fast",function(){

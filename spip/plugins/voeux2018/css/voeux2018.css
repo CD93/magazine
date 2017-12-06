@@ -153,14 +153,13 @@ button:hover, button:focus {
 }
 #table_carte button span {
   position: absolute;
-  text-transform: uppercase;
-  font-size: 1.1em;
-  font-weight: 600;
-  background-color: #fff;
-  padding: 5px 10px;
   display: inline-block;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
+}
+#table_carte button span img{
+  width: 20%;
+  height: auto;
 }
 #table_carte button:hover span, #table_carte button:focus span {
   opacity: 0.8;
@@ -228,6 +227,16 @@ button:hover, button:focus {
   justify-content: space-around;
   max-width: 50%;
   transition: 0.5s all cubic-bezier(0.075,0.82,0.165,1);
+}
+@media screen and (max-width: 500px) {
+  #btn_action img {
+      width: 40px;
+      height: 40px;
+  }
+  #btn_action {
+    max-width: 80%;
+  }
+
 }
 #btn_action button:hover, #btn_action a:hover{
     transform: scale3d(1.2, 1.2, 1.2);
