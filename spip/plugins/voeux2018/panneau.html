@@ -27,7 +27,7 @@
     var urlimgact = $("#telecharger").attr("href");
     var urlimgfbact = $("#partage_fb").attr("href");
     urlimg = updateURLParameter(urlimgact, 'rub#GET{id_rub}', 'img#ID_ARTICLE');
-    urlimgfb = updateURLParameter(urlimgfbact, 'rub#GET{id_rub}', 'img#ID_ARTICLE');
+    urlimgfb = updateURLlien(urlimgfbact, '[(#GET{id_rub}|moins{95})]', '#ID_ARTICLE');
     $("#telecharger").attr("href",urlimg);
     $("#partage_fb").attr("href",urlimgfb);
     $('#imagefb').attr('content', urlimg);
@@ -77,5 +77,19 @@ function updateURLParameter(url, param, paramVal){
   }
   var rows_txt = temp + "" + param + "=" + paramVal;
   return baseURL + "?" + newAdditionalURL + rows_txt;
+}
+function updateURLlien(url, rang, paramVal){
+  var newAdditionalURL = "";
+  var tempArray = url.split("/voeux2018/");
+  var baseURL = tempArray[0];
+  var additionalURL = tempArray[1];
+  var temp = "";
+  tempArray = additionalURL.split("/");
+  tempArray[rang] = paramVal;
+  for (var i=0; i<tempArray.length; i++){
+    newAdditionalURL += temp + tempArray[i];
+    temp = "/";
+  }
+  return baseURL + "/voeux2018/" + newAdditionalURL ;
 }
 </script>
