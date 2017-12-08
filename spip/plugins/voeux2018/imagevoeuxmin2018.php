@@ -24,12 +24,12 @@ imagecopy($fondvoeux, $imgrub99, 403, 692, 0, 0, 597, 473);
 
 $image_p = imagecreatetruecolor('343', '400');
 imagecopyresampled($image_p, $fondvoeux, 0, 0, 0, 0, '343', '400', '1000', '1166');
-imagejpeg($image_p);
+imagejpeg($image_p,NULL,100);
 // on supprime les calques que l'on a fait (pour vider la mémoire)
 imagedestroy($fondvoeux);
+imagedestroy($image_p);
 imagedestroy($fond_jaune);
 imagedestroy($fond_bleu);
-imagedestroy($imgrub95);
 imagedestroy($imgrub95);
 imagedestroy($imgrub96);
 imagedestroy($imgrub97);

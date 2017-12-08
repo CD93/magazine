@@ -21,13 +21,12 @@ imagecopy($fondvoeux, $imgrub99, 403, 692, 0, 0, 597, 473);
 
 
 // on fait le rendu de l'image dans le format MIME
-imagejpeg($fondvoeux);
+imagejpeg($fondvoeux,NULL,100);
 
 // on supprime les calques que l'on a fait (pour vider la mémoire)
 imagedestroy($fondvoeux);
 imagedestroy($fond_jaune);
 imagedestroy($fond_bleu);
-imagedestroy($imgrub95);
 imagedestroy($imgrub95);
 imagedestroy($imgrub96);
 imagedestroy($imgrub97);

@@ -15,17 +15,24 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-function formulaires_voeux2018mail_charger() {
+function formulaires_voeux2018mail_charger_dist() {
   $valeurs = array(
-    'mesvoeux' => 'Bonne année 2018 !',
+		'rub95' => '',
+		'rub96' => '',
+		'rub97' => '',
+		'rub98' => '',
+		'rub99' => '',
+		'mesvoeux' => '',
+		'mail_dest' => '',
+		'mail_exp' => ''
   );
   return $valeurs;
 }
-function formulaires_voeux2018mail_verifier() {
+function formulaires_voeux2018mail_verifier_dist() {
   $erreurs = array();
   return $erreurs;
 }
-function formulaires_voeux2018_traiter() {
+function formulaires_voeux2018_traiter_dist() {
 	$mail_dest = _request('mail_dest');
 	$mail_exp = _request('mail_exp');
 	$message = _request('mesvoeux');
@@ -62,7 +69,9 @@ function formulaires_voeux2018_traiter() {
 	$accu="Votre e-carte a bien été envoyée";
 	$accu=utf8_decode($accu);
 	mail($mail_exp, $accu, $corp, $headers2);
-			return "<br/>".$reponse;
+	return array(
+        'message_ok' => 'Excellent !', // ou bien
+    );
 }
 
 ?>

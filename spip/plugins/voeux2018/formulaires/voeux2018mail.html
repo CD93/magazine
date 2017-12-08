@@ -1,5 +1,5 @@
 
-<div class="ajax">
+
   <div class="formulaire_spip formulaire_editer formulaire_editer_voeux2018 formulaire_editer_voeux2018-#ENV{id_site,nouveau}">
     [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
     [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
@@ -8,10 +8,9 @@
     #ACTION_FORMULAIRE{#ENV{action}}
     <fieldset id="mail">
       <legend for="mail">Envoyer votre carte de voeux par mail</legend>
-      #ACTION_FORMULAIRE{#ENV{action}}
             <label for="mesvoeux">Mon message</label>
             [<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{mesvoeux})</span>]
-            <textarea placeholder="[(#ENV**{mesvoeux})]"name='mesvoeux' id='mesvoeux' ></textarea>
+            <textarea placeholder="[(#ENV**{mesvoeux})]" name='mesvoeux' id='mesvoeux' ></textarea>
       <label for="mail_dest">Adresse du destinataire</label>
       <input type="email" name="mail_dest" id="mail_dest"/>
       <label for="mail_exp">Mon adresse</label>
@@ -25,4 +24,3 @@
     </fieldset>
     </form>
   </div>
-</div>
