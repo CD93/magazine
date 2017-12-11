@@ -293,12 +293,22 @@ height: 100%;
     transform: scale3d(1.2, 1.2, 1.2);
     transition: 2s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-#form_mail {
+#form_mail, #modale_video {
   display: none;
   max-width: 500px;
   width: 80%;
   margin: auto;
 }
+#modale_video h3 {
+  font-weight:bold;
+  text-align:center;
+  margin-top:1em;
+}
+#modale_video p {
+  margin:1em 0 1em 0 ;
+}
+
+
 #form_mail fieldset {
   background-color: #EF4F5F;
   padding:1em;

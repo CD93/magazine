@@ -13,6 +13,12 @@
 	<meta id="imagefburl" property="og:image:url" content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
 	<meta property="og:image:width" content="1000" />
 	<meta property="og:image:height" content="1166" />
+	<!-- Twitter meta cards -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@seinesaintdenis">
+	<meta name="twitter:title" content="Bonne année 2018 !">
+	<meta name="twitter:description" content="Le département de la Seine-Saint-Denis vous souhaite une très belle année 2018 !">
+	<meta name="twitter:image" content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274">
 	<link rel="stylesheet" href="#CHEMIN{css/voeux2018.css}" type="text/css">
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
@@ -29,8 +35,7 @@
 	<h1>Belle année 2018</h1>
 
 	<div class="chapo">
-			Personnalisez notre carte pour envoyer vos voeux à vos proches
-			en cliquant sur les images pour créer votre propre carte.
+			Pour personnaliser notre carte de vœux, cliquez sur les images et envoyer le résultat à vos proches.
 	</div>
 
 	<div id="table_carte">
@@ -80,31 +85,37 @@
 	</div>
 	<div id="envoyer">
 		<p class="chapo"><strong>Votre carte est finie ?</strong> vous pouvez la partager sur les reseaux sociaux, l'envoyer par mail ou télécharger l'image pour vous en servir comme vous le souhaitez.</p>
-			<div id="btn_action"><a id="partage_fb"
- href="https://www.facebook.com/sharer/sharer.php?u=http://lemag.seinesaintdenis.fr/voeux2018/1158/1268/1278/1274/1276"><img src="#CHEMIN{images/facebook.png}"/></a>
+			<div id="btn_action">
+				<a id="partage_fb"
+ href="https://www.facebook.com/sharer/sharer.php?u=http://lemag.seinesaintdenis.fr/voeux2018/1158/1268/1278/1274/1276" target="_blank"><img src="#CHEMIN{images/facebook.png}"/></a>
 				<a id="partage_twitter"
-				href="https://twitter.com/share"
+				href="https://twitter.com/intent/tweet?text=Bonne+Ann%C3%A9e+2018+!&hashtags=SSD93,InSeineSaintDenis&original_referer=http://lemag.seinesaintdenis.fr/voeux2018/1158/1268/1278/1274/1276&via=seinesaintdenis"
+				 target="_blank"
 				data-text="Bonne année 2018 !"
 				data-url="http://lemag.seinesaintdenis.fr/voeux2018/1158/1268/1278/1274/1276"
 				data-hashtags="SSD93,InSeineSaintDenis"
-				data-via="seinesaintdenis"
-				>
+				data-via="seinesaintdenis">
 				<img src="#CHEMIN{images/twitter.png}" width="60px" height="60px"/>
 				</a>
 			<button id="envoyer_mail"><img src="#CHEMIN{images/enveloppe.png}" /></button>
 			<a href="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" id="telecharger" download="voeux2018.jpg"><img src="#CHEMIN{images/telecharger.png}"/></a>
 		</div>
 		<div id="form_mail">
-			<div class="ajax">
+			<div class="ajax modal-body">
 			#FORMULAIRE_VOEUX2018MAIL
-		</div>
+			</div>
 		</div>
 	</div>
 	<div id="video">
-		<a href="#">
+		<a id="partage_video" href="#modale_video">
 			<img src="#CHEMIN{images/youtube.png}" width="80px" height="80px"/>
-			<p>Voir la vidéo des vœux</p>
+			<div id="voir_video">Voir la vidéo des vœux</div>
 		</a>
+		<div id="modale_video">
+			<div class="ajax modal-body">
+				<INCLURE{fond=video2018} />
+			</div>
+		</div>
 	</div>
 	<div id="ensemble">
 		<img src="#CHEMIN{images/construire.png}"/>

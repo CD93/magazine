@@ -30,9 +30,37 @@ function formulaires_voeux2018mail_charger_dist() {
 }
 function formulaires_voeux2018mail_verifier_dist() {
   $erreurs = array();
-  return $erreurs;
+	include_spip('inc/filtres');
+	$mail_dest = _request('mail_dest');
+	$mail_exp = _request('mail_exp');
+	$message = _request('mesvoeux');
+	if (!$mail_dest = _request('mail_dest')) {
+		$erreurs['mail_dest'] = _T("info_obligatoire");
+	} elseif (!email_valide($mail_dest)) {
+		$erreurs['mail_dest'] = _T('form_prop_indiquer_email');
+	}
+	if (!$mail_exp = _request('mail_exp')) {
+		$erreurs['mail_exp'] = _T("info_obligatoire");
+	} elseif (!email_valide($mail_exp)) {
+		$erreurs['mail_exp'] = _T('form_prop_indiquer_email');
+	}
+
+	if (!$mesvoeux = _request('mesvoeux')) {
+		$erreurs['mesvoeux'] = _T("info_obligatoire");
+	} elseif (!(strlen($mesvoeux) > 10)) {
+		$erreurs['mesvoeux'] = _T('forum:forum_attention_dix_caracteres');
+	}
+
+	if (_request('nobot')) {
+		$erreurs['message_erreur'] = _T('pass_rien_a_faire_ici');
+	}
+
+	return $erreurs;
 }
-function formulaires_voeux2018_traiter_dist() {
+function formulaires_voeux2018mail_traiter_dist() {
+	// Chargement de la fonction
+  $envoyer_mail = charger_fonction('envoyer_mail', 'inc/');
+	include_spip('classes/facteur');
 	$mail_dest = _request('mail_dest');
 	$mail_exp = _request('mail_exp');
 	$message = _request('mesvoeux');
@@ -42,35 +70,35 @@ function formulaires_voeux2018_traiter_dist() {
 	$img98 =_request('rub98');
 	$img99 =_request('rub99');
 	$message = str_replace("œ","oe",$message);
-	//spip_log($message,_LOG_ERREUR);
-	$message=utf8_decode($message);
 	$message=nl2br($message);
 	$subject='Bonjour, vous avez reçu une e-carte !';
-	$subject=utf8_decode($subject);
-	$corp ='
-	<img src="http://lemag.seinesaintdenis.fr/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274"/><br/>
-	<p class="texte" style="font-size:14px;padding:10px;border:2px solid #ddd; width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#66347D;">'
+	$html ='	<img src="http://lemag.seinesaintdenis.fr/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274"/><br/>
+	<p class="texte" style="font-size:16px;padding:16px;border:2px solid #ddd; width:100%;font-family:\'Arial Black\', Gadget, sans-serif;">'
 	.$message.'
-	</p><br/><br/><p>Créez votre carte sur <a href="http://lemag.seinesaintdenis.fr/?page=voeux2018&utm_campaign=Voeux_2018&utm_medium=e-mail&utm_source=EmailVoeux">ssd.fr/voeux2018</a></p>';
-
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			//$headers .= 'To: '.$mail_dest."\r\n";
-			$headers .= 'From: '.$mail_exp."\r\n";
-			$headers .= 'Reply-To: '.$mail_exp.'' . "\r\n";
-			$headers .= 'Bcc: concours@cg93.fr \r\n';
-		    if (mail($mail_dest, $subject, $corp, $headers)){
-		   	 $reponse = '</p><strong style="font-size:16px;padding:10px; width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#66347D;">Votre e-carte &agrave; bien &eacute;t&eacute; envoy&eacute;e !<p>';
-			}
-	$headers2  = 'MIME-Version: 1.0' . "\r\n";
-	$headers2 .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers2 .= 'From: '.$mail_dest."\r\n";
-	$headers2 .= 'Reply-To: '.$mail_dest.'' . "\r\n";
-	$accu="Votre e-carte a bien été envoyée";
-	$accu=utf8_decode($accu);
-	mail($mail_exp, $accu, $corp, $headers2);
+	</p><br/><br/><p>Cr&eacute;ez votre carte de vœux sur <a href="http://lemag.seinesaintdenis.fr/?page=voeux2018&utm_campaign=Voeux_2018&utm_medium=e-mail&utm_source=EmailVoeux">ssd.fr/voeux2018</a></p>';
+	$texte = Facteur::html2text($html);
+	$corps = array(
+		'html' => $html,
+		'texte' => $texte,
+		'nom_envoyeur' => '"'.$mail_exp.'" <information@seinesaintdenis.fr>',
+		'repondre_a' => $mail_exp,
+		'bcc' => 'concours@seinesaintdenis.fr'
+	);
+  if ($envoyer_mail($mail_dest, $subject, $corps)){
+		$reponse = '</p><strong style="font-size:16px;padding:10px; width:100%;font-family:\'Arial Black\', Gadget, sans-serif; color:#66347D;">Votre e-carte de vœux a bien &eacute;t&eacute; envoy&eacute;e !<p>';
+	}
+	$subject2='Votre e-carte de vœux 2018 a bien été envoyée !';
+	$html2 = 'Votre e-carte de vœux 2018 a bien été envoyée !';
+	$texte2 = Facteur::html2text($html2);
+	$corps2 = array(
+		'html' => $html2,
+		'texte' => $texte2,
+		'nom_envoyeur' => 'information@seinesaintdenis.fr',
+		'repondre_a' => 'pasdereponse@seinesaintdenis.fr'
+	);
+	$envoyer_mail($mail_exp, $subject2, $corps2, $headers2);
 	return array(
-        'message_ok' => 'Excellent !', // ou bien
+        'message_ok' => 'Votre carte de vœux a été envoyée à '.$mail_dest.' !', // ou bien
     );
 }
 
