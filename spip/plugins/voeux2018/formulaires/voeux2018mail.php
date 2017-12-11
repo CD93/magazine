@@ -80,7 +80,7 @@ function formulaires_voeux2018mail_traiter_dist() {
 	$corps = array(
 		'html' => $html,
 		'texte' => $texte,
-		'nom_envoyeur' => '"'.$mail_exp.'" <information@seinesaintdenis.fr>',
+		'nom_envoyeur' => $mail_exp,
 		'repondre_a' => $mail_exp,
 		'bcc' => 'concours@seinesaintdenis.fr'
 	);
@@ -88,12 +88,12 @@ function formulaires_voeux2018mail_traiter_dist() {
 		$reponse = '</p><strong style="font-size:16px;padding:10px; width:100%;font-family:\'Arial Black\', Gadget, sans-serif; color:#66347D;">Votre e-carte de vœux a bien &eacute;t&eacute; envoy&eacute;e !<p>';
 	}
 	$subject2='Votre e-carte de vœux 2018 a bien été envoyée !';
-	$html2 = 'Votre e-carte de vœux 2018 a bien été envoyée !';
+	$html2 = 'Votre e-carte de vœux 2018 a bien été envoyée à '.$mail_dest.' !';
 	$texte2 = Facteur::html2text($html2);
 	$corps2 = array(
 		'html' => $html2,
 		'texte' => $texte2,
-		'nom_envoyeur' => 'information@seinesaintdenis.fr',
+		'nom_envoyeur' => $mail_exp,
 		'repondre_a' => 'pasdereponse@seinesaintdenis.fr'
 	);
 	$envoyer_mail($mail_exp, $subject2, $corps2, $headers2);
