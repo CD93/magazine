@@ -18,7 +18,7 @@
     <div class="la_suite">
       <h3>#TITRE</h3>
       #CHAPO
-      <div class="la_video">#TEXTE*</div>
+      [<div class="la_video">(#TEXTE*)</div>]
     </div>
   </li>
   <script>
@@ -32,14 +32,16 @@
     $("#partage_fb").attr("href",urlimgfb);
     $('#imagefb').attr('content', urlimg);
     $('#imagefburl').attr('content', urlimg);
-    $("#imt#GET{id_rub}").css("opacity","0").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg").animate({
-      opacity: "1"
-    }, 3000 );
+    $("#imt#GET{id_rub}").css("opacity","0").attr("src","plugins/voeux2018/images/img#ID_ARTICLE.jpg");
     $("button.image#ID_ARTICLE span img").hide("fast",function(){
       $("button.image#ID_ARTICLE span img").attr("src","plugins/voeux2018/images/bold-check-button.png").show("fast",function(){
         $( "#panneau" ).animate({
           left: "-=600"
-        }, 400 );
+        }, 400 ,function() {
+          $("#imt#GET{id_rub}").animate({
+            opacity: "1"
+          }, 1000 );
+        });
         $("#blanco").show().animate({opacity: "0"
         }, 400,function() {
           $("#blanco").hide();

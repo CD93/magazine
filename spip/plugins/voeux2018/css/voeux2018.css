@@ -172,8 +172,17 @@ button:hover, button:focus {
   transition: opacity 0.2s ease-in-out;
 }
 #table_carte button span img{
-  width: 20%;
-  height: auto;
+  width: 60px;
+  height: 60px;
+}
+@media screen and (max-width: 400px) {
+  #table_carte button span img{
+    width: 30px;
+    height: 30px;
+  }
+  #table_carte table:first-child tr td span img {
+    height: 30px;
+  }
 }
 #table_carte button:hover span, #table_carte button:focus span {
   opacity: 0.8;
@@ -222,7 +231,7 @@ button:hover, button:focus {
 }
 #inner_pan li {
   margin-top: 1.3em;
-  margin-bottom: 0.3em;
+  margin-bottom: 3em;
 }
 .voir_suite button{
   background-color: #fff;
