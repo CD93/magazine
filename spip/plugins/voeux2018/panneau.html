@@ -10,7 +10,7 @@
 #SET{id_art,#ID_ARTICLE}
   <li>
     <button class="image#ID_ARTICLE" data-image="img[(#ID_ARTICLE)]">#LOGO_ARTICLE
-      <span><img src="#CHEMIN{images/add-button.png}" width="50px" height="50px"/></span>
+      <span><img src="#CHEMIN{images/add-button.png}" width="30px" height="30px"/>Choisir cette image</span>
     </button>
     <div class="voir_suite">
     <button><img src="#CHEMIN{images/youtube.png}" height="20px" width="20px"/> &nbsp; En savoir plus</button>
@@ -23,7 +23,7 @@
   </li>
   <script>
   $('button.image#ID_ARTICLE').on('click', function(e) {
-    
+
     $("input[name='rub#GET{id_rub}']").attr("value","img#ID_ARTICLE");
     var urlimgact = $("#telecharger").attr("href");
     var urlimgfbact = $("#partage_fb").attr("href");

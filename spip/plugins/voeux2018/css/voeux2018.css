@@ -165,13 +165,17 @@ button:hover, button:focus {
 }
 #table_carte button span {
   position: absolute;
-  display: inline-block;
+  display: flex;
+  font-family: 'roboto slab';
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 #table_carte button span img{
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 @media screen and (max-width: 400px) {
   #table_carte button span img{
@@ -189,7 +193,7 @@ button:hover, button:focus {
   z-index: 10;
   overflow: auto;
   width: 90%;
-	max-width: 600px;
+	max-width: 450px;
 	background-color: #D8D8D8;
 	height: 100%;
 	position: fixed;
@@ -199,11 +203,11 @@ button:hover, button:focus {
 }
 #panneau button span {
   position: absolute;
-  text-transform: uppercase;
-  font-size: 1.1em;
-  font-weight: 600;
-  padding: 5px 10px;
-  display: inline-block;
+  display: flex;
+  font-family: 'roboto slab';
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   }
