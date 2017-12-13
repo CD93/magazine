@@ -19,6 +19,17 @@ require(['domReady'], function (domReady) {
       $('#table_carte button').on('click', function(e) {
         e.preventDefault();
         clearTimeout(animglob);
+        clearTimeout(aa);
+        clearTimeout(a);
+        clearTimeout(b);
+        clearTimeout(c);
+        clearTimeout(d);
+        clearTimeout(dd);
+        clearTimeout(f);
+        clearTimeout(g);
+        clearTimeout(h);
+        clearTimeout(i);
+
         var theme =  $(this).data("theme");
         $( "#panneau" ).load( "/?page=panneau", { "theme[]": [theme] } );
         $("#blanco").show().animate({opacity: "0.8"}, 400 );
@@ -40,16 +51,16 @@ require(['domReady'], function (domReady) {
         });
       }
       function Animeglobal(){
-        tableAnime(95,"b",);
-        setTimeout(function(){tableAnime(96,"b");},2000);
-        setTimeout(function(){tableAnime(97,"b");},4000);
-        setTimeout(function(){tableAnime(98,"b");},6000);
-        setTimeout(function(){tableAnime(99,"b");},8000);
-        setTimeout(function(){tableAnime(95,"a");},10000);
-        setTimeout(function(){tableAnime(96,"a");},12000);
-        setTimeout(function(){tableAnime(97,"a");},14000);
-        setTimeout(function(){tableAnime(98,"a");},16000);
-        setTimeout(function(){tableAnime(99,"a");},18000);
+        aa= setTimeout(function(){tableAnime(95,"b");},1000);
+        a = setTimeout(function(){tableAnime(96,"b");},2000);
+        b = setTimeout(function(){tableAnime(97,"b");},4000);
+        c = setTimeout(function(){tableAnime(98,"b");},6000);
+        d = setTimeout(function(){tableAnime(99,"b");},8000);
+        dd = setTimeout(function(){tableAnime(95,"a");},10000);
+        f = setTimeout(function(){tableAnime(96,"a");},12000);
+        g = setTimeout(function(){tableAnime(97,"a");},14000);
+        h = setTimeout(function(){tableAnime(98,"a");},16000);
+        i = setTimeout(function(){tableAnime(99,"a");},18000);
         animglob =  setTimeout(Animeglobal,20000);
       }
       // charger les popup facebook, twitter et video
