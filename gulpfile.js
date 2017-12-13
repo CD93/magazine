@@ -23,6 +23,11 @@ gulp.task('images', function(){
   .pipe(imagemin())
   .pipe(gulp.dest('spip/plugins/voeux2018/images'))
 });
+gulp.task('imagesIMG', function(){
+  return gulp.src('spip/IMG/*.+(png|jpg|gif|svg)')
+  .pipe(imagemin())
+  .pipe(gulp.dest('spip/IMG/'))
+});
 gulp.task('browserSync', function() {
   browserSync({
     proxy: "http://magazine:80"

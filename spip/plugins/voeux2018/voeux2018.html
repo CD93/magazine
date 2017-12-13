@@ -8,7 +8,7 @@
 	<meta property="og:url"           content="[(#URL_PAGE|urlencode)]" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="Bonne année 2018 !" />
-  <meta property="og:description"   content="Le département de la Seine-Saint-Denis vous souhaite une très belle année 2018 !" />
+  <meta property="og:description"   content="Le Département de la Seine-Saint-Denis vous souhaite une très belle année 2018 !" />
   <meta id="imagefb" property="og:image"         content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
 	<meta id="imagefburl" property="og:image:url" content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" />
 	<meta property="og:image:width" content="1000" />
@@ -20,6 +20,7 @@
 	<meta name="twitter:description" content="Le département de la Seine-Saint-Denis vous souhaite une très belle année 2018 !">
 	<meta name="twitter:image" content="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274">
 	<link rel="stylesheet" href="#CHEMIN{css/voeux2018.css}" type="text/css">
+
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
 	<![endif]-->
@@ -31,11 +32,11 @@
 	<div id="blanco">
 	</div>
 <main role="main" id="main">
-	<p class="rouge">La Seine-Saint-Denis vous souhaite une</p>
+	<p class="rouge">Le Département de la Seine-Saint-Denis vous souhaite une</p>
 	<h1>Belle année 2018</h1>
 
 	<div class="chapo">
-			Pour personnaliser notre carte de vœux, cliquez sur les images et envoyer le résultat à vos proches.
+			Cliquez sur la carte de vœux pour la personnaliser, puis partagez le résultat avec vos proches.
 	</div>
 
 	<div id="table_carte">
@@ -84,7 +85,7 @@
 			</table>
 	</div>
 	<div id="envoyer">
-		<p class="chapo"><strong>Votre carte est finie ?</strong> vous pouvez la partager sur les reseaux sociaux, l'envoyer par mail ou télécharger l'image pour vous en servir comme vous le souhaitez.</p>
+		<p class="chapo"><strong>Votre carte est finie ?</strong> Vous pouvez la partager sur les réseaux sociaux, l'envoyer par email ou la télécharger.</p>
 			<div id="btn_action">
 				<a id="partage_fb"
  href="https://www.facebook.com/sharer/sharer.php?u=http://lemag.seinesaintdenis.fr/voeux2018/1158/1268/1278/1274/1276" target="_blank"><img src="#CHEMIN{images/facebook.png}"/></a>
@@ -101,21 +102,17 @@
 			<a href="#URL_SITE_SPIP/plugins/voeux2018/imagevoeux2018.php?rub99=img1276&rub95=img1158&rub96=img1268&rub97=img1278&rub98=img1274" id="telecharger" download="voeux2018.jpg"><img src="#CHEMIN{images/telecharger.png}"/></a>
 		</div>
 		<div id="form_mail">
-			<div class="ajax modal-body">
+			<div class="ajax">
 			#FORMULAIRE_VOEUX2018MAIL
 			</div>
 		</div>
 	</div>
 	<div id="video">
-		<a id="partage_video" href="#modale_video">
+		<a id="partage_video" href="#URL_ARTICLE{1310}" target="_blank">
 			<img src="#CHEMIN{images/youtube.png}" width="80px" height="80px"/>
 			<div id="voir_video">Voir la vidéo des vœux</div>
 		</a>
-		<div id="modale_video">
-			<div class="ajax modal-body">
-				<INCLURE{fond=video2018} />
-			</div>
-		</div>
+
 	</div>
 	<div id="ensemble">
 		<img src="#CHEMIN{images/construire.png}"/>

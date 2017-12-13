@@ -22,19 +22,17 @@ require(['domReady'], function (domReady) {
         $("#blanco").show().animate({opacity: "0.8"}, 400 );
         $( "#panneau" ).animate({ left: "+=600" }, 400 );
       });
+      $('#blanco').on('click', function(e) {
+        $("#blanco").hide();
+        $( "#panneau" ).animate({
+          left: "-=600"
+        }, 400)
+      });
       $('#envoyer_mail').on('click', function(e) {
         e.preventDefault();
         $('#form_mail').slideToggle('300');
-        $('#modale_video').slideUp('300');
-        $('#voir_video').show();
       });
       // charger les popup facebook, twitter et video
-      $("#partage_video").on("click",function(e){
-         e.preventDefault();
-         $('#form_mail').slideUp('300');
-         $('#voir_video').hide();
-	       $('#modale_video').slideDown('300');
-	    });
       //si ancre formulaire on dépli formaulaire
       // on récupère l'ancre
       if (window.location.hash=="#btn_action") {
