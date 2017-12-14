@@ -1,20 +1,4 @@
-requirejs.config({
-    //By default load any module IDs from js/lib
-    baseUrl: 'plugins/voeux2018/js',
-    //except, if the module ID starts with "app",
-    //load it from the js/app directory. paths
-    //config is relative to the baseUrl, and
-    //never includes a ".js" extension since
-    //the paths config could be for a directory.
-    paths: {
-        jquery: 'jquery.3.2.1.min',
-        cookie: 'js.cookie'
-    }
-});
-require(['domReady'], function (domReady) {
-	domReady(function () {
-		require(['jquery','cookie'], function ($, cookie) {
-
+$(document).ready(function(){
       Animeglobal();
       $('#table_carte button').on('click', function(e) {
         e.preventDefault();
@@ -50,8 +34,8 @@ require(['domReady'], function (domReady) {
           $(this).attr("src","plugins/voeux2018/images/img"+id+lettre+".jpg").fadeTo(500,1);
         });
       }
-      function Animeglobal(){
-        aa= setTimeout(function(){tableAnime(95,"b");},1000);
+      function Animeglobal(time){
+        aa= setTimeout(function(){tableAnime(95,"b");},10);
         a = setTimeout(function(){tableAnime(96,"b");},2000);
         b = setTimeout(function(){tableAnime(97,"b");},4000);
         c = setTimeout(function(){tableAnime(98,"b");},6000);
@@ -74,5 +58,3 @@ require(['domReady'], function (domReady) {
         //$(".pliage button.btn-collapse-up").show();
       }
 		});
-	});
-});
