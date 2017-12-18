@@ -23,8 +23,8 @@ imagecopy($fondvoeux, $imgrub99, 403, 692, 0, 0, 597, 473);
 // on fait le rendu de l'image dans le format MIME
 
 $image_p = imagecreatetruecolor('600', '700');
-imagecopyresampled($image_p, $fondvoeux, 0, 0, 0, 0, '343', '400', '1000', '1166');
-imagejpeg($image_p,NULL,100);
+imagecopyresampled($image_p, $fondvoeux, 0, 0, 0, 0, '600', '700', '1000', '1166');
+imagejpeg($image_p,NULL,80);
 // on supprime les calques que l'on a fait (pour vider la mémoire)
 imagedestroy($fondvoeux);
 imagedestroy($image_p);
