@@ -646,7 +646,7 @@ function formulaires_voeux2018mail_traiter_dist() {
                             <td class="mcnImageContent" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;" valign="top">
 
 
-                                        <img alt="votre carte de voeux" src="http://lemag.seinesaintdenis.fr/plugins/voeux2018/imagevoeux600-2018.php?rub95='.$img95.'&rub96='.$img96.'&rub97='.$img97.'&rub98='.$img98.'&rub99='.$img99.'" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage" width="564" align="middle">
+                                        <img alt="votre carte de voeux" src="http://lemag.seinesaintdenis.fr/plugins/voeux2018/imagevoeux600-2018.php?rub95=img'.$img95.'&rub96=img'.$img96.'&rub97=img'.$img97.'&rub98=img'.$img98.'&rub99=img'.$img99.'" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage" width="564" align="middle">
 
 
                             </td>
