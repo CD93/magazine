@@ -330,7 +330,12 @@ height: 100%;
   margin: auto;
 }
 
-
+#form_mail .reponse_formulaire_ok{
+  background-color: #B0B361;
+  color: #000;
+  padding: 1em;
+  font-weight: bold;
+}
 #form_mail fieldset {
   background-color: #EF4F5F;
   padding:1em;
@@ -426,29 +431,3 @@ form button {
   width: 100%;
   height: auto;
 }
-footer {
-  position: fixed;
-  background-color: #00AACE;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 0px;
-  width: 100%;
-
-  font-size:0.8em; }
-  footer ul {
-    display: flex;
-    align-items: center; }
-    footer ul li a {
-      display: flex;
-      color: #FFF;
-      align-items: stretch;
-      justify-content: center;
-      margin: 1em 0; }
-    footer ul li a:before {
-      content: " \2212 ";
-      color: #FFF; }
-    footer ul li:first-child a:before {
-      content: normal;
-      content: "";
-      /* pour Safari */ }
