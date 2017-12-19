@@ -1,5 +1,6 @@
 $(document).ready(function(){
       Animeglobal();
+      var theme;
       $('#table_carte button').on('click', function(e) {
         e.preventDefault();
         clearTimeout(animglob);
@@ -13,7 +14,6 @@ $(document).ready(function(){
         clearTimeout(g);
         clearTimeout(h);
         clearTimeout(i);
-
         var theme =  $(this).data("theme");
         $( "#panneau" ).load( "/?page=panneau", { "theme[]": [theme] } );
         $("#blanco").show().animate({opacity: "0.8"}, 400 );
@@ -35,15 +35,15 @@ $(document).ready(function(){
         });
       }
       function Animeglobal(time){
-        aa= setTimeout(function(){tableAnime(95,"b");},10);
-        a = setTimeout(function(){tableAnime(96,"b");},2000);
+        aa = setTimeout(function(){tableAnime(95,"b");},10);
+        a = setTimeout(function(){tableAnime(95,"a");},10000);
+        d = setTimeout(function(){tableAnime(96,"b");},2000);
+        dd = setTimeout(function(){tableAnime(96,"a");},12000);
         b = setTimeout(function(){tableAnime(97,"b");},4000);
-        c = setTimeout(function(){tableAnime(98,"b");},6000);
-        d = setTimeout(function(){tableAnime(99,"b");},8000);
-        dd = setTimeout(function(){tableAnime(95,"a");},10000);
-        f = setTimeout(function(){tableAnime(96,"a");},12000);
         g = setTimeout(function(){tableAnime(97,"a");},14000);
+        c = setTimeout(function(){tableAnime(98,"b");},6000);
         h = setTimeout(function(){tableAnime(98,"a");},16000);
+        f = setTimeout(function(){tableAnime(99,"b");},8000);
         i = setTimeout(function(){tableAnime(99,"a");},18000);
         animglob =  setTimeout(Animeglobal,20000);
       }
