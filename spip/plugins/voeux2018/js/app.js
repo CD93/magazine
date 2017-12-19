@@ -29,7 +29,7 @@ $(document).ready(function(){
         e.preventDefault();
         $('#form_mail').slideToggle('300');
       });
-      function tableAnime(id,lettre,) {
+      function tableAnime(id,lettre) {
         $('#imt'+id).fadeTo(500,0.1, function() {
           $(this).attr("src","plugins/voeux2018/images/img"+id+lettre+".jpg").fadeTo(500,1);
         });
