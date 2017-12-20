@@ -87,12 +87,10 @@ h3 {
   margin-top: 3em;
   margin: 3em 5%;
 }
-
 #table_carte {
   position: relative;
   left: 0;
   margin-top: 1em;
-  height: auto;
   width: 660px;
 }
 #table_carte table{
@@ -100,12 +98,10 @@ h3 {
   width: 100%;
   margin-bottom: -3px;
 }
-
 @media screen and (max-width: 920px) {
   #table_carte {
     width: 660px;
   }
-
   #table_carte table:first-child tr td img{
     height:250px;
   }
@@ -141,16 +137,18 @@ h3 {
   }
 }
 
-
-
 #table_carte img {
   width: 100%;
   height: auto;
+}
+button.bug_ie11:hover {
+  cursor: default;
 }
 button {
   padding: 0;
   margin: 0;
   border: none;
+  position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -177,7 +175,10 @@ button:hover, button:focus {
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
+  top:40%;
+  left:40%;
 }
+
 #table_carte button span img{
   width: 40px;
   height: 40px;
