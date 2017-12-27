@@ -22,9 +22,14 @@
   			</div>
 
   			<div class="editer saisie_mesvoeux obligatoire[ (#ENV*{erreurs}|table_valeur{mesvoeux}|oui)erreur]">
-  				<label for="mesvoeux#ENV{id}">Mon Message <:info_obligatoire_02:></label>
+  				<label for="mesvoeux#ENV{id}">Mon Message</label>
   				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{mesvoeux})</span>]
   				<textarea name="mesvoeux" id="mesvoeux#ENV{id}" rows="10" cols="60"[(#HTML5) required="required"]>#ENV{mesvoeux}</textarea>
+  			</div>
+        <div class="editer saisie_masignature obligatoire[ (#ENV*{erreurs}|table_valeur{masignature}|oui)erreur]">
+  				<label for="masignature#ENV{id}">Ma signature</label>
+  				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{masignature})</span>]
+  				<input[ (#HTML5|?{required="required" type="text" class="text",type="text" class="text"})] name="masignature" id="masignature#ENV{id}" value="#ENV{masignature}" size="30" />
   			</div>
   		</div>
   	</fieldset>
