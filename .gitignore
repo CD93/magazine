@@ -6,7 +6,7 @@
 !/spip/service-worker.js
 !/spip/sw.js
 !/spip/manifest.json
-/spip/plugins/
+/spip/plugins
 /spip/squelettes/
 !/spip/squelettes/
 
