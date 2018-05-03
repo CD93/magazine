@@ -1,0 +1,58 @@
+<!-- start flash info -->
+<div class="grey-bg block-large-inner mb-60">
+	<span class="skew-block rel medium shad">
+		<span class="content black">Flash Info</span>
+		<span class="skew white-bg"></span>
+	</span>
+	<div class="slider count-slider">
+		<div>
+			<BOUCLE_flash1(BREVES){!par date}{0,3}>
+			<article class="basic-block--article">
+				<div class="skew-block category btn no-pointer">
+					<span class="content">#TITRE</span>
+					<span class="skew yellow-bg"></span>
+				</div>
+				<p>#TEXTE*
+				[<a href="(#URL_SITE)">[(#NOM_SITE|sinon{en savoir plus})]</a>]
+				</p>
+				<div class="article-footer">
+					[(#DATE|affdate)]
+				</div>
+			</article>
+			</BOUCLE_flash1>
+			</div>
+			<div>
+			<BOUCLE_flash2(BREVES){!par date}{3,3}>
+			<article class="basic-block--article">
+				<div class="skew-block category btn no-pointer">
+					<span class="content">#TITRE</span>
+					<span class="skew yellow-bg"></span>
+				</div>
+				<p>#TEXTE*
+				[<a href="(#URL_SITE)">[(#NOM_SITE|sinon{en savoir plus})]</a>]
+				</p>
+				<div class="article-footer">
+					[(#DATE|affdate)]
+				</div>
+			</article>
+			</BOUCLE_flash2>
+			</div>
+			<div>
+			<BOUCLE_flash3(BREVES){!par date}{6,3}>
+			<article class="basic-block--article">
+				<div class="skew-block category btn no-pointer">
+					<span class="content">#TITRE</span>
+					<span class="skew yellow-bg"></span>
+				</div>
+				<p>#TEXTE*
+				[<a href="(#URL_SITE)">[(#NOM_SITE|sinon{en savoir plus})]</a>]
+				</p>
+				<div class="article-footer">
+					[(#DATE|affdate)]
+				</div>
+			</article>
+			</BOUCLE_flash3>
+		</div>
+	</div>
+</div>
+<!-- end flash info -->

@@ -1,0 +1,25 @@
+<!-- start rendez-vous -->
+<div class="darker-blue-bg block-medium-inner mb-60">
+	<span class="skew-block rel medium shad">
+		<span class="content black">Rendez-vous sur...</span>
+		<span class="skew white-bg"></span>
+	</span>
+	<BOUCLE_rdvsur(ARTICLES){id_rubrique=15}{!par date}>
+	<article class="basic-block--article-small">
+		<div class="cf">
+			<header class="col-48 || f-left">
+				<a href="#URL_ARTICLE" title="" class="article-picture">
+					#LOGO_ARTICLE
+				</a>
+			</header>
+			<div class="col-48 || f-right">
+				<h4 class="basic-block--article-small-italic semi white">#TITRE</h4>
+				<div class="article-footer yellow">
+					<a href="#URL_ARTICLE" class="yellow italic">#TEXTE*</a>
+				</div>
+			</div>
+		</div>
+	</article>
+	</BOUCLE_rdvsur>
+</div>
+<!-- end rendez-vous -->

@@ -1,0 +1,280 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tous}>
+#SET{vendors,slick.min.js}
+[(#ENV{dateve}|?{""," "})
+#SET{datenv,#ENV{date}|affdate{'Y-m-d'}}
+]
+[(#ENV{dateve}|?{" ",""})
+#SET{datenv,#ENV{dateve}|affdate{'Y-m-d'}}
+]
+<INCLURE{fond=inclure/header,page=agenda,id_rubrique=#ID_RUBRIQUE,rubrique=#TITRE,bodyclass=agenda}>
+<!-- Contenu principal -->
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+	<INCLURE{fond=inclure/aside}>
+		<!-- start col-left -->
+		<div class="col-left">
+		<div class="cf || mb-60">
+
+	<BOUCLE_testrecherche(CONDITION){si #ENV{formu}}>
+	
+	#SET{selection,#ARRAY}
+	<BOUCLE_evenement_form(EVENEMENTS){evenement_en_cours #ENV{date}}>
+	<BOUCLE_sel_article(ARTICLES){id_mot ?IN #ENV{id_mot}}{id_article}{titre ?LIKE %(#ENV{titre})%}{titre_mot LIKE #ENV{ville,'%'}}{par date}>
+		#SET{selection, #GET{selection}|push{#ID_ARTICLE}}
+	</BOUCLE_sel_article>
+	</BOUCLE_evenement_form>
+	<B_affichage>
+	<div class="col-40 || f-left full-m">
+	<div class="skew-block abs large shad left">
+		<span class="content black">Votre s&eacute;l&eacute;ction
+		</span>
+		<span class="skew white-bg"></span>
+	</div>
+	<h3 class="mtop45">
+	<BOUCLE_theme(MOTS){id_mot IN #ENV{id_mot}}{" - "}>#TITRE</BOUCLE_theme>
+	[à (#ENV{ville})]</h3>
+	
+		<BOUCLE_affichage(ARTICLES){id_article IN #GET{selection}}>
+				[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+						<article class="cf || col-48 || article-line-small ||  [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+							<div class="col-48 || f-left">
+								<header>
+									<a href="#URL_ARTICLE"  class="article-picture">
+										#LOGO_ARTICLE
+									</a>
+								</header>
+								<span class="skew-block btn category">
+									<span class="content"><BOUCLE_m_select(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_select></span>
+									<span class="skew green-bg"></span>
+								</span>
+							</div>
+							<div class="col-48 || f-right">
+								<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+								<span class="article-content">#CHAPO</span>
+								<div class="article-footer">
+								<BOUCLE_eveaff(EVENEMENTS){id_article}>
+									[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]
+									<B_ville>
+									 <br/> 
+									<BOUCLE_ville(MOTS){id_article}{id_groupe=9}{!par id_mot}{" - "}>
+									#TITRE
+									</BOUCLE_ville>
+								</BOUCLE_eveaff>
+								</div>
+						</article>
+			[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+		</BOUCLE_affichage>
+		[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+		</div>
+	</B_affichage>
+			#SET{selectionfutur,#ARRAY}
+			<BOUCLE_evenement_futur(EVENEMENTS){evenement_a_venir #ENV{date}}>
+				<BOUCLE_sel_article_future(ARTICLES){id_mot ?IN #ENV{id_mot}}{id_article}{titre ?LIKE %(#ENV{titre})%}{titre_mot LIKE #ENV{ville,'%'}}{par date}>
+				#SET{selectionfutur, #GET{selectionfutur}|push{#ID_ARTICLE}}
+				</BOUCLE_sel_article_future>
+			</BOUCLE_evenement_futur>
+			<B_affichagefutur>
+			<div class="col-40 || f-left full-m">
+			<div class="skew-block abs large shad left">
+				<span class="content black">Bientôt
+				</span>
+				<span class="skew white-bg"></span>
+			</div>
+			<h3 class="mtop45">
+			<BOUCLE_themefutur(MOTS){id_mot IN #ENV{id_mot}}{" - "}>#TITRE</BOUCLE_themefutur>
+			[à (#ENV{ville})]</h3>
+			
+				<BOUCLE_affichagefutur(ARTICLES){id_article IN #GET{selectionfutur}}>
+						[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+								<article class="cf || col-48 || article-line-small  [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+									<div class="col-48 || f-left">
+										<header>
+											<a href="#URL_ARTICLE"  class="article-picture">
+												#LOGO_ARTICLE
+											</a>
+										</header>
+										<span class="skew-block btn category">
+											<span class="content"><BOUCLE_m_selectf(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_selectf></span>
+											<span class="skew green-bg"></span>
+										</span>
+									</div>
+									<div class="col-48 || f-right">
+										<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+										<span class="article-content">#CHAPO</span>
+										<div class="article-footer">
+										<BOUCLE_eveafff(EVENEMENTS){id_article}>
+											[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]
+											<B_villef>
+											 à 
+											<BOUCLE_villef(MOTS){id_article}{id_groupe=9}{!par id_mot}{" "}>
+											#TITRE
+											</BOUCLE_villef>
+										</BOUCLE_eveafff>
+										</div>
+								</article>
+					[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+				</BOUCLE_affichagefutur>
+				[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+			</div>
+				</B_affichagefutur>
+					
+	</BOUCLE_testrecherche>
+		<BOUCLE_agenda_une(ARTICLES spip_pb_selection){0,1}{spip_pb_selection.id_rubrique=8}{par ordre}>
+						<div class="col-48 || f-left full-m">
+							<article class="article-container || cuisine">
+								<header>
+									<a href="#URL_ARTICLE" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit." class="article-picture">
+										#LOGO_ARTICLE
+									</a>
+									<span class="skew-block abs large shad left btn normal-hover">
+										<span class="content black">Agenda
+										</span>
+										<span class="skew white-bg"></span>
+									</span>
+								</header>
+		
+								<div class="article-content">
+									<div class="article-content-inner">
+										<a href="#" class="skew-block category btn" >
+											<span class="content"><BOUCLE_m_aune(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_aune></span>
+											<span class="skew green-bg"></span>
+										</a>
+										<BOUCLE_evedate(EVENEMENTS){id_article}>
+										<span class="article-date">[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</span>
+										</BOUCLE_evedate>
+										<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" >#TITRE</a></h2>
+		
+										<p>[(#TEXTE|couper{300})]</p>
+									</div>
+								</div>
+							</article>
+						</div>			
+		</BOUCLE_agenda_une>
+		<div class="col-48 || f-right full-m || cf">
+			<BOUCLE_agenda_mune(ARTICLES spip_pb_selection){1,3}{spip_pb_selection.id_rubrique=8}{par ordre}>
+				<article class="cf || article-line-small || culture">
+					<div class="col-48 || f-left">
+						<header>
+							<a href="#URL_ARTICLE" class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+						<span class="skew-block btn category">
+							<span class="content"><BOUCLE_m_amune(MOTS){id_groupe=8}{id_article}{0,1}{!par id_mot}>#TITRE</BOUCLE_m_amune></span>
+							<span class="skew green-bg"></span>
+						</span>
+					</div>
+					<div class="col-48 || f-right ">
+						<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+						<span class="article-content">#CHAPO</span>
+						<div class="article-footer">
+						<BOUCLE_evedates(EVENEMENTS){id_article}>
+							[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]
+						</BOUCLE_evedates>
+						</div>
+					</div>
+				</article>
+			</BOUCLE_agenda_mune>
+		</div>
+		</div>
+		#FORMULAIRE_AGENDA
+					
+			<BOUCLE_mois_a(DATA){source table, (#ENV{date}|affdate{"Y-m"}|creer_date_liste)}{0,3}>
+			<div class="cf || mb-20">
+			<BOUCLE_eve_mois_une(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0} {doublons une#_mois_a:COMPTEUR_BOUCLE}{0,1}>
+			<BOUCLE_art_mois_une(ARTICLES){id_article} >
+							<div class="col-48 || f-left full-m">
+								<article class="article-container">
+									<header>
+										<a href="#URL_ARTICLE" class="article-picture">
+											#LOGO_ARTICLE
+										</a>
+										<span  class="skew-block abs large shad left btn normal-hover">
+											<span class="content black">[(#_mois_a:VALEUR|affdate_mois_annee)]</span>
+											<span class="skew white-bg"></span>
+										</span>
+									</header>
+			
+									<div class="article-content">
+										<div class="article-content-inner">
+											<a href="#URL_ARTICLE" class="skew-block category btn" >
+												<span class="content"><BOUCLE_m_une(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_une></span>
+												<span class="skew green-bg"></span>
+											</a>
+			
+											<span class="article-date">[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</span>
+											<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" >#TITRE</a></h2>
+			
+											<p>[(#TEXTE|couper{300})]</p>
+										</div>
+									</div>
+								</article>
+							</div>			
+			</BOUCLE_art_mois_une>
+			</BOUCLE_eve_mois_une>
+						<div class="col-48 || f-right full-m || cf">
+							<BOUCLE_eve_mois_mune(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0} {1,3} {doublons une#_mois_a:COMPTEUR_BOUCLE}>
+							<BOUCLE_art_mois_mune(ARTICLES){id_article} >
+								<article class="cf || article-line-small || culture">
+									<div class="col-48 || f-left">
+										<header>
+											<a href="#URL_ARTICLE" class="article-picture">
+												#LOGO_ARTICLE
+											</a>
+										</header>
+										<span class="skew-block btn category">
+											<span class="content"><BOUCLE_m_mune(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_mune></span>
+											<span class="skew green-bg"></span>
+										</span>
+									</div>
+									<div class="col-48 || f-right ">
+										<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+										<span class="article-content">#CHAPO</span>
+										<div class="article-footer">
+											[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]
+										</div>
+									</div>
+								</article>
+							</BOUCLE_art_mois_mune>
+							</BOUCLE_eve_mois_mune>
+						</div>
+					</div>
+					<div class="cf || mb-40">
+					<B_eve_mois_tout>
+					<div class="col-40 || f-left full-m">
+					<BOUCLE_eve_mois_tout(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0}{doublons une#_mois_a:COMPTEUR_BOUCLE} >
+					[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+					<BOUCLE_art_mois_tout(ARTICLES){id_article} >
+							<article class="cf || col-48 || article-line-small || culture [(#_eve_mois_tout:COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+								<div class="col-48 || f-left">
+									<header>
+										<a href="#URL_ARTICLE"  class="article-picture">
+											#LOGO_ARTICLE
+										</a>
+									</header>
+									<span class="skew-block btn category">
+										<span class="content"><BOUCLE_m_gauche(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_gauche></span>
+										<span class="skew green-bg"></span>
+									</span>
+								</div>
+								<div class="col-48 || f-right">
+									<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+									<span class="article-content">#CHAPO</span>
+									<div class="article-footer">
+										[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]	</div>
+								</div>
+							</article>
+					</BOUCLE_art_mois_tout>
+						[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+					</BOUCLE_eve_mois_tout>
+					[(#TOTAL_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+					</div>
+					</B_eve_mois_tout>
+				</div>
+				</BOUCLE_mois_a>
+			</div>
+
+</section> <!-- end container-->
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_rubrique>

@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="fr"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr"><![endif]-->
+<!--[if gt IE 8]><html class="no-js" lang="fr"><![endif]-->
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta name="author" content="">
+    <meta name="copyright" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, user-scalable=yes">
+    <!-- Disable iOS phone numbers auto-detect -->
+    <meta name="format-detection" content="telephone=no">
+	<!-- OpenGraph -->
+  <BOUCLE_article(ARTICLES){id_article=#ID_ARTICLE}>
+    <title>[(#TITRE|textebrut)][ - (#TITRE_PARENT|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
+	<meta name="description" content="[(#CHAPO|couper{150}|attribut_html|textebrut)]">
+	<link rel="canonical" href="#URL_SITE_SPIP/#URL_ARTICLE{#ID_ARTICLE}">
+	#SET{intro,(#DESCRIPTIF)}
+	<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]" />
+	<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
+	<meta property="og:url" content="[(#URL_ARTICLE|url_absolue)]"/>
+	<meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]"/>
+	<meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
+	<meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+	<!-- Twitter meta cards -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@seinesaintdenis">
+	<meta name="twitter:title" content="[(#TITRE|attribut_html)]">
+	<meta name="twitter:description" content="[(#CHAPO|attribut_html)]">
+	<meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]">
+  </BOUCLE_article>
+  <!-- json-ld --> 
+  <BOUCLE_artagjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique=8}>
+    <script type="application/ld+json">
+    { "@context" : "http://schema.org",
+      "@type": "Event",
+      "name": [(#TITRE|json_encode)],
+      "url": "[(#URL_ARTICLE|url_absolue)]",
+      "description": [(#CHAPO|concat{' '}|concat{#TEXTE}|textebrut|json_encode)],
+    <BOUCLE_eve(EVENEMENTS){id_article}>
+      "startDate": "[(#DATE_DEBUT|affdate{c})]",
+      "endDate": "[(#DATE_FIN|affdate{c})]"
+    </BOUCLE_eve>
+    }
+    </script>
+  </BOUCLE_artagjsonld>
+  <BOUCLE_artjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique!=8}>
+    <script type="application/ld+json">
+    { "@context" : "http://schema.org",
+      "@type" : "Article",
+      "name" : [(#TITRE|json_encode)],
+      "url" : "[(#URL_ARTICLE|url_absolue)]",
+      "datePublished" : "[(#DATE|affdate{c})]",
+      "headline" : [(#CHAPO|textebrut|couper{100}|json_encode)],
+      "dateModified" : "[(#DATE_MODIF|affdate{c})]",
+      "mainEntityOfPage": "True",
+      "wordCount": "[(#TITRE|concat{#CHAPO}|concat{#TEXTE}|textebrut|str_word_count)]",
+      "articleBody": [(#TEXTE|textebrut|json_encode)],
+      "articleSection" : [(#INFO_TITRE{rubrique,#ID_RUBRIQUE}|json_encode)],
+      <BOUCLE_aut(AUTEURS){id_article}>
+      "author" : {
+      	"@type" : "Person",
+      	"name" : [(#NOM|json_encode)]
+      },
+      </BOUCLE_aut>
+      "publisher" : {
+      	"@type" : "Organization",
+        "name" : "Conseil départemental de la Seine-Saint-Denis",
+        "url" : "http://lemag.seinesaintdenis.fr/",
+        "logo" : {
+        	"@type" : "ImageObject",
+        	"url" : "http://lemag.seinesaintdenis.fr/squelettes/img/layout/main-logo.png"
+        },
+        "address": {
+    	    "@type": "PostalAddress",
+    	    "streetAddress": "Hôtel du Département - Esplanade Jean-Moulin",
+    	    "addressLocality": "Bobigny",
+    	    "postalCode": "93000",
+    	    "addressCountry": "FR"
+    	  },
+    	   "contactPoint": {
+    	    "@type": "ContactPoint",
+    	    "contactType" : "customer support",
+    	    "telephone": "+33 1 43 93 93 93",
+    	    "email" : "contact@seinesaintdenis.fr"
+    	  }
+      },
+      "image" : {
+        "@type" : "ImageObject",
+        "url" : "[(#LOGO_ARTICLE|fichier|url_absolue)]",
+        "height" : "[(#LOGO_ARTICLE|hauteur)]",
+        "width" : "[(#LOGO_ARTICLE|largeur)]"
+      }
+    }
+    </script>
+ </BOUCLE_artjsonld>
+		<BOUCLE_rubtete(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}{tous}>
+		<title>[(#TITRE|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
+		<meta name="description" content="[(#TEXTE|couper{150}|attribut_html|textebrut)]" />
+		<link rel="canonical" href="#URL_SITE_SPIP/#URL_RUBRIQUE{#ID_RUBRIQUE}">
+		#SET{intro,(#TEXTE)}
+		<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|image_passe_partout{300,300}|image_recadre{300,300,'top left','transparent'}|extraire_attribut{src})]" />
+			<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
+		    <meta property="og:url" content="[(#URL_RUBRIQUE|url_absolue)]"/>
+		    <meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]"/>
+		    <meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
+		    <meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+		    <!-- Twitter meta cards -->
+		    <meta name="twitter:card" content="summary">
+		    <meta name="twitter:site" content="@seinesaintdenis">
+		    <meta name="twitter:title" content="[(#TITRE|attribut_html)]">
+		    <meta name="twitter:description" content="[(#DESCRIPTIF|attribut_html)]">
+		    <meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]">
+		</BOUCLE_rubtete>
+		<BOUCLE_mot(MOTS){id_mot=#ID_MOT}>
+		<title>[(#TITRE|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
+		<meta name="description" content="[(#DESCRIPTIF|couper{150}|attribut_html|textebrut)]">
+		<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT{#ID_MOT}">
+		#SET{intro,(#DESCRIPTIF)}
+		<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_MOT|extraire_attribut{src})]" />
+			<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
+		    <meta property="og:url" content="[(#URL_MOT|url_absolue)]"/>
+   		    <meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_MOT|extraire_attribut{src})]"/>
+		    <meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
+		    <meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+		    <!-- Twitter meta cards -->
+		    <meta name="twitter:card" content="summary">
+		    <meta name="twitter:site" content="@seinesaintdenis">
+		    <meta name="twitter:title" content="[(#TITRE|attribut_html)]">
+		    <meta name="twitter:description" content="[(#DESCRIPTIF|attribut_html)]">
+		    <meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_MOT|extraire_attribut{src})]">
+		</BOUCLE_mot>
+		[(#ENV{sommaire}|=={sommaire}|oui)
+		<title>#NOM_SITE_SPIP</title>
+		<meta name="description" content="[(#DESCRIPTIF_SITE_SPIP|couper{150}|attribut_html|textebrut)]" />
+		<link rel="canonical" href="#URL_SITE_SPIP/">
+		]
+		<!-- Test it: https://developers.facebook.com/tools/debug/og/object/ -->
+		<!-- ./END OpenGraph -->
+
+		
+		<!-- Doc: https://dev.twitter.com/cards/overview -->
+		<!-- Test: https://cards-dev.twitter.com/validator -->
+		<!-- ./END Twitter meta cards -->
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<!-- http://realfavicongenerator.net/ pour générer les favicons -->
+		#INSERT_HEAD
+		<script src="#CHEMIN{js/vendors/jquery-ui.min.js}"></script>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css" />
+		<link rel="stylesheet" href="#CHEMIN{css/pages/#ENV{page}.css}" type="text/css" />
+		#INSERT_HEAD_CSS
+		<style>
+			a:focus {
+				color :#24e5c3
+			}		
+		</style>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="#CHEMIN{js/vendor/selectivizr.js}"></script>
+			
+		<![endif]-->
+	</head>
+	<body class="#ENV{bodyclass,home}">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.7&appId=216034751744021";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+		<header class="main-header">
+					<div class="top-header">
+		
+
+						<a href="#URL_SITE_SPIP" class="main-logo">
+							<img src="#CHEMIN{img/layout/main-logo.png}" alt="Seine-Saint-Denis" width="156" height="18">
+						</a>
+						
+						
+												
+						<div class="top-header-right">
+							
+							<a href="#URL_SITE_SPIP" title="le magazine" class="skew-block btn">
+								<span class="content yellow">le magazine</span>
+								<span class="skew darker-blue-bg"></span>
+							</a>
+							
+							
+							
+						</div>
+					</div>
+				</header>
+				<div class="bottom-header hide-mobile cf">
+					<div class="inner-20">
+						<nav role="navigation">
+						<BOUCLE_jop(RUBRIQUES){id_rubrique=69}>
+							<li class="jop2024">
+								<a href="#URL_MOT">
+									<span class="skew-block category btn" title="#TITRE">
+										<span class="content white">#DESCRIPTIF**</span>
+										<span class="skew"></span>
+									</span>
+								</a>
+							</li>
+						</BOUCLE_jop>
+						</nav>
+						<div class="breadcrumb">
+							<a href="#URL_SITE_SPIP">Accueil</a>
+							[(#ENV{rubrique}|oui) > #ENV{rubrique}
+								[(#ENV{article}|oui) > #ENV{article}]
+							]
+						</div>
+					</div>
+				</div>
+				

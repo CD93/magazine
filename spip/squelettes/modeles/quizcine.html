@@ -1,0 +1,36 @@
+#SET{listequiz,#ARRAY{}}
+<BOUCLE_artquizdoc(ARTICLES){id_rubrique=#ID}>
+	<BOUCLE_doc(DOCUMENTS){id_article}{extension="csv"}>
+		#SET{listequiz,#GET{listequiz}|push{quiz#ID_DOCUMENT}}
+	</BOUCLE_doc>
+</BOUCLE_artquizdoc>
+#ID_RUBRIQUE
+	<B_artquiz>
+	#SET{totquiz,#TOTAL_BOUCLE}
+<div class="questionquiz">
+	<ul>
+	#ID_RUBRIQUE
+		<BOUCLE_artquiz(ARTICLES){id_rubrique=#ID}{par num titre}>
+		<li id="question#COMPTEUR_BOUCLE" class="question">
+			<h3>#COMPTEUR_BOUCLE - #TITRE</h3>
+			<div class="ajax">#TEXTE</div>
+		</li>
+		</BOUCLE_artquiz>
+		<li id="question[(#TOTAL_BOUCLE|plus{1})]" class="question">
+			#FORMULAIRE_QUIZ_VALIDATION_CINE{#ID_RUBRIQUE,#GET{listequiz}}
+			
+		</li>
+	</ul>
+</div>
+</B_artquiz>
+<script type="text/javascript">
+	$("li.question").hide();
+	$("li.question:first").show();
+	<BOUCLE_totquiz(ARTICLES){id_rubrique=#ID}{par num titre}>
+	$("#question#COMPTEUR_BOUCLE input:submit").click(function(){
+		$("#question#COMPTEUR_BOUCLE").hide(300);
+		$("#question[(#COMPTEUR_BOUCLE|plus{1})]").show(300);
+		})
+	</BOUCLE_totquiz>
+	
+</script>

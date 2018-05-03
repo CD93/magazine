@@ -1,0 +1,24 @@
+<aside class="col-right || hide-mobile">
+	#FORMULAIRE_ABONEWSLETTER
+	<!-- start nos Vidéos -->
+	<div class="lighter-grey-bg block-medium-inner mb-60">
+					<span class="skew-block rel medium shad">
+						<span class="content black">nos Vidéos</span>
+						<span class="skew white-bg"></span>
+					</span>
+					<BOUCLE_nosvideo(ARTICLES spip_configarticles_liens){id_configarticle=1}{!par date}{0,10}{id_rubrique=3}>
+					<article class="basic-block--article-small">
+						<header>
+							<a href="#URL_ARTICLE" title="" class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+						<h4 class="basic-block--article-small-italic semi">#TITRE</h4>
+						<p>#CHAPO</p>
+	
+						<span class="date">[(#DATE|affdate)] • </span>
+					</article>
+					</BOUCLE_nosvideo>
+				</div>
+	<!-- end nos Vidéos -->
+</aside>

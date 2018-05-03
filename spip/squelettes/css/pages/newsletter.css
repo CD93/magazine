@@ -1,0 +1,18 @@
+#newsletter-form {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+#newsletter-form .checkbox-wrapper p {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.newsletter-title {
+  margin: 20px 0 40px 0;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5ld3NsZXR0ZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQW1CO0VBQ25CLG9CQUFvQjtDQUNyQjs7QUFFRDtFQUNFLGlCQUFpQjtFQUNqQixtQkFBbUI7Q0FDcEI7O0FBRUQ7RUFDRSxzQkFBc0I7RUFDdEIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQixnQkFBZ0I7Q0FDakIiLCJmaWxlIjoicGFnZXMvbmV3c2xldHRlci5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjbmV3c2xldHRlci1mb3JtIHtcbiAgcGFkZGluZy1sZWZ0OiAzNXB4O1xuICBwYWRkaW5nLXJpZ2h0OiAzNXB4O1xufVxuXG4jbmV3c2xldHRlci1mb3JtIC5jaGVja2JveC13cmFwcGVyIHAge1xuICBmb250LXdlaWdodDogNzAwO1xuICBmb250LXN0eWxlOiBpdGFsaWM7XG59XG5cbi5uZXdzbGV0dGVyLXRpdGxlIHtcbiAgbWFyZ2luOiAyMHB4IDAgNDBweCAwO1xuICBmb250LXdlaWdodDogOTAwO1xuICBmb250LXN0eWxlOiBpdGFsaWM7XG4gIGZvbnQtc2l6ZTogMzBweDtcbn1cbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */

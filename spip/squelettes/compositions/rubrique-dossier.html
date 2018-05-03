@@ -1,0 +1,202 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tous}>
+#SET{vendors,slick.min.js}
+<INCLURE{fond=inclure/header,page=rubrique,id_rubrique=#ID_RUBRIQUE,rubrique=#TITRE,bodyclass=rubrique (#TITRE|strtolower)}>
+<!-- Contenu principal -->
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+		<BOUCLE_aerticleA(RUBRIQUES){id_parent}{0,1}{!par num titre}{titre!=^[0]+[.][ ]}>
+			<article class="article-container || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
+				<span class="skew-block abs large shad">
+					<span class="content black">Les Dossiers</span>
+					<span class="skew white-bg"></span>
+				</span>				
+				<header>
+					<a href="#URL_RUBRIQUE" title="" class="article-picture">
+						#LOGO_RUBRIQUE
+					</a>
+				</header>
+				<div class="article-content">
+					<div class="article-content-inner">
+						<BOUCLE_mA(MOTS){id_article}{!par id_mot}{0,1}>
+							<a href="#URL_MOT" class="skew-block category btn" title="">
+								<span class="content #INFO_COULEURMT{spip_couleurs,#_rubrique:ID_RUBRIQUE}">#TITRE</span>
+								<span class="skew #INFO_COULEURM{spip_couleurs,#_rubrique:ID_RUBRIQUE}"></span>
+							</a>
+						</BOUCLE_mA>						<h2 class="basic-title large article-title"><a href="#URL_RUBRIQUE" title="">#TITRE</a></h2>
+						<p>#TEXTE</p>
+						<div class="article-footer">
+							[(#DATE|affdate)] • 
+							
+						</div>
+					</div>
+				</div>
+			</article>
+		</BOUCLE_aerticleA>
+			<div class="col-row || cf || mb-40">
+			<BOUCLE_articlesB(RUBRIQUES){id_parent}{1,2}{!par num titre}{titre!=^[0]+[.][ ]}>
+				<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+					<header>
+						<a href="#URL_RUBRIQUE" title="" class="article-picture">
+							#LOGO_RUBRIQUE
+						</a>
+					</header>
+					<div class="article-content">
+						<div class="article-content-inner">
+							<BOUCLE_mB(MOTS){id_article}{!par id_mot}{0,1}>
+								<a href="#URL_MOT" class="skew-block category btn" title="">
+									<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesB:ID_RUBRIQUE}">#TITRE</span>
+									<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesB:ID_RUBRIQUE}"></span>
+								</a>
+							</BOUCLE_mB>
+
+							<h2 class="basic-title medium article-title"><a href="#URL_RUBRIQUE" title="">#TITRE</a></h2>
+
+							<p>#TEXTE</p>
+
+							<div class="article-footer">
+								[(#DATE|affdate)] •
+							</div>
+						</div>
+					</div>
+				</article>
+				</BOUCLE_articlesB>
+				
+			</div>
+			<div class="col-row || cf">
+			<BOUCLE_articlesC(RUBRIQUES){id_parent}{3,1}{!par num titre}{titre!=^[0]+[.][ ]}>
+				<article class="article-container medium-article || col-48 || f-left">
+					<header>
+						<a href="#URL_RUBRIQUE" title="" class="article-picture">
+							#LOGO_RUBRIQUE
+						</a>
+					</header>
+					<div class="article-content">
+						<div class="article-content-inner">
+							<BOUCLE_mC(MOTS){id_article}{!par id_mot}{0,1}>
+								<a href="#URL_MOT" class="skew-block category btn" title="">
+									<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesC:ID_RUBRIQUE}">#TITRE</span>
+									<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesC:ID_RUBRIQUE}"></span>
+								</a>
+							</BOUCLE_mC>
+							<h2 class="basic-title medium article-title"><a href="#URL_RUBRIQUE" >#TITRE</a></h2>
+							<p>#TEXTE</p>
+
+							<div class="article-footer">
+								[(#DATE|affdate)] • 
+							</div>
+						</div>
+					</div>
+				</article>
+			</BOUCLE_articlesC>
+				<div class="col-48 || f-right">
+					<!-- start Services aides et démarches -->
+					
+					<div class="grey-bg block-medium-inner mb-60">
+						<span class="skew-block rel medium shad">
+							<span class="content black">Services, aides<br>& démarches</span>
+							<span class="skew white-bg"></span>
+						</span>
+						
+						<BOUCLE_sad(DATA)
+						{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=6}
+						{datapath root/children/article}
+						>
+						<article class="basic-block--article-small cf">
+							<header class="col-25 || f-left">
+								<a href="#VALEUR{children/link/0/text}"  class="article-picture" target="_blank">
+									<img src="#VALEUR{children/image/0/text}" />
+								</a>
+							</header>
+							<div class="col-70 || f-right">
+								<h4 class="basic-block--article-small-italic"><a href="#VALEUR{children/link/0/text}" target="_blank">#VALEUR{children/titre/0/text}</a></h4>
+								<!--<p>#VALEUR{children/description/0/text}</p>-->
+							</div>
+						</article>
+						</BOUCLE_sad>
+					</div>
+					<!-- end Services aides et démarches -->
+				</div>
+		</div>
+		
+						
+						<BOUCLE_articles_tout(RUBRIQUES){id_parent}{4,20}{!par num titre}{titre!=^[0]+[.][ ]}>
+						[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+										<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+											<header>
+												<a href="#URL_RUBRIQUE" title="" class="article-picture">
+													#LOGO_RUBRIQUE
+												</a>
+											</header>
+											<div class="article-content">
+												<div class="article-content-inner">
+													<BOUCLE_mtout(MOTS){id_article}{!par id_mot}>
+														<a href="#URL_MOT" class="skew-block category btn" title="">
+															<span class="content #INFO_COULEURMT{spip_couleurs,#_articles_tout:ID_RUBRIQUE}">#TITRE</span>
+															<span class="skew #INFO_COULEURM{spip_couleurs,#_articles_tout:ID_RUBRIQUE}"></span>
+														</a>
+													</BOUCLE_mtout>
+						
+													<h2 class="basic-title medium article-title"><a href="#URL_RUBRIQUE" title="">#TITRE</a></h2>
+						
+													<p>#TEXTE</p>
+						
+													<div class="article-footer">
+														[(#DATE|affdate)] • 
+													</div>
+												</div>
+											</div>
+									</article>
+							[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+						</BOUCLE_articles_tout>
+					[(#COMPTEUR_BOUCLE|modulo{1}=={0}|?{"</div>"})]
+					</B_articles_tout>
+					<!--
+					<ul class="pagination">
+						<li>
+							<a href="">
+								<span class="skew-block btn" title="Cadre de vie">
+									<span class="content">1</span>
+									<span class="skew"></span>
+								</span>
+							</a>
+						</li>
+						<li class="isActive">
+							<a href="">
+								<span class="skew-block btn" title="Cadre de vie">
+									<span class="content">2</span>
+									<span class="skew"></span>
+								</span>
+							</a>
+						</li>
+						<li>...</li>
+						<li>
+							<a href="">
+								<span class="skew-block btn" title="Cadre de vie">
+									<span class="content">23</span>
+									<span class="skew"></span>
+								</span>
+							</a>
+						</li>
+					</ul>-->
+				<!-- end col-left -->
+		<!-- </div> -->
+		<INCLURE{fond=inclure/aside}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+
+		<!-- start col-right -->
+		<aside class="col-right">
+
+		</aside>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_rubrique>

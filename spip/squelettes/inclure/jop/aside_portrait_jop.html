@@ -1,0 +1,20 @@
+<aside class="col-right || hide-mobile">
+	<!-- start ce week-end -->
+	<div class="slider-container mb-60">
+		<span class="skew-block abs medium shad">
+			<span class="content black">R&eacute;actions</span>
+			<span class="skew white-bg"></span>
+		</span>
+		<div class="slider basic-slider center-slider cf" data-autoplay="true" data-speed="5000">
+		<BOUCLE_agenda_en_une(ARTICLES){0,7}{id_article IN 1106,1107,1108,1109,1110,1111,1122,1120,1112,1113}>
+		  <div class="center-slider--slide">
+		  	#LOGO_ARTICLE
+			<h3 class="basic-title"><a href="#URL_ARTICLE" >#TITRE</a></h3>	
+		  </div>
+		  </BOUCLE_agenda_en_une>
+		</div>
+	</div>
+	<div class="slider-container mb-60">
+		<img src="#CHEMIN{img/logoJOP.jpg}" alt="" style="width:100%"/>
+	</div>
+</aside>

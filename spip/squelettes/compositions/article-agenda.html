@@ -1,0 +1,193 @@
+<BOUCLE_article(ARTICLES){id_article} {doublons A}>
+<INCLURE{fond=inclure/header,page=article,id_article=#ID_ARTICLE,rubrique=#INFO_TITRE{rubriques,#ID_SECTEUR},article=#TITRE,bodyclass=article}>
+<section class="container || first-container">
+	
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+			<div class="col-row || cf">
+			<article class="article-container fiche-article || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
+				<div class="col-48 || f-left">
+					[(#GET{video}|?{'',' '})
+					<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
+					<header>	
+						<div class="article-picture">
+							#LOGO_ARTICLE
+							</div>
+					</header>
+					]
+				</div>
+				<div class="article-content col-48 || f-right">
+					<div class="article-content-inner">
+					<BOUCLE_mA(MOTS){id_article}{!par id_mot}{" "}>
+						<a href="#URL_MOT" class="skew-block category btn" title="">
+							<span class="content #INFO_COULEURMT{spip_couleurs,#_article:ID_RUBRIQUE}">#TITRE</span>
+							<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_RUBRIQUE}"></span>
+						</a>
+					</BOUCLE_mA>
+						<h2 class="basic-title large article-title">#TITRE</h2>
+						
+						<div class="fiche-article-intro">
+							<p>#CHAPO</p>
+						</div>
+						<div class="article-footer">
+							<ul>
+							<BOUCLE_eve(EVENEMENTS){id_article}>
+								<li>[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</li>
+							</BOUCLE_eve>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</article>
+			</div>
+			<article>
+				<div class="article-content">
+					<div class="fiche-article-content">
+						<div class="fiche-article-text">
+							#TEXTE
+						</div>
+						<div class="cf article-footer-container">
+													
+													#SET{reg1,'http[s]*:\/\/'}
+													<div class="article-footer social-footer">
+														<span class="inlbl">Partager</span>
+														<ul>
+															<li class="social-list--item">
+																<a href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|urlencode)]" title="Facebook">
+																	<i class="icon icon_facebook">
+																		<svg viewBox="0 0 96.124 96.123" class="svg_facebook">
+																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-facebook"></use>
+																		</svg>
+																	</i>
+																</a>
+															</li>
+															<li class="social-list--item">
+																<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+																	<i class="icon icon_twitter">
+																		<svg viewBox="0 0 612 612" class="svg_twitter">
+																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
+																		</svg>
+																	</i>
+																</a>
+															</li>
+															<li class="social-list--item">
+																<a href="https://plus.google.com/share?url=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" title="Google +">
+																	<i class="icon icon_g-plus">
+																		<svg viewBox="0 0 10.8 6.9" class="svg_g-plus">
+																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-g-plus"></use>
+																		</svg>
+																	</i>
+																</a>
+															</li>
+															
+														</ul>
+													</div>
+												</div>
+					</div>
+				</div>
+			</article>
+			
+			<BOUCLE_mois_a(DATA){source table, (#ENV{date}|affdate{"Y-m"}|creer_date_liste)}{0,3}>
+			<div class="cf || mb-20">
+			<BOUCLE_eve_mois_une(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0} {doublons une#_mois_a:COMPTEUR_BOUCLE}{id_mot ?}{0,1}>
+			<BOUCLE_art_mois_une(ARTICLES){id_article} >
+							<div class="col-48 || f-left full-m">
+								<article class="article-container">
+									<header>
+										<a href="#URL_ARTICLE" title="#TITLE" class="article-picture">
+											#LOGO_ARTICLE
+										</a>
+										<span  class="skew-block abs large shad left btn normal-hover">
+											<span class="content black">[(#_mois_a:VALEUR|affdate_mois_annee)]</span>
+											<span class="skew white-bg"></span>
+										</span>
+									</header>
+			
+									<div class="article-content">
+										<div class="article-content-inner">
+											<a href="#URL_ARTICLE" class="skew-block category btn" >
+												<span class="content"><BOUCLE_m_une(MOTS){id_article}{0,1}{!par id_mot}>#TITRE</BOUCLE_m_une></span>
+												<span class="skew green-bg"></span>
+											</a>
+			
+											<span class="article-date">[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</span>
+											<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" >#TITRE</a></h2>
+			
+											<p>[(#TEXTE|couper{300})]</p>
+										</div>
+									</div>
+								</article>
+							</div>			
+			</BOUCLE_art_mois_une>
+			</BOUCLE_eve_mois_une>
+							<div class="col-48 || f-right full-m || cf">
+							<BOUCLE_eve_mois_mune(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0} {1,3} {doublons une#_mois_a:COMPTEUR_BOUCLE}>
+							<BOUCLE_art_mois_mune(ARTICLES){id_article} >
+								<article class="cf || article-line-small || culture">
+									<div class="col-48 || f-left">
+										<header>
+											<a href="#URL_ARTICLE" class="article-picture">
+												#LOGO_ARTICLE
+											</a>
+										</header>
+										<span class="skew-block btn category">
+											<span class="content"><BOUCLE_m_mune(MOTS){id_article}{0,1}{!par id_mot}>#TITRE</BOUCLE_m_mune></span>
+											<span class="skew green-bg"></span>
+										</span>
+									</div>
+									<div class="col-48 || f-right ">
+										<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+										<span class="article-content">#CHAPO</span>
+										<div class="article-footer">
+											[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]
+										</div>
+									</div>
+								</article>
+							</BOUCLE_art_mois_mune>
+							</BOUCLE_eve_mois_mune>
+						</div>
+					</div>
+					<div class="cf || mb-40">
+					<B_eve_mois_tout>
+					<div class="col-40 || f-left full-m">
+					<BOUCLE_eve_mois_tout(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0}{doublons une#_mois_a:COMPTEUR_BOUCLE} >
+					[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+					<BOUCLE_art_mois_tout(ARTICLES){id_article} >
+							<article class="cf || col-48 || article-line-small || culture [(#_eve_mois_tout:COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+								<div class="col-48 || f-left">
+									<header>
+										<a href="#URL_ARTICLE"  class="article-picture">
+											#LOGO_ARTICLE
+										</a>
+									</header>
+									<span class="skew-block btn category">
+										<span class="content"><BOUCLE_m_gauche(MOTS){id_article}{0,1}{!par id_mot}>#TITRE</BOUCLE_m_gauche></span>
+										<span class="skew green-bg"></span>
+									</span>
+								</div>
+								<div class="col-48 || f-right">
+									<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+									<span class="article-content">#CHAPO</span>
+									<div class="article-footer">
+										[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]	</div>
+								</div>
+							</article>
+					</BOUCLE_art_mois_tout>
+						[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+					</BOUCLE_eve_mois_tout>
+					[(#TOTAL_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+					</div>
+					</B_eve_mois_tout>
+				</div>
+				</BOUCLE_mois_a>
+		</div>
+
+		<!-- end col-left -->
+		<INCLURE{fond=inclure/aside}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_article>

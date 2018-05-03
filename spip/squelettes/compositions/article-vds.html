@@ -1,0 +1,161 @@
+
+<BOUCLE_article(ARTICLES){id_article} {doublons A}>
+<INCLURE{fond=inclure/header,page=article,article=#TITRE,rubrique=#INFO_TITRE{rubriques,#ID_SECTEUR},bodyclass=article}{env}>
+<section class="container || first-container">
+	<BOUCLE_media(spip_configarticles){id_article}>
+		#SET{type, #TYPE}
+	</BOUCLE_media>
+	[(#GET{type}=={video}|oui)
+		<INCLURE{fond=inclure/medias/video}{env}/>
+	]
+	[(#GET{type}=={photo}|oui)
+		<INCLURE{fond=inclure/medias/photo}{env}/>
+	]
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+			<article class="article-container fiche-article || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
+				[(#GET{type}|?{'',' '})
+				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
+				<header>
+					<div class="article-picture">	
+						#LOGO_ARTICLE
+					</div>
+				</header>
+				]
+				<div class="article-content">
+					<div class="article-content-inner">
+					<BOUCLE_mA(MOTS){id_article}{!par id_mot}>
+						<a href="#URL_MOT" class="skew-block category btn" title="">
+							<span class="content #INFO_COULEURMT{spip_couleurs,#_article:ID_SECTEUR}">#TITRE</span>
+							<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_SECTEUR}"></span>
+						</a>
+					</BOUCLE_mA>
+						<h2 class="basic-title large article-title">#TITRE</h2>
+						<div class="cf article-footer-container">
+													<div class="article-footer">
+														[(#DATE|affdate)] •
+													</div>
+													#SET{reg1,'http[s]*:\/\/'}
+													<div class="article-footer social-footer">
+														<span class="inlbl">Partager</span>
+														<ul>
+															<li class="social-list--item">
+																<a href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|urlencode)]" title="Facebook">
+																	<i class="icon icon_facebook">
+																		<svg viewBox="0 0 96.124 96.123" class="svg_facebook">
+																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-facebook"></use>
+																		</svg>
+																	</i>
+																</a>
+															</li>
+															<li class="social-list--item">
+																<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+																	<i class="icon icon_twitter">
+																		<svg viewBox="0 0 612 612" class="svg_twitter">
+																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
+																		</svg>
+																	</i>
+																</a>
+															</li>
+															<li class="social-list--item">
+																<a href="https://plus.google.com/share?url=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" title="Google +">
+																	<i class="icon icon_g-plus">
+																		<svg viewBox="0 0 10.8 6.9" class="svg_g-plus">
+																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-g-plus"></use>
+																		</svg>
+																	</i>
+																</a>
+															</li>
+															
+														</ul>
+													</div>
+												</div>
+						<div class="fiche-article-content">
+							<div class="fiche-article-intro">
+								<p>#CHAPO</p>
+							</div>
+							<div class="fiche-article-text">
+								#TEXTE
+								<div class="cf article-footer-container">
+									<div class="article-footer">
+									<BOUCLE_auteur(AUTEURS){id_article}{" - "}>#NOM</BOUCLE_auteur>
+									</div>
+								<div class="article-footer social-footer">
+									<span class="inlbl">Partager</span>
+									<ul>
+										<li class="social-list--item">
+											<a href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|urlencode)]" title="Facebook">
+												<i class="icon icon_facebook">
+													<svg viewBox="0 0 96.124 96.123" class="svg_facebook">
+														<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-facebook"></use>
+													</svg>
+												</i>
+											</a>
+										</li>
+										<li class="social-list--item">
+											<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+												<i class="icon icon_twitter">
+													<svg viewBox="0 0 612 612" class="svg_twitter">
+														<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
+													</svg>
+												</i>
+											</a>
+										</li>
+										<li class="social-list--item">
+											<a href="https://plus.google.com/share?url=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" title="Google +">
+												<i class="icon icon_g-plus">
+													<svg viewBox="0 0 10.8 6.9" class="svg_g-plus">
+														<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-g-plus"></use>
+													</svg>
+												</i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>	
+			<div class="grey-bg block-medium-inner || article-first-grey-block">
+				<a href="#" class="skew-block rel large shad normal-hover">
+					<span class="content black">Services, aides<br>& démarches</span>
+					<span class="skew white-bg"></span>
+				</a>
+				<BOUCLE_ssd(spip_configunes_liens){id_configune=6}>
+				#SET{ssd,#ID_OBJET}
+				</BOUCLE_ssd>
+				<BOUCLE_sad(DATA)
+				{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
+				{datapath root/children/article}
+				>
+				<article class="basic-block--article-small cf">
+					<header class="col-25 || f-left">
+						<a href="#VALEUR{children/link/0/text}" class="article-picture">
+							<img src="#VALEUR{children/image/0/text}" />
+						</a>
+					</header>
+					<div class="col-70 || f-right">
+						<h4 class="basic-block--article-small-italic"><a href="#VALEUR{children/link/0/text}">#VALEUR{children/titre/0/text}</a></h4>
+						<p>#VALEUR{children/description/0/text}</p>
+					</div>
+				</article>
+				</BOUCLE_sad>
+			</div>
+		</div>
+
+		<!-- end col-left -->
+		<INCLURE{fond=inclure/aside}{env}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<script type="text/javascript">
+	$("a[href^='#']").click(function (e) {
+		e.preventDefault(); 		
+		window.location.hash = $(this).attr("href");
+		$(window).scrollTop( $(window).scrollTop() - 120 );
+	});
+</script>
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_article>

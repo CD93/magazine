@@ -8,6 +8,8 @@
 !/spip/manifest.json
 !/spip/plugins/
 /spip/plugins/*
-!/spip/plugins/voeux2018
+/spip/squelettes/
+!/spip/squelettes/
+
 .DS_Store
 package-lock.json

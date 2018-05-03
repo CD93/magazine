@@ -1,0 +1,7 @@
+<composition>
+        <nom>Rubrique vie du site</nom>
+        <description>Rubrique vie du site</description>
+        <branche type="rubrique" composition="vds" />
+        <branche type="article" composition="vds" />
+        <icon></icon>
+</composition>

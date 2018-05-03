@@ -1,0 +1,24 @@
+<!-- start Services aides et démarches -->
+<B_sad>
+<div class="grey-bg block-medium-inner mb-60">
+	<span class="skew-block rel medium shad">
+		<span class="content black">Services, aides<br>& démarches</span>
+		<span class="skew white-bg"></span>
+	</span>
+	<BOUCLE_sad(DATA)
+	{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=7}
+	{datapath root/children/article}
+	>
+	<article class="basic-block--article-small">
+		<header>
+			<a href="#VALEUR{children/link/0/text}"  class="article-picture">
+				<img src="#VALEUR{children/image/0/text}" />
+			</a>
+		</header>
+		<h4 class="basic-block--article-small-italic"><a href="#VALEUR{children/link/0/text}">#VALEUR{children/titre/0/text}</a></h4>
+		<p>#VALEUR{children/description/0/text}</p>
+	</article>
+	</BOUCLE_sad>
+</div>
+</B_sad>
+<!-- end Services aides et démarches -->

@@ -1,0 +1,233 @@
+
+#SET{vendors,slick.min.js}<INCLURE{fond=inclure/header,page=rubrique,rubrique=#TITRE,bodyclass=rubrique (#TITRE|strtolower)}{env}><!-- Contenu principal -->
+<style>
+	#carteo {
+		z-index: 1002;
+		width: 100%;
+		background-color: #fff;
+		padding: 10px 20px 10px 20px;
+		margin: 10px auto;
+		text-align: center;
+	}
+	#carteo img {
+		width: 90%;
+		margin: 10px auto;
+		border: 1px solid #E21636;
+	}
+	.slider-nav .slick-arrow {
+	  position: absolute;
+	  left: 0;
+	  width: 38px;
+	  height: 100%;
+	  display: block;
+	  z-index: 20;
+	  font-weight: 900;
+	  font-size: 20px;
+	  bottom: auto;
+	  top: -100px;
+	}
+	
+	.sport .slider-nav .slick-arrow {
+	  background: #24e5c3;
+	}
+	
+	.cadre-de-vie .slider-nav .slick-arrow {
+	  background: #e98f00;
+	}
+	
+	.agenda .slider-nav .slick-arrow {
+	  background: #e8e65b;
+	}
+	
+	.culture .slider-nav .slick-arrow {
+	  background: #a3cb50;
+	}
+	
+	.economie-culture .slider-nav .slick-arrow {
+	  background: #00c0e9;
+	}
+	
+	.solidarite .slider-nav .slick-arrow {
+	  background: #ea3d26;
+	}
+	
+	.slider-nav .slick-arrow.slick-next {
+	  right: 0;
+	  left: auto;
+	}
+	
+	.slick-arrow {
+	  display: block;
+	  position: absolute;
+	  top: 50%;
+	  z-index: 200;
+	  margin-top: -50px;
+	  cursor: pointer;
+	  -webkit-transition: 0.2s -webkit-transform cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	          transition: 0.2s transform cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	}
+	
+	.slick-arrow:hover {
+	  -webkit-transform: scale3d(0.9, 0.9, 0.9);
+	          transform: scale3d(0.9, 0.9, 0.9);
+	}
+	
+	.slick-arrow.next {
+	  right: 20px;
+	}
+	
+	.slick-arrow.prev {
+	  left: 20px;
+	  -webkit-transform: rotate(180deg);
+	      -ms-transform: rotate(180deg);
+	          transform: rotate(180deg);
+	}
+	
+	.slick-arrow.prev:hover {
+	  -webkit-transform: rotate(180deg) scale3d(0.9, 0.9, 0.9);
+	          transform: rotate(180deg) scale3d(0.9, 0.9, 0.9);
+	}
+	
+	.slick-arrow, .slick-arrow svg {
+	  display: block;
+	  width: 100px;
+	  height: 100px;
+	}
+</style>
+
+<INCLURE{fond=inclure/jop/compteur}/>
+
+	<section class="container || first-container">
+	<div class="col-row || sep || cf">
+		<div class="col-left">
+
+						<BOUCLE_uneA(ARTICLES pb_selection){0,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
+						<article class="article-container || cadre-de-vie">
+							<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
+							
+							<header>
+								<a href="#URL_ARTICLE" title="" class="article-picture">
+									[(#LOGO_ARTICLE)]
+								</a>
+							</header>
+			
+							<div class="article-content">
+								<div class="article-content-inner">
+									<a href="#URL_RUBRIQUE" class="skew-block category btn" title="#INFO_TITRE{rubrique,#ID_SECTEUR}">
+										<span class="content #INFO_COULEURMT{spip_couleurs,#ID_SECTEUR}">[(#INFO_ID_RUBRIQUE{rubrique,#ID_RUBRIQUE}|=={10}|?{'',' '})#INFO_TITRE{rubrique,#ID_RUBRIQUE}]
+										<BOUCLE_mA(MOTS){id_groupe=10}{id_article}{0,1}{!par id_mot}{si #ID_RUBRIQUE|=={10}}>
+												#TITRE
+										</BOUCLE_mA>
+										</span>
+										
+										<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
+									</a>
+									
+									<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+			
+									<p>#CHAPO</p>
+			
+									<div class="article-footer">
+										[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
+										<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
+									</div>
+								</div>
+							</div>
+						</article>
+						</BOUCLE_uneA>
+						<div class="col-row || cf">
+						<BOUCLE_uneb(ARTICLES pb_selection){1,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
+							<article class="article-container medium-article || col-48 f-left full-m || culture">
+								<header>
+									<a href="#URL_ARTICLE" title="" class="article-picture">
+										[(#LOGO_ARTICLE)]
+									</a>
+								</header>
+								<div class="article-content">
+									<div class="article-content-inner">
+										<a href="#URL_RUBRIQUE" class="skew-block category btn" title="#INFO_TITRE{rubrique,#ID_SECTEUR}">
+											<span class="content #INFO_COULEURMT{spip_couleurs,#ID_SECTEUR}">[(#INFO_ID_RUBRIQUE{rubrique,#ID_RUBRIQUE}|=={10}|?{'',' '})#INFO_TITRE{rubrique,#ID_RUBRIQUE}]
+											<BOUCLE_mB(MOTS){id_groupe=10}{id_article}{0,1}{!par id_mot}{si #ID_RUBRIQUE|=={10}}>
+													#TITRE
+											</BOUCLE_mB>
+											</span>
+											<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
+										</a>
+										<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+										<p>#CHAPO</p>
+										<div class="article-footer">
+										
+											[(#DATE|affdate)] • <BOUCLE_mediab(spip_configarticles){id_article}>
+											<span class="type icon-#TYPE"></span></BOUCLE_mediab>
+										</div>
+									</div>
+								</div>
+							</article>
+						</BOUCLE_uneb>
+						<BOUCLE_unec(ARTICLES pb_selection){2,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
+							<article class="article-container medium-article || col-48 f-right full-m || agenda">
+								<header>
+									<a href="#URL_ARTICLE" title="" class="article-picture">
+										[(#LOGO_ARTICLE)]
+									</a>
+								</header>
+								<div class="article-content">
+									<div class="article-content-inner">
+										<a href="#URL_RUBRIQUE" class="skew-block category btn" title="#INFO_TITRE{rubrique,#ID_SECTEUR}">
+											<span class="content #INFO_COULEURMT{spip_couleurs,#ID_SECTEUR}">[(#INFO_ID_RUBRIQUE{rubrique,#ID_RUBRIQUE}|=={10}|?{'',' '})#INFO_TITRE{rubrique,#ID_RUBRIQUE}]
+											<BOUCLE_mC(MOTS){id_groupe=10}{id_article}{0,1}{!par id_mot}{si #ID_RUBRIQUE|=={10}}>
+													#TITRE
+											</BOUCLE_mC>
+											</span>
+											<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
+										</a>
+			
+										<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+			
+										<p>#CHAPO</p>
+										<div class="article-footer">
+											[(#DATE|affdate)] • <BOUCLE_mediac(spip_configarticles){id_article}>
+											<span class="type icon-#TYPE"></span></BOUCLE_mediac>
+										</div>
+									</div>
+								</div>
+							</article>
+						</BOUCLE_unec>
+						
+						</div>
+
+
+		</div>
+		<INCLURE{fond=inclure/jop/aside_logo_jop}{env}/>
+	</div>
+	</section>
+	<section class="big-slider-container">
+		<div class="slider basic-slider big-slider cf" data-arrow="true" data-autoplay="true" data-speed="5000">
+			<img src="#CHEMIN{img/planJOP.png}" />
+		    <img src="#CHEMIN{img/pavillonssportif.jpg}" />
+		    <img src="#CHEMIN{img/PiscineMarville.jpg}" />
+		    <img src="#CHEMIN{img/piscineolympique.jpg}" />
+		    <img src="#CHEMIN{img/villageolympique.jpg}" />
+		    
+		</div>
+	</section>	
+	<div id="carteo">
+		
+	</div>
+	<section class="container || first-container">
+		<div class="col-row || sep || cf">
+			<div class="col-left">
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=202} />
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=186} />
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=232} />
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=187} />
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=230} />
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=211} />
+				<INCLURE{fond=inclure/jop/liste-slider}{id_mot=231} />
+			</div>
+			<INCLURE{fond=inclure/jop/aside_video_jop}{env}/>
+		</div>
+	</section>
+
+
+<INCLURE{fond=inclure/footer}{env} />

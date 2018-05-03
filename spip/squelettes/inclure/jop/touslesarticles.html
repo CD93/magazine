@@ -1,0 +1,32 @@
+
+<B_articlesA>
+#ANCRE_PAGINATION
+	<div class="full-m grid-2">	
+	<BOUCLE_articlesA(ARTICLES){id_mot}{1,40}{pagination 2}{!par date}>
+		<article class="article-container">
+			<header>
+				<a href="#URL_ARTICLE" title="" class="article-picture">
+					#LOGO_ARTICLE_NORMAL
+				</a>
+			</header>
+			<div class="article-content">
+				<div class="article-content-inner">
+				<BOUCLE_mB(MOTS){id_article}{0,1}{!par id_mot}>
+					<a href="#URL_MOT" class="skew-block category btn" title="">
+						<span class="content white">#TITRE</span>
+						<span class="skew light-blue-bg"></span>
+					</a>
+				</BOUCLE_mB>
+					<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+					<p>#CHAPO</p>
+					<div class="article-footer">
+						[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
+						<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
+					</div>
+				</div>
+			</div>
+		</article>
+	</BOUCLE_articlesA>
+	</div>
+	<p class="pagination">#PAGINATION{mag}</p>
+	</B_articlesA>

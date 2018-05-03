@@ -1,0 +1,99 @@
+<BOUCLE_mrubrique(RUBRIQUES){id_rubrique}>
+#SET{tab_articles,#ARRAY}
+<BOUCLE_articles_select(ARTICLES spip_pb_selection){spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{par ordre}{doublons}>
+	#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+</BOUCLE_articles_select>
+<BOUCLE_articles_par_date_inverse(ARTICLES){id_rubrique=#ID_RUBRIQUE}{par num titre}{!par date}{0,10}{doublons}>
+	#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+</BOUCLE_articles_par_date_inverse>
+<div class="large-mb cf">
+				<a class="skew-block abs large shad left btn normal-hover" href="#URL_RUBRIQUE">
+					<span class="content black">#TITRE</span>
+					<span class="skew white-bg"></span>
+				</a>
+				<div class="col-48 f-left full-m">
+				<BOUCLE_articleA(ARTICLES){id_article IN #GET{tab_articles}}{0,1}>
+					<article class="article-container || sport">
+						<header>
+							<a href="#URL_ARTICLE" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit." class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+
+						<div class="article-content">
+							<div class="article-content-inner">
+							<BOUCLE_mA(MOTS){id_article}{0,1}{!par id_mot}>
+								<a href="#URL_MOT" class="skew-block category btn" title="">
+									<span class="content #INFO_COULEURMT{spip_couleurs,#_articleA:ID_RUBRIQUE}">#TITRE</span>
+									<span class="skew #INFO_COULEURM{spip_couleurs,#_articleA:ID_RUBRIQUE}"></span>
+								</a>
+							</BOUCLE_mA>
+								<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+								<p>#CHAPO</p>
+
+								<div class="article-footer">
+									[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
+									<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
+								</div>
+							</div>
+						</div>
+					</article>
+				</BOUCLE_articleA>
+				<BOUCLE_articlesa(ARTICLES){id_article IN #GET{tab_articles}}{2,(#INFO_NBR_ART{configunes,#ID_RUBRIQUE}|moins{2})}{1/2}>
+					<article class="simple-article || hide-mobile">
+						<div class="article-content">
+							<div class="article-content-inner">
+								<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+
+								<div class="article-footer">
+									[(#DATE|affdate)] • 
+								</div>
+							</div>
+						</div>
+					</article>
+				</BOUCLE_articlesa>
+				</div>
+				<div class="col-48 f-right full-m">
+				<BOUCLE_articleB(ARTICLES){id_article IN #GET{tab_articles}}{1,1}>
+					<article class="article-container || sport">
+						<header>
+							<a href="#URL_ARTICLE" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit." class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+
+						<div class="article-content">
+							<div class="article-content-inner">
+								<BOUCLE_mB(MOTS){id_article}{0,1}{!par id_mot}>
+									<a href="#URL_MOT" class="skew-block category btn" title="">
+										<span class="content #INFO_COULEURMT{spip_couleurs,#_articleB:ID_RUBRIQUE}">#TITRE</span>
+										<span class="skew #INFO_COULEURM{spip_couleurs,#_articleB:ID_RUBRIQUE}"></span>
+									</a>
+								</BOUCLE_mB>
+								<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+								<p>#CHAPO</p>
+								<div class="article-footer">
+									[(#DATE|affdate)] • <BOUCLE_mediaB(spip_configarticles){id_article}>
+									<span class="type icon-#TYPE"></span></BOUCLE_mediaB>
+								</div>
+							</div>
+						</div>
+					</article>
+				</BOUCLE_articleB>
+				<BOUCLE_articlesb(ARTICLES){id_article IN #GET{tab_articles}}{2,(#INFO_NBR_ART{configunes,#ID_RUBRIQUE}|moins{2})}{2/2}>
+							<article class="simple-article || hide-mobile">
+								<div class="article-content">
+									<div class="article-content-inner">
+		
+										<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+		
+										<div class="article-footer">
+											[(#DATE|affdate)] • 
+										</div>
+									</div>
+								</div>
+							</article>
+				</BOUCLE_articlesb>	
+				</div>
+			</div>
+</BOUCLE_mrubrique>

@@ -1,0 +1,16 @@
+<!-- START BIG SLIDER-->
+<section class="big-slider-container">
+	<span class="skew-block abs large shad">
+		<span class="content black">les dossiers</span>
+		<span class="skew white-bg"></span>
+	</span>
+	<div class="slider basic-slider big-slider cf" data-arrow="true">
+		<BOUCLE_dossier(RUBRIQUES){id_rubrique ?}{id_mot ?}{0,3}{!par num titre}{titre!=^[0]+[.][ ]}>
+	    <a href="#URL_RUBRIQUE" class="big-slider--slide" title="Voir le dossier : #TITRE">
+	    	<span class="big-slider--caption">#TITRE</span>
+	    	#LOGO_RUBRIQUE
+	    </a>
+	 	</BOUCLE_dossier>
+	</div>
+</section>
+<!-- END BIG SLIDER-->

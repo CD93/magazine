@@ -1,0 +1,7 @@
+<composition>
+        <nom>Rubrique JOP</nom>
+        <description>Rubrique JOP</description>
+        <branche type="rubrique" composition="JOP" />
+        <branche type="article" composition="JOP" />
+        <icon></icon>
+</composition>

@@ -1,0 +1,158 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tous}>
+#SET{vendors,slick.min.js}
+<INCLURE{fond=inclure/header,page=rubrique,rubrique=#TITRE,bodyclass=rubrique (#TITRE|strtolower)}{env}>
+<!-- Contenu principal -->
+#SET{tab_articles,#ARRAY}
+<BOUCLE_articles_par_titre_num(ARTICLES) {enfants #ID_RUBRIQUE} {titre==^[0-9]+[.][ ]} {par num titre} {doublons}>
+	#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+</BOUCLE_articles_par_titre_num>
+
+<BOUCLE_articles_par_date_inverse(ARTICLES) {enfants #ID_RUBRIQUE} {par date}{inverse} {doublons}>
+	#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+</BOUCLE_articles_par_date_inverse>
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+		<BOUCLE_aerticleA(ARTICLES){id_article IN #GET{tab_articles}}{0,1}>
+			<article class="article-container || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
+				<span class="skew-block abs large shad">
+					<span class="content black">#_rubrique:TITRE</span>
+					<span class="skew white-bg"></span>
+				</span>
+				<header>
+					<a href="#URL_ARTICLE" title="" class="article-picture">
+						#LOGO_ARTICLE_NORMAL
+					</a>
+				</header>
+				
+	
+				<div class="article-content">
+					<div class="article-content-inner">
+						<BOUCLE_mA(MOTS){id_article}{!par id_mot}{0,1}>
+							<a href="#URL_MOT" class="skew-block category btn" title="">
+								<span class="content #INFO_COULEURMT{spip_couleurs,#_rubrique:ID_RUBRIQUE}">#TITRE</span>
+								<span class="skew #INFO_COULEURM{spip_couleurs,#_rubrique:ID_RUBRIQUE}"></span>
+							</a>
+						</BOUCLE_mA>						<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+						<p>#CHAPO</p>
+						<div class="article-footer">
+							[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
+							<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
+							
+						</div>
+					</div>
+				</div>
+			</article>
+		</BOUCLE_aerticleA>
+			<div class="col-row || cf || mb-40">
+			<BOUCLE_articlesB(ARTICLES){id_article IN #GET{tab_articles}}{1,2}>
+				<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+					<header>
+						<a href="#URL_ARTICLE" title="" class="article-picture">
+							#LOGO_ARTICLE
+						</a>
+					</header>
+					<div class="article-content">
+						<div class="article-content-inner">
+							<BOUCLE_mB(MOTS){id_article}{par id_mot}{0,1}>
+								<a href="#URL_MOT" class="skew-block category btn" title="">
+									<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesB:ID_RUBRIQUE}">#TITRE</span>
+									<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesB:ID_RUBRIQUE}"></span>
+								</a>
+							</BOUCLE_mB>
+
+							<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+
+							<p>#CHAPO</p>
+
+							<div class="article-footer">
+								[(#DATE|affdate)] • <BOUCLE_mediaB(spip_configarticles){id_article}>
+								<span class="type icon-#TYPE"></span></BOUCLE_mediaB>
+							</div>
+						</div>
+					</div>
+				</article>
+				</BOUCLE_articlesB>
+				
+			</div>
+			<div class="col-row || cf">
+			<BOUCLE_articlesC(ARTICLES){id_article IN #GET{tab_articles}}{3,1}>
+				<article class="article-container medium-article || col-48 || f-left">
+					<header>
+						<a href="#URL_ARTICLE" title="" class="article-picture">
+							#LOGO_ARTICLE
+						</a>
+					</header>
+					<div class="article-content">
+						<div class="article-content-inner">
+							<BOUCLE_mC(MOTS){id_article}{!par id_mot}{0,1}>
+								<a href="#URL_MOT" class="skew-block category btn" title="">
+									<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesC:ID_RUBRIQUE}">#TITRE</span>
+									<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesC:ID_RUBRIQUE}"></span>
+								</a>
+							</BOUCLE_mC>
+							<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" >#TITRE</a></h2>
+							<p>#CHAPO</p>
+
+							<div class="article-footer">
+								[(#DATE|affdate)] • <BOUCLE_mediaC(spip_configarticles){id_article}>
+								<span class="type icon-#TYPE"></span></BOUCLE_mediaC>
+							</div>
+						</div>
+					</div>
+				</article>
+			</BOUCLE_articlesC>
+				<div class="col-48 || f-right">
+					<!-- start Services aides et démarches -->
+					<BOUCLE_ssd(spip_configunes_liens){id_configune=#ID_RUBRIQUE}>
+					#SET{ssd,#ID_OBJET}
+					</BOUCLE_ssd>
+					<div class="grey-bg block-medium-inner mb-60">
+						<span class="skew-block rel medium shad">
+							<span class="content black">Services, aides<br>& démarches</span>
+							<span class="skew white-bg"></span>
+						</span>
+						
+						<BOUCLE_sad(DATA)
+						{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
+						{datapath root/children/article}
+						>
+						<article class="basic-block--article-small cf">
+							<header class="col-25 || f-left">
+								<a href="#VALEUR{children/link/0/text}"  class="article-picture" target="_blank">
+									<img src="#VALEUR{children/image/0/text}" />
+								</a>
+							</header>
+							<div class="col-70 || f-right">
+								<h4 class="basic-block--article-small-italic"><a href="#VALEUR{children/link/0/text}" target="_blank">#VALEUR{children/titre/0/text}</a></h4>
+								<!--<p>#VALEUR{children/description/0/text}</p>-->
+							</div>
+						</article>
+						</BOUCLE_sad>
+					</div>
+					<!-- end Services aides et démarches -->
+				</div>
+		</div>
+		
+				<INCLURE{fond=inclure/touslesarticles}{ajax}{env}/>		
+		<!-- end col-left -->
+		</div>
+		<INCLURE{fond=inclure/aside}{env}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+
+		<!-- start col-right -->
+		<aside class="col-right">
+
+		</aside>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_rubrique>

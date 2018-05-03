@@ -1,0 +1,34 @@
+<div class="mb-40">
+			
+			<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279" class="hide-mobile">
+
+			<div class="main-slider-container">
+				<div class="slider-for">
+				<BOUCLE_Gimages(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{vu=non}>
+					<div>
+						<div class="title-over-slider">
+							[<p class="basic-title white">(#DESCRIPTIF*)</p>]
+							[<div class="article-footer">(#CREDITS)</div>]
+						</div>
+						<div class="slider-mobile-title || hide-normal">
+							[<h1 class="basic-title white">(#DESCRIPTIF*)</h1>]
+							[<div class="article-footer">(#CREDITS)</div>]
+						</div>
+						[(#FICHIER|image_reduire{1200})]
+					</div>
+					
+				</BOUCLE_Gimages>
+				</div>
+			</div>
+
+			<div class="slider-nav">
+			<BOUCLE_pimages(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{vu=non}>
+				<div class="slide-article">
+					<div class="pic-cover" style="background-image:url([(#FICHIER|image_reduire{250}|extraire_attribut{src})])">
+					</div>
+				</div>
+				</BOUCLE_pimages>
+			</div>
+
+
+	</div>

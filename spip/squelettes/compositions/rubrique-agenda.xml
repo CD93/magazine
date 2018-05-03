@@ -1,0 +1,7 @@
+<composition>
+        <nom>Rubrique Agenda</nom>
+        <description>Rubrique Agenda</description>
+        <branche type="rubrique" composition="agenda" />
+        <branche type="article" composition="agenda" />
+        <icon></icon>
+</composition>

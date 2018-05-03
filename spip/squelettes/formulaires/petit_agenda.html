@@ -1,0 +1,60 @@
+<form action="[(#ENV{action})]" method="post" class="yellow-bg small-inner mb-60" id="form-date">
+				[(#ENV{action}|form_hidden)]
+										<h4 class="basic-title ff-1">Trouvez un rendez-vous</h4>
+										<!--
+										<div class="select-container mb-20">
+											<label for="pour-qui" class="basic-label">Pour qui ?</label>
+											<div class="form-select">
+												<select name="pour-qui" id="">
+													<option value="Enfant de -3 ans">Enfant de -3 ans</option>
+													<option value="Enfant entre 3 et 8 ans">Enfant entre 3 et 8 ans</option>
+													<option value="Enfant de + de 10 ans">Enfant de + de 10 ans</option>
+												</select>
+											</div>
+										</div>
+										-->
+				
+										<span class="basic-label">Voir quoi ?</span>
+										<div class="checkbox-wrapper mb-20">
+										<BOUCLE _themes(MOTS){id_groupe=8}{par titre}>
+											<div class="checkbox-container">
+												<input type="checkbox" value="#ID_MOT" name="id_mot[]" id="#ID_MOT">
+												<label for="#ID_MOT"><span>#TITRE</span></label>
+											</div>
+										</BOUCLE_themes>
+										</div>
+				
+				
+										<div class="select-container mb-20">
+											<label for="pour-qui" class="basic-label">Où ?</label>
+											<div class="form-select">
+												<select name="ville" id="ville">
+													<option value=""> </option>
+												<BOUCLE_villes(MOTS){id_groupe=9}{par titre}>
+													<option value="#TITRE">#TITRE</option>
+												</BOUCLE_villes>
+												</select>
+											</div>
+										</div>
+										<!--
+				
+										<span class="basic-label">Quand ?</span>
+										<div class="checkbox-wrapper mb-20">
+											<div class="checkbox-container">
+												<input type="checkbox" id="aujourd-hui">
+												<label for="aujourd-hui">Aujourd'hui</label>
+											</div>
+											<div class="checkbox-container">
+												<input type="checkbox" id="week-end">
+												<label for="week-end">Ce week-end</label>
+											</div>
+											<a href="#">Préciser</a>
+										</div>
+										-->
+										<div class="input-container mb-20">
+											<label for="" id="keywords" class="basic-label">Mots clés</label>
+											<input type="text" name="titre">
+										</div>
+										<input type="hidden" id="formu" name="formu" value="oui">
+										<input type="submit" value="Rechercher">
+									</form>

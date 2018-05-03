@@ -1,0 +1,7 @@
+<composition>
+        <nom>Rubrique Dossier</nom>
+        <description>Rubrique Dossier</description>
+        <branche type="rubrique" composition="sdossier" />
+        <branche type="article" composition="dossier" />
+        <icon></icon>
+</composition>

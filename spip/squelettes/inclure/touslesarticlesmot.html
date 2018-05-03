@@ -1,0 +1,35 @@
+<B_articles_tout>
+#ANCRE_PAGINATION
+<BOUCLE_articles_tout(ARTICLES){id_mot}{3,200}{!id_rubrique=8}{!par date}{pagination 6}>
+	[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+					<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+						<header>
+							<a href="#URL_ARTICLE" title="" class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+						<div class="article-content">
+							<div class="article-content-inner">
+								<BOUCLE_mtout(MOTS){id_article}{!par id_mot}>
+									<a href="#URL_MOT" class="skew-block category btn" title="">
+										<span class="content [(#INFO_COULEURMT{spip_couleurs,#_articles_tout:ID_RUBRIQUE}|sinon{'yellow'})]">#TITRE</span>
+										<span class="skew [(#INFO_COULEURM{spip_couleurs,#_articles_tout:ID_RUBRIQUE}|sinon{'darker-blue-bg'})]"></span>
+									</a>
+								</BOUCLE_mtout>
+	
+								<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+	
+								<p>#CHAPO</p>
+	
+								<div class="article-footer">
+									[(#DATE|affdate)] • <BOUCLE_media_tout(spip_configarticles){id_article}>
+									<span class="type icon-#TYPE"></span></BOUCLE_media_tout>
+								</div>
+							</div>
+						</div>
+				</article>
+		[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+	</BOUCLE_articles_tout>
+	<p class="pagination">#PAGINATION{mag}</p>
+	[(#TOTAL_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+</B_articles_tout>

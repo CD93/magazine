@@ -1,0 +1,19 @@
+
+<form action="[(#ENV{action})]" method="post" class="yellow-bg block-medium-inner || map-form mb-40" id="agenda-form">
+[(#ENV{action}|form_hidden)]
+<a href="#" class="skew-block rel medium shad normal-hover">
+	<span class="content black">Rechercher</span>
+	<span class="skew white-bg"></span>
+</a>
+<div class="large-inner">
+	<div class="col-row || cf">
+		<div class="col-48 f-left || full-m">
+			<div class="input-container mb-20">
+				<label for="" id="keywords" class="basic-label">Mots clés</label>
+				<input type="search" id="#ENV{_id_champ}"[ value="(#ENV{recherche})"] name="recherche"  accesskey="4" autocapitalize="off" autocorrect="off">
+			</div>
+			<input type="submit" value="Rechercher">
+		</div>
+	</div>
+</div>
+</form>

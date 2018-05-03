@@ -1,0 +1,72 @@
+
+<BOUCLE_article(ARTICLES){id_article} {doublons A}>
+<INCLURE{fond=inclure/jop/header_sans_menu,page=article,article=#TITRE,rubrique=#INFO_TITRE{rubriques,#ID_SECTEUR},bodyclass=article}{env}>
+<section class="container || first-container">
+	<BOUCLE_media(spip_configarticles){id_article}>
+		#SET{type, #TYPE}
+	</BOUCLE_media>
+	[(#GET{type}=={video}|oui)
+		<INCLURE{fond=inclure/medias/video}{env}/>
+	]
+	[(#GET{type}=={photo}|oui)
+		<INCLURE{fond=inclure/medias/photo}{env}/>
+	]
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+			<article class="article-container fiche-article || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
+				[(#GET{type}|?{'',' '})
+				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
+				<header>
+					<div class="article-picture">	
+						#LOGO_ARTICLE
+					</div>
+				</header>
+				]
+				<div class="article-content">
+					<div class="article-content-inner">
+					<BOUCLE_mA(MOTS){id_article}{!par id_mot}>
+						<a href="#URL_MOT" class="skew-block category btn" title="">
+							<span class="content #INFO_COULEURMT{spip_couleurs,#_article:ID_SECTEUR}">#TITRE</span>
+							<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_SECTEUR}"></span>
+						</a>
+					</BOUCLE_mA>
+						<h2 class="basic-title large article-title">#TITRE</h2>
+						<div class="cf article-footer-container">
+													<div class="article-footer">
+														[(#DATE|affdate)] •
+													</div>
+									
+												</div>
+						<div class="fiche-article-content">
+							<div class="fiche-article-intro">
+								<p>#CHAPO</p>
+							</div>
+							<div class="fiche-article-text">
+								#TEXTE
+								<div class="cf article-footer-container">
+									<div class="article-footer">
+									<BOUCLE_auteur(AUTEURS){id_article}{" - "}>#NOM</BOUCLE_auteur>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>	
+			
+		</div>
+
+		<!-- end col-left -->
+		<INCLURE{fond=inclure/jop/aside_video_jop}{env}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<script type="text/javascript">
+	$("a[href^='#']").click(function (e) {
+		e.preventDefault(); 		
+		window.location.hash = $(this).attr("href");
+		$(window).scrollTop( $(window).scrollTop() - 120 );
+	});
+</script>
+<INCLURE{fond=inclure/jop/footer_jop}{env} />
+</BOUCLE_article>

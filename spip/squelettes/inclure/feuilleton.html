@@ -1,0 +1,42 @@
+<br/>
+<BOUCLE_feuilleton(MOTS){id_mot}>
+<div class="grey-bg block-medium-inner mb-60">
+				<a class="skew-block rel large shad normal-hover" href="#URL_MOT">
+					<span class="content black">Tout un feuilleton !</span>
+					<span class="skew white-bg"></span>
+				</a>
+				<div class="slider basic-slider center-slider cf" data-dots="blue-bg">
+				  <BOUCLE_articlesDIAPO(ARTICLES){id_mot}{!par date}{0,1}>
+				  <div class="center-slider--slide">
+				  	<a href="#URL_ARTICLE">
+				  		<img class="b-lazy" 
+				  	         src="#CHEMIN{img/load.gif}"
+				  	         data-src="[(#LOGO_ARTICLE_NORMAL|extraire_attribut{src})]"
+				  	         alt="alt-text"
+				  	    />
+				  	 </a>
+				  	<BOUCLE_mA(MOTS){id_article}{0,1}{!par id_mot}>
+				  	<a href="#URL_MOT" class="skew-block category btn" title="">
+						<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesDIAPO:ID_RUBRIQUE}">#TITRE</span>
+						<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesDIAPO:ID_RUBRIQUE}"></span>
+					</a>
+					</BOUCLE_mA>
+					<div class="article-content">
+						<h2 class="basic-title large"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+						<BOUCLE_mediadia(spip_configarticles){id_article}>
+						<h1><span class="type icon-#TYPE"></span></h1></BOUCLE_mediadia>
+						<p>#CHAPO</p>
+							<div class="article-footer">
+								[(#DATE|affdate)] • 
+							</div>
+					</div>
+				</div>
+				  </BOUCLE_articlesDIAPO>
+				</div>
+				<center><h4 class="basic-title"><a href="#URL_MOT">Tous les épisodes</a></h4><a href="#URL_MOT" class="skew-block category btn" title="">
+					<span class="content #INFO_COULEURMT{spip_couleurs,2}">#TITRE</span>
+					<span class="skew #INFO_COULEURM{spip_couleurs,2}"></span>
+				</a></center>
+		
+</div>
+</BOUCLE_feuilleton>

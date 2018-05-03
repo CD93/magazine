@@ -1,0 +1,23 @@
+<!-- Pulpix -->
+<script type="text/javascript">var pulpixId=883;!function(e,t){var i=t.createElement("script"),r=t.getElementsByTagName("script")[0];i.src="https://cdn.pulpix.com/static/pulpix.js",i.id="pulpix",i.setAttribute("data-user-id",pulpixId),r.parentNode.insertBefore(i,r)}(window,document);</script>
+<!-- Pulpix -->	
+<div class="article-video-container || mb-40">
+		<BOUCLE_video(DOCUMENTS) {id_article}{extension==swf}>
+		#SET{hauteur,#ENV{hauteur,#HAUTEUR}} #SET{largeur,#ENV{largeur,#LARGEUR}}
+		[(#REM)
+		
+			Si la taille est zero, mettre une valeur par defaut 720x394
+		
+		][(#GET{hauteur}|plus{#GET{largeur}}|?{'',
+			[(#SET{largeur,720})][(#SET{hauteur,394})]
+		})]
+		#SET{video,oui}
+		#SET{reg1,'http[s]*:\/\/'}
+			<img width="317" height="279" id="logo-ssd" alt="Seine Saint-Denis" src="#CHEMIN{img/layout/logo-ssd.png}">
+			<iframe src="[(#FICHIER|issecure|?{"https://","http://"})][(#FICHIER|replace{#GET{reg1},""}|replace{/swf,/embed})]" allowFullScreen="true" [(#ENV*|env_to_attributs)] width='100%' height='auto' frameborder="0"></iframe>
+		</BOUCLE_video>
+		<BOUCLE_videoYT(DOCUMENTS){id_article}{extension==html}>
+		<img width="317" height="279" id="logo-ssd" alt="Seine Saint-Denis" src="#CHEMIN{img/layout/logo-ssd.png}">
+		<iframe width="100%" height="auto" src="https://www.youtube.com/embed/[(#FICHIER*|basename)]?rel=0" frameborder="0" allowfullscreen></iframe>
+		</BOUCLE_videoYT>
+	</div>

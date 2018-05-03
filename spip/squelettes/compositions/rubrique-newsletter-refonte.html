@@ -1,0 +1,534 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  		<title>#TITRE</title>
+  		<meta name="robots" content="noindex,follow">
+  		<link rel="icon" href="#URL_SITE_SPIP/squelettes/favicon4.ico">
+		<style type="text/css">
+			body {
+			    font-family: Arial, Helvetica, sans-serif;
+			    font-size: 12px;
+			    margin: 0;
+			    padding: 0;
+		  	}
+		  	a {
+		    	text-decoration: none;
+		  	}
+		  	img {
+		  		border:0 none!important;
+		  	}
+		</style>
+	</head>
+	<body>
+        <table id="tab1" align="center" border="0" cellpadding="0" cellspacing="0" width="720" >
+			<tbody>
+				<tr>
+					<td>
+						<p style="font-family:Arial, Helvetica, sans-serif;font-size:11px;" align="right"><a href="#NEWS_URL{#URL_RUBRIQUE,#ID_RUBRIQUE,"lienentete"}" target="_blank" style="color:#666666;border-bottom: 1px solid #333;">Voir cette lettre dans votre navigateur</a></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table id="tab3" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+					<tbody>
+					    <tr>
+					      	<td style="font-family:Arial, Helvetica, sans-serif;color:#000;font-size:17px;font-weight:400;padding: 0 25px;line-height: 1.5em;" align="left" bgcolor="#E6E6E6" width="720" >#TEXTE</td>
+					    </tr>
+					    <tr>
+					    	<td align="center" bgcolor="#FFFFFF" width="720" style="background-color: #FFF;color: #000;font-size: 56px;font-weight: 700;font-style: italic;z-index: 20;padding-top: 15px;">La newsletter du magazine de la Seine-Saint-Denis</td>
+					    </tr>
+					</tbody>
+				</table>
+		<BOUCLE_art_une(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{0,1}>
+		<table id="tab2" align="center" border="0" cellpadding="0" cellspacing="0" width="720" >
+			<tbody>
+				<tr>
+		    		<td><div style="position: relative;">
+		    				<!--<div style="position: absolute;top: -15px;left: -30px;"><img src="#URL_SITE_SPIP/squelettes/img/layout/logo-ssd.png" width="159" height="140" border="0" /></div>-->
+		    				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+		    				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]" alt="" style="border:none;/" height="auto" border="0" />
+		    				</a>
+		    				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+		    					<BOUCLE_m_une(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+		    						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_une:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_une:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+		    					</BOUCLE_m_une>
+		    				</div>
+		    				</div>
+		    				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900; margin:15px 25px 0 25px;">#TITRE</span></a>
+		    				<div style="position:relative;margin:0 25px 15px 25px">
+		    					<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+		    					<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+		    					[(#DATE|affdate)] • <BOUCLE_media_une(spip_configarticles){id_article}>
+		    					<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_media_une>
+		    					</div>
+		    				</div>
+		    		</td>
+		  		</tr>
+
+			</tbody>
+		</table>
+		</BOUCLE_art_une>
+
+
+		<table id="bodytab5" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+		  	<tbody>
+		    	<tr>
+		      		<td align="left" bgcolor="#ffffff" valign="top" width="350">
+					 	<BOUCLE_art_zone06(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{1,1}>
+					    <table id="bodytab5-1" bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="350">
+					      	<tbody>
+					        	<tr>
+					        		<td>
+					        	    	<div style="position: relative;">
+					        	    		<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+					        				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+					        				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+					        					<BOUCLE_mB(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+					        						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_zone06:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_zone06:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+					        					</BOUCLE_mB>
+					        				</div>
+					        			</div>
+					        		</td>
+					        	</tr>
+					        	<tr>
+					        			<td height="25">&nbsp;</td>
+					        	</tr>
+					        	<tr>
+					        		<td>
+					        			<div style="position:relative;margin:0 25px">
+					        				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;" >#TITRE</span>
+					        				</a>
+					        			</div>
+					        		</td>
+					        	</tr>
+					        	<tr>
+					        		<td>
+					        			<div style="position:relative;margin:0 25px">
+					        				<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+					        				<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+					        				[(#DATE|affdate)] • <BOUCLE_mediab2(spip_configarticles){id_article}>
+					        				<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_mediab2>
+					        				</div>
+					        			</div>
+					        		</td>
+					        	</tr>
+						    </tbody>
+						</table>
+						<br/>
+		            	</BOUCLE_art_zone06>
+					</td>
+				    <td style="" bgcolor="#ffffff" width="20">&nbsp;</td>
+				    <td align="left" bgcolor="#ffffff" valign="top" width="350">
+				     	<BOUCLE_art_zone07(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{2,1}>
+				        <table id="bodytab7-1" bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="350">
+				          	<tbody>
+				            	<tr>
+				            		<td>
+				            	    	<div style="position: relative;">
+				            	    		<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+				            				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+				            				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+				            					<BOUCLE_mC(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+				            						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_zone07:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_zone07:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+				            					</BOUCLE_mC>
+				            				</div>
+				            			</div>
+				            		</td>
+				            	</tr>
+				            	<tr>
+				            			<td height="25">&nbsp;</td>
+				            	</tr>
+				            	<tr>
+				            		<td>
+				            			<div style="position:relative;margin:0 25px">
+				            				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;"  >#TITRE</span>
+				            				</a>
+				            			</div>
+				            		</td>
+				            	</tr>
+				            	<tr>
+				            		<td>
+				            			<div style="position:relative;margin:0 25px">
+				            				<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+				            				<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+				            				[(#DATE|affdate)] • <BOUCLE_mediab3(spip_configarticles){id_article}>
+				            				<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_mediab3>
+				            				</div>
+				            			</div>
+				            		</td>
+				            	</tr>
+				            </tbody>
+				        </table>
+				        <br/>
+				    </BOUCLE_art_zone07>
+				    </td>
+				</tr>
+			</tbody>
+		</table>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+	<tbody>
+    	<tr>
+      		<td height="50">&nbsp;</td>
+    	</tr>
+  	</tbody>
+</table>
+<table id="bodytab5" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+  	<tbody>
+    	<tr>
+      		<td align="left" bgcolor="#ffffff" valign="top" width="350">
+			 	<BOUCLE_art_zone16(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{3,1}>
+			    <table id="bodytab5-1" bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="350">
+			      	<tbody>
+			        	<tr>
+			        		<td>
+			        	    	<div style="position: relative;">
+			        	    		<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+			        				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+			        				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+			        					<BOUCLE_mB2(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+			        						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_zone16:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_zone16:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+			        					</BOUCLE_mB2>
+			        				</div>
+			        			</div>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        			<td height="25">&nbsp;</td>
+			        	</tr>
+			        	<tr>
+			        		<td>
+			        			<div style="position:relative;margin:0 25px">
+			        				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;" >#TITRE</span>
+			        				</a>
+			        			</div>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        		<td>
+			        			<div style="position:relative;margin:0 25px">
+			        				<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;">#CHAPO</span>
+			        				<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+			        				[(#DATE|affdate)] • <BOUCLE_mediab22(spip_configarticles){id_article}>
+			        				<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_mediab22>
+			        				</div>
+			        			</div>
+			        		</td>
+			        	</tr>
+				    </tbody>
+				</table>
+				<br/>
+            	</BOUCLE_art_zone16>
+			</td>
+		    <td style="" bgcolor="#ffffff" width="20">&nbsp;</td>
+		    <td align="left" bgcolor="#ffffff" valign="top" width="350">
+		     	<BOUCLE_art_zone17(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{4,1}>
+		        <table id="bodytab7-1" bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="350">
+		          	<tbody>
+		            	<tr>
+		            		<td>
+		            	    	<div style="position: relative;">
+		            	    		<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+		            				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+		            				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+		            					<BOUCLE_mC2(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+		            						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_zone17:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_zone17:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+		            					</BOUCLE_mC2>
+		            				</div>
+		            			</div>
+		            		</td>
+		            	</tr>
+		            	<tr>
+		            			<td height="25">&nbsp;</td>
+		            	</tr>
+		            	<tr>
+		            		<td>
+		            			<div style="position:relative;margin:0 25px">
+		            				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;"  >#TITRE</span>
+		            				</a>
+		            			</div>
+		            		</td>
+		            	</tr>
+		            	<tr>
+		            		<td>
+		            			<div style="position:relative;margin:0 25px">
+		            				<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+		            				<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+		            				[(#DATE|affdate)] • <BOUCLE_mediab32(spip_configarticles){id_article}>
+		            				<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_mediab32>
+		            				</div>
+		            			</div>
+		            		</td>
+		            	</tr>
+		            </tbody>
+		        </table>
+		        <br/>
+		    </BOUCLE_art_zone17>
+		    </td>
+		</tr>
+	</tbody>
+</table>
+<table id="bodytab5bis" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+  	<tbody>
+    	<tr>
+      		<td align="left" bgcolor="#ffffff" valign="top" width="350">
+			 	<BOUCLE_art_zone16bis(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{5,1}>
+			    <table id="bodytab5-1" bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="350">
+			      	<tbody>
+			        	<tr>
+			        		<td>
+			        	    	<div style="position: relative;">
+			        	    		<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+			        				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+			        				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+			        					<BOUCLE_mB2bis(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+			        						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_zone16bis:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_zone16bis:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+			        					</BOUCLE_mB2bis>
+			        				</div>
+			        			</div>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        			<td height="25">&nbsp;</td>
+			        	</tr>
+			        	<tr>
+			        		<td>
+			        			<div style="position:relative;margin:0 25px">
+			        				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;" >#TITRE</span>
+			        				</a>
+			        			</div>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        		<td>
+			        			<div style="position:relative;margin:0 25px">
+			        				<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+			        				<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+			        				[(#DATE|affdate)] • <BOUCLE_mediab22bis(spip_configarticles){id_article}>
+			        				<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_mediab22bis>
+			        				</div>
+			        			</div>
+			        		</td>
+			        	</tr>
+				    </tbody>
+				</table>
+				<br/>
+            	</BOUCLE_art_zone16bis>
+			</td>
+		    <td style="" bgcolor="#ffffff" width="20">&nbsp;</td>
+		    <td align="left" bgcolor="#ffffff" valign="top" width="350">
+		     	<BOUCLE_art_zone17bis(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{6,1}>
+		        <table id="bodytab7-1" bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="350">
+		          	<tbody>
+		            	<tr>
+		            		<td>
+		            	    	<div style="position: relative;">
+		            	    		<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+		            				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+		            				<div style="color: #fff;font-size: 20px;font-weight: 700;font-style: italic;z-index: 20;position: absolute;bottom: -15px;padding: 8px;">
+		            					<BOUCLE_mC2bis(MOTS){id_article}{!par id_mot}{id_groupe != 9}{0,2}>
+		            						<span style="color: [(#INFO_COLMT{spip_couleurs,#_art_zone17bis:ID_RUBRIQUE}|sinon{#E8E65B})];background-color: [(#INFO_COLM{spip_couleurs,#_art_zone17bis:ID_RUBRIQUE}|sinon{#001F5B})];margin-left: 20px;padding: 5px;" class="">#TITRE</span>
+		            					</BOUCLE_mC2bis>
+		            				</div>
+		            			</div>
+		            		</td>
+		            	</tr>
+		            	<tr>
+		            			<td height="25">&nbsp;</td>
+		            	</tr>
+		            	<tr>
+		            		<td>
+		            			<div style="position:relative;margin:0 25px">
+		            				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;" >#TITRE</span>
+		            				</a>
+		            			</div>
+		            		</td>
+		            	</tr>
+		            	<tr>
+		            		<td>
+		            			<div style="position:relative;margin:0 25px">
+		            				<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+		            				<div style="border-top: 1px solid #333;display: inline;padding-top: 10px;" align="left">
+		            				[(#DATE|affdate)] • <BOUCLE_mediab32bis(spip_configarticles){id_article}>
+		            				<span style="display: inline-block;"><img src="#URL_SITE_SPIP/squelettes/img/layout/picto-#TYPE-x2.png" width="15px" height="15px"></span></BOUCLE_mediab32bis>
+		            				</div>
+		            			</div>
+		            		</td>
+		            	</tr>
+		            </tbody>
+		        </table>
+		        <br/>
+		    </BOUCLE_art_zone17bis>
+		    </td>
+		</tr>
+	</tbody>
+</table>
+<BOUCLE_rubag(RUBRIQUES){id_parent}{tout}>
+<table id="agenda" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+	<tbody>
+		<tr>
+			<td colspan="4">
+				<div style="border-top:1px solid #333;border-bottom:1px solid #333;background-color: #FFF;color: #000;font-size: 42px;font-weight: 700;font-style: italic;z-index: 20;padding: 10px;margin: 15px 0 25px 0;">
+					<center>#TITRE</center>
+					<div style="font-family:Arial, Helvetica, sans-serif;color:#000;font-size:17px;font-weight:400;font-style: normal;padding: 0 25px;line-height: 1.5em;">#TEXTE</div>
+				</div>
+			</td>
+		</tr>
+		<tr bgcolor="#f2f2f2">
+	  		<BOUCLE_art_agenda(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{0,1}>
+	  		<td align="left" valign="top" width="350">
+	  				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+	  				<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+	  		</td>
+	  		<td style=""  width="20">&nbsp;</td>
+	  		<td align="left" valign="top" width="350">
+	  			<div style="position:relative;margin:15px 25px 0 25px">
+	  				<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;" >#TITRE</span>
+	  				</a>
+	  			</div>
+	  			<div style="position:relative;margin:0 25px">
+	  			<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+	  			<BOUCLE_date_eve(EVENEMENTS){id_article}{"<br/>"}>
+	  				<strong><big>Le [(#DATE_DEBUT|affdate)]</big></strong>
+	  			</BOUCLE_date_eve>
+	  			<span style="color: #333;display: block;color:#5b5b5b;font-size:16px;line-height: 1.25em;margin:  15px 0;" >[(#TEXTE|couper{400})]</span>
+	  			</div>
+	  		</td>
+	  		</BOUCLE_art_agenda>
+		</tr>
+		<tr>
+				<td colspan="4" height="25">&nbsp;</td>
+		</tr>
+		<tr bgcolor="#f2f2f2">
+				<BOUCLE_art_agenda2(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{1,1}>
+
+
+				<td align="left" valign="top" width="350">
+					<div style="position:relative;margin:15px 25px 0 25px">
+						<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lientitre"}" title="[(#TITRE|textebrut)]" target="_blank"><span style="padding-top: 0px;display: block;color:#000000;font-size:30px;line-height: 1,2em;font-weight: 900;" >#TITRE</span>
+						</a>
+					</div>
+					<div style="position:relative;margin:0 25px">
+					<span style="display: block;color:#000000;font-size:17px;line-height: 1.5em;" >#CHAPO</span>
+					<BOUCLE_date_eve2(EVENEMENTS){id_article}{"<br/>"}>
+						<strong><big>Le [(#DATE_DEBUT|affdate)]</big></strong>
+					</BOUCLE_date_eve2>
+					<span style="color: #5b5b5b;display: block;font-size:16px;line-height: 1.25em;margin: 15px 0;" >[(#TEXTE|couper{400})]</span>
+					</div>
+				</td>
+				<td style="" width="20">&nbsp;</td>
+				<td align="left" bgcolor="#ffffff" valign="top" width="350">
+						<a href="#NEWS_URL{#URL_ARTICLE,#_rubrique:ID_RUBRIQUE,"lienimage"}" title="[(#TITRE|textebrut)]" target="_blank" style="z-index: -15;">
+						<img src="#URL_SITE_SPIP/[(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})]" alt="[(#TITRE|textebrut)]" style="width: 350px; height:auto;z-index: -15;" title="[(#TITRE|textebrut)]"  align="" width="350" /></a>
+				</td>
+				</BOUCLE_art_agenda2>
+		</tr>
+		<tr>
+				<td colspan="4" height="40">&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</BOUCLE_rubag>
+		<table id="bodytab6" bgcolor="" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+			<tbody>
+		    	<tr>
+		      		<td height="25">&nbsp;</td>
+		    	</tr>
+		  	</tbody>
+		</table>
+		<br/>
+		<table id="tab22" align="center" bgcolor="#E9E35B" border="0" cellpadding="0" cellspacing="0" width="720">
+			<tbody>
+				<tr>
+					<td colspan="9">
+						<div style="position: relative;">
+							<div style="display: inline;background-color: #FFF;color: #000;font-size: 42px;font-weight: 700;font-style: italic;z-index: 20;padding: 10px;position: absolute;top: -50px;">
+								<span>suivez-nous aussi sur</span>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="9" height="50px">&nbsp;</td>
+				</tr>
+	    		<tr>
+	    			<td width="8px">&nbsp;</td>
+	        		<td width="170px" align="center" valign="top">
+	        			<a href="#NEWS_URL{"https://www.facebook.com/seinesaintdenisledepartement/",#_rubrique:ID_RUBRIQUE,"lienRS"}" title="Facebook" target="_blank">
+	        				<img src="#URL_SITE_SPIP/squelettes/img/layout/picto-facebook.png" alt="Facebook" height="40" border="0" style="margin-bottom: 15px;">
+	        				<br/>
+	        				<span style="color: #000;font-size: 18px;font-weight: 700;font-style: italic;">Facebook</span>
+	        				<hr style="border-bottom: 1px solid #333;width: 30px;" />
+	        				<span style="color: #000;font-size: 18px;">Seine Saint Denis,<br/>le Département</span>
+	        			</a>
+	        		</td>
+	        		<td width="8px">&nbsp;</td>
+			        <td width="170px" align="center" valign="top">
+			        	<a href="#NEWS_URL{"https://twitter.com/@seinesaintdenis",#_rubrique:ID_RUBRIQUE,"lienRS"}" title="Twitter" target="_blank">
+			        		<img src="#URL_SITE_SPIP/squelettes/img/layout/picto-twitter.png" alt="Twitter" height="40" border="0" style="margin-bottom: 15px;">
+			        		<br/>
+			        		<span style="color: #000;font-size: 18px;font-weight: 700;font-style: italic;">Twitter</span>
+			        		<hr style="border-bottom: 1px solid #333;width: 30px;" />
+			        		<span style="color: #000;font-size: 18px;">@seinesaintdenis<br/>#SSD93</span>
+			        	</a>
+			        </td>
+			        <td width="8px">&nbsp;</td>
+			        <td width="170px" align="center" valign="top">
+			        	<a href="#NEWS_URL{"http://instagram.com/seine_saint_denis#",#_rubrique:ID_RUBRIQUE,"lienRS"}" title="Instagram" target="_blank">
+			        		<img src="#URL_SITE_SPIP/squelettes/img/layout/picto-insta.png" alt="Instagram" height="40" border="0" style="margin-bottom: 15px;">
+			        		<br/>
+			        		<span style="color: #000;font-size: 18px;font-weight: 700;font-style: italic;">Instagram</span>
+			        		<hr style="border-bottom: 1px solid #333;width: 30px;" />
+			        		<span style="color: #000;font-size: 18px;">seine_saint_denis</span>
+			        	</a>
+			        </td>
+			        <td width="8px">&nbsp;</td>
+			        <td width="170px" align="center" valign="top">
+			        	<a href="#NEWS_URL{"https://www.youtube.com/user/seinesaintdenisfr",#_rubrique:ID_RUBRIQUE,"lienRS"}" title="youtube" target="_blank">
+			        		<img src="#URL_SITE_SPIP/squelettes/img/layout/picto-youtube.png" alt="youtube" height="40" border="0" style="margin-bottom: 15px;">
+			        		<br/>
+			        		<span style="color: #000;font-size: 18px;font-weight: 700;font-style: italic;">Youtube</span>
+			        		<hr style="border-bottom: 1px solid #333;width: 30px;" />
+			        		<span style="color: #000;font-size: 18px;">youtube.com/<br/>user/seinesaintdenisfr</span>
+			        	</a>
+			        </td>
+			        <td width="8px">&nbsp;</td>
+	      		</tr>
+	      		<tr>
+	      			<td colspan="9" height="25px">&nbsp;</td>
+	      		</tr>
+			</tbody>
+		</table>
+		<br/>
+		<table id="bodytab6" bgcolor="" align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+			<tbody>
+		    	<tr>
+		      		<td height="25">&nbsp;</td>
+		    	</tr>
+		  	</tbody>
+		</table>
+		<br/>
+		<table id="tab23" align="center" bgcolor="#4e638b" border="0" cellpadding="0" cellspacing="0" width="720">
+			<tbody>
+		    	<tr>
+		      		<td>
+		      			<div style="padding:5px;">
+		    				<table id="tab24" align="center" bgcolor="" border="0" cellpadding="0" cellspacing="0" width="100%">
+						    	<tbody>
+						    		<tr>
+						    			<td width="10">&nbsp;</td>
+						    			<td align="left"><a href="#NEWS_URL{"http://seinesaintdenis.fr/",#_rubrique:ID_RUBRIQUE,"lienimage"}" title="seinesaintdenis.fr" target="_blank" style="color:#fff;font-size:10px;font-family:Arial, Helvetica, sans-serif;"><img src="#URL_SITE_SPIP/squelettes/img/layout/logofoot-ssd.png" alt="Logo SSD" border="0" width="150"></a></td>
+										<td style="font-family:Arial, Helvetica, sans-serif;color:#fff;font-size:12px;" valign="middle" width="500" align="right">Si vous ne souhaitez plus recevoir de courriers électroniques de la part du Conseil départemental de la Seine-Saint-Denis /// <a href="!_desaclientall_!" title="Se désinscrire" target="_blank" style="color:#fff;font-size: 12px;border-bottom: 1px solid #fff;"><font color="#fff">cliquez ici</font></a></td>
+  								        <td width="10">&nbsp;</td>
+						      		</tr>
+						      	</tbody>
+						  	</table>
+				       	</div>
+ 					</td>
+			  	</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+</BOUCLE_rubrique>

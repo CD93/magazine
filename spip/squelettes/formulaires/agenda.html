@@ -1,0 +1,61 @@
+
+<form action="[(#ENV{action})]" method="post" class="yellow-bg block-medium-inner || map-form article-first-grey-block" id="agenda-form">
+[(#ENV{action}|form_hidden)]
+				<a href="#" class="skew-block rel medium shad normal-hover">
+					<span class="content black">trouvez un rendez-vous</span>
+					<span class="skew white-bg"></span>
+				</a>
+				<div class="large-inner">
+					<div class="col-row || cf">
+						<div class="col-48 f-left || full-m">
+							<div class="checkbox-wrapper || mb-20">
+								<p class="basic-label">Quand ?</p>
+								
+							</div>
+							<div class="datepicker || mb-20"></div>
+							<input type="hidden" id="date" name="date" value="#DATE">
+						</div>
+						<div class="col-48 f-right || full-m">
+							<div class="select-container mb-20">
+								<label for="ou" class="basic-label">Où ?</label>
+								<div class="form-select">
+									<select name="ville" id="ville">
+										<option value=""> </option>
+									<BOUCLE_villes(MOTS){id_groupe=9}{par titre}>
+										<option value="#TITRE">#TITRE</option>
+									</BOUCLE_villes>
+									</select>
+								</div>
+							</div>
+
+							<span class="basic-label">Voir quoi ?</span>
+							<div class="checkbox-wrapper mb-20">
+								<BOUCLE _themes(MOTS){id_groupe=8}{par titre}>
+									<div class="checkbox-container || inlbl">
+										<input type="checkbox" value="#ID_MOT" name="id_mot[]" id="#TITRE">
+										<label for="#TITRE"><span>#TITRE</span></label>
+									</div>
+								</BOUCLE_themes>
+							</div>
+
+							<div class="input-container mb-20">
+								<label for="" id="keywords" class="basic-label">Mots clés</label>
+								<input type="text" name="titre">
+							</div>
+
+							<input type="hidden" id="formu" name="formu" value="oui">
+							<input type="submit" value="Rechercher">
+						</div>
+					</div>
+					
+				</div>
+			</form>
+			<script>
+			
+			$( ".datepicker" ).datepicker({
+				inline: true,
+				onSelect: function(date) {
+				            $("#date").val(date);
+				        },
+			});
+			</script>

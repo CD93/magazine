@@ -1,0 +1,37 @@
+<B_rubriques_tout>
+#ANCRE_PAGINATION
+<div class="block-medium-inner">
+	<span class="skew-block rel medium shad">
+		<span class="content black">Dans les dossiers</span>
+		<span class="skew white-bg"></span>
+	</span>
+</div>
+<BOUCLE_rubriques_tout(RUBRIQUES){recherche}{id_parent=9}{!par date}{pagination 6}>
+	[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+					<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+						<header>
+							<a href="#URL_RUBRIQUE" title="" class="article-picture">
+								#LOGO_RUBRIQUE
+							</a>
+						</header>
+						<div class="article-content">
+							<div class="article-content-inner">
+								<BOUCLE_mtout(MOTS){id_rubrique}{par id_mot}{0,1}>
+									<a href="#URL_MOT" class="skew-block category btn" title="">
+										<span class="content #INFO_COULEURMT{spip_couleurs,#_rubriques_tout:ID_SECTEUR}">#TITRE</span>
+										<span class="skew #INFO_COULEURM{spip_couleurs,#_rubriques_tout:ID_SECTEUR}"></span>
+									</a>
+								</BOUCLE_mtout>
+	
+								<h2 class="basic-title medium article-title"><a href="#URL_RUBRIQUE" title="">#TITRE</a></h2>
+	
+								<p>#CHAPO</p>
+	
+							</div>
+						</div>
+				</article>
+		[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+	</BOUCLE_rubriques_tout>
+	<p class="pagination">#PAGINATION{mag}</p>
+	[(#TOTAL_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+</B_rubriques_tout>

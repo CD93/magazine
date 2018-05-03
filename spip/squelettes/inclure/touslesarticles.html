@@ -1,0 +1,43 @@
+#SET{tab_articles,#ARRAY}
+<BOUCLE_articles_par_titre_num(ARTICLES) {enfants #ID_RUBRIQUE} {titre==^[0-9]+[.][ ]} {par num titre} {doublons}>
+	#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+</BOUCLE_articles_par_titre_num>
+
+<BOUCLE_articles_par_date_inverse(ARTICLES) {enfants #ID_RUBRIQUE} {par date}{inverse} {doublons}>
+	#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+</BOUCLE_articles_par_date_inverse>
+<B_articles_tout>
+#ANCRE_PAGINATION
+<BOUCLE_articles_tout(ARTICLES){id_article IN #GET{tab_articles}}{4,200}{pagination 6}>
+	[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+					<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+						<header>
+							<a href="#URL_ARTICLE" title="" class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+						<div class="article-content">
+							<div class="article-content-inner">
+								<BOUCLE_mtout(MOTS){id_article}{par id_mot}{0,1}>
+									<a href="#URL_MOT" class="skew-block category btn" title="">
+										<span class="content #INFO_COULEURMT{spip_couleurs,#_articles_tout:ID_SECTEUR}">#TITRE</span>
+										<span class="skew #INFO_COULEURM{spip_couleurs,#_articles_tout:ID_SECTEUR}"></span>
+									</a>
+								</BOUCLE_mtout>
+	
+								<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+	
+								<p>#CHAPO</p>
+	
+								<div class="article-footer">
+									[(#DATE|affdate)] • <BOUCLE_media_tout(spip_configarticles){id_article}>
+									<span class="type icon-#TYPE"></span></BOUCLE_media_tout>
+								</div>
+							</div>
+						</div>
+				</article>
+		[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+	</BOUCLE_articles_tout>
+	<p class="pagination">#PAGINATION{mag}</p>
+	[(#TOTAL_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+</B_articles_tout>

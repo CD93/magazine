@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*---------------------------------------*		Styles et réglages globaux
+\*---------------------------------------*/
+/*------------------------------------*		Easing
+\*------------------------------------*/
+/*------------------------------------*		Page d'accueil
+\*------------------------------------*/
+#sport {
+  margin-bottom: 170px;
+}
+
+.small-inner {
+  padding: 15px;
+}
+
+#form-date {
+  color: black;
+  width: 100%;
+}
+
+#form-date .basic-title {
+  margin-bottom: 20px;
+}
+
+#form-date .checkbox-container {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+#form-date a {
+  color: black;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGlCQUFpQjtBQUNqQjsyQ0FDMkM7QUFDM0M7d0NBQ3dDO0FBQ3hDO3dDQUN3QztBQUN4QztFQUNFLHFCQUFxQjtDQUN0Qjs7QUFFRDtFQUNFLGNBQWM7Q0FDZjs7QUFFRDtFQUNFLGFBQWE7RUFDYixZQUFZO0NBQ2I7O0FBRUQ7RUFDRSxvQkFBb0I7Q0FDckI7O0FBRUQ7RUFDRSxzQkFBc0I7RUFDdEIsbUJBQW1CO0NBQ3BCOztBQUVEO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtDQUNqQiIsImZpbGUiOiJwYWdlcy9ob21lLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKlx0XHRTdHlsZXMgZXQgcsOpZ2xhZ2VzIGdsb2JhdXhcblxcKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSpcdFx0RWFzaW5nXG5cXCotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xuLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qXHRcdFBhZ2UgZCdhY2N1ZWlsXG5cXCotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xuI3Nwb3J0IHtcbiAgbWFyZ2luLWJvdHRvbTogMTcwcHg7XG59XG5cbi5zbWFsbC1pbm5lciB7XG4gIHBhZGRpbmc6IDE1cHg7XG59XG5cbiNmb3JtLWRhdGUge1xuICBjb2xvcjogYmxhY2s7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4jZm9ybS1kYXRlIC5iYXNpYy10aXRsZSB7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbiNmb3JtLWRhdGUgLmNoZWNrYm94LWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4jZm9ybS1kYXRlIGEge1xuICBjb2xvcjogYmxhY2s7XG4gIGZvbnQtc2l6ZTogMTJweDtcbn1cbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */

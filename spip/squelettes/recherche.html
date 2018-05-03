@@ -1,0 +1,134 @@
+
+#SET{page,rubrique}
+#SET{bodyclass,home}
+#SET{vendors,slick.min.js}
+<INCLURE{fond=inclure/header,page=rubrique,rubrique=recherche,bodyclass=rubrique (recherche|strtolower)}{env}>
+<!-- Contenu principal -->
+
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		
+		<div class="col-left">
+		<div class="form_recherche">
+			#FORMULAIRE_RECHERCHE
+		</div>
+		<INCLURE{fond=inclure/rubriquesrecherches}{ajax}{env}/>
+		<INCLURE{fond=inclure/articlesrecherches}{ajax}{env}/>
+		<B_agenda_mot>
+		<div class="block-medium-inner">
+			<span class="skew-block rel medium shad">
+				<span class="content black">Dans l'agenda</span>
+				<span class="skew white-bg"></span>
+			</span>
+		</div>
+			<BOUCLE_agenda_mot(ARTICLES){recherche}{id_rubrique=8}{!par date}{0,1}>
+				<div class="col-48 || f-left full-m">
+					<article class="article-container">
+						<header>
+							<a href="#URL_ARTICLE" title="" class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+						</header>
+
+						<div class="article-content">
+							<div class="article-content-inner">
+								<a href="#" class="skew-block category btn" >
+									<span class="content"><BOUCLE_m_aune(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_aune></span>
+									<span class="skew green-bg"></span>
+								</a>
+								<BOUCLE_evedate(EVENEMENTS){id_article}>
+								<span class="article-date">[(#DATE_DEBUT|affdate)] [ - (#DATE_FIN|affdate)]</span>
+								</BOUCLE_evedate>
+								<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" >#TITRE</a></h2>
+
+								<p>[(#TEXTE|couper{300})]</p>
+							</div>
+						</div>
+					</article>
+				</div>			
+			</BOUCLE_agenda_mot>
+				<B_agenda_mmot>
+				<div class="col-48 || f-right full-m || cf">
+						<BOUCLE_agenda_mmot(ARTICLES){recherche}{1,3}{id_rubrique=8}{!par date}>
+							<article class="cf || article-line-small">
+								<div class="col-48 || f-left">
+									<header>
+										<a href="#URL_ARTICLE" class="article-picture">
+											#LOGO_ARTICLE
+										</a>
+									</header>
+									<span class="skew-block btn category">
+										<span class="content"><BOUCLE_m_amune(MOTS){id_groupe=8}{id_article}{0,1}{!par id_mot}>#TITRE</BOUCLE_m_amune></span>
+										<span class="skew green-bg"></span>
+									</span>
+								</div>
+								<div class="col-48 || f-right ">
+									<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+									<span class="article-content">#CHAPO</span>
+									<div class="article-footer">
+									<BOUCLE_evedates(EVENEMENTS){id_article}>
+										[(#DATE_DEBUT|affdate)][ • (#DATE_FIN|affdate)]
+									</BOUCLE_evedates>
+									</div>
+								</div>
+							</article>
+						</BOUCLE_agenda_mmot>
+					</div>
+					</B_agenda_mmot>
+				
+					<B_affichagefutur>
+					<div class="col-40 || f-left full-m">
+						<BOUCLE_affichagefutur(ARTICLES){recherche}{3,20}{id_rubrique=8}{!par date}>
+								[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
+										<article class="cf || col-48 || article-line-small  [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
+											<div class="col-48 || f-left">
+												<header>
+													<a href="#URL_ARTICLE"  class="article-picture">
+														#LOGO_ARTICLE
+													</a>
+												</header>
+												<span class="skew-block btn category">
+													<span class="content"><BOUCLE_m_selectf(MOTS){id_article}{0,1}{id_groupe=8}{!par id_mot}>#TITRE</BOUCLE_m_selectf></span>
+													<span class="skew green-bg"></span>
+												</span>
+											</div>
+											<div class="col-48 || f-right">
+												<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" title="">#TITRE</a></h4>
+												<span class="article-content">#CHAPO</span>
+												<div class="article-footer">
+												<BOUCLE_eveafff(EVENEMENTS){id_article}>
+													[(#DATE_DEBUT|affdate)][ • (#DATE_FIN|affdate)]
+													<B_villef>
+													 à 
+													<BOUCLE_villef(MOTS){id_article}{id_groupe=9}{!par id_mot}{" "}>
+													#TITRE
+													</BOUCLE_villef>
+												</BOUCLE_eveafff>
+												</div>
+										</article>
+							[(#COMPTEUR_BOUCLE|modulo{2}=={0}|?{"</div>"})]
+						</BOUCLE_affichagefutur>
+						[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"</div>"})]
+					</div>
+					</B_affichagefutur>
+									<!-- end col-left -->
+		</div>
+		<INCLURE{fond=inclure/aside}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+
+		<!-- start col-right -->
+		<aside class="col-right">
+
+		</aside>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_mot>

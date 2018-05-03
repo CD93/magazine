@@ -1,0 +1,22 @@
+<!-- start ce week-end -->
+<div class="slider-container mb-60">
+	<span class="skew-block abs medium shad">
+		<span class="content black">Rendez-vous</span>
+		<span class="skew white-bg"></span>
+	</span>
+	<div class="slider basic-slider center-slider cf" data-autoplay="true" data-speed="5000">
+	<BOUCLE_agenda_en_une(ARTICLES spip_pb_selection){0,5}{spip_pb_selection.id_rubrique=8}>
+	  <div class="center-slider--slide">
+	  	#LOGO_ARTICLE
+	  	<BOUCLE_m_agenda(MOTS){id_article}{0,1}{!par id_mot}>
+	  	<a href="#URL_MOT" class="skew-block category btn" title="#TITRE">
+			<span class="content">#TITRE</span>
+			<span class="skew yellow-bg"></span>
+		</a>
+		</BOUCLE_m_agenda>
+		<h2 class="basic-title large"><a href="#URL_ARTICLE" >#TITRE</a></h2>	
+	  </div>
+	  </BOUCLE_agenda_en_une>
+	</div>
+</div>
+<!-- end ce week-end -->

@@ -1,0 +1,1 @@
+var Pages=Pages||{};Pages.home=function(i){"use strict";var s=this;s.init=function(){}};

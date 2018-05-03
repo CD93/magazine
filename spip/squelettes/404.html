@@ -1,0 +1,73 @@
+
+<INCLURE{fond=inclure/header,page=article,article=404,rubrique=#INFO_TITRE{rubriques,#ID_SECTEUR},bodyclass=article}{env}>
+<section class="container || first-container">
+	<BOUCLE_media(spip_configarticles){id_article}>
+		#SET{type, #TYPE}
+	</BOUCLE_media>
+	[(#GET{type}=={video}|oui)
+		<INCLURE{fond=inclure/medias/video}{env}/>
+	]
+	[(#GET{type}=={photo}|oui)
+		<INCLURE{fond=inclure/medias/photo}{env}/>
+	]
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+			<article class="article-container fiche-article || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
+				[(#GET{type}|?{'',' '})
+				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
+				<header>	
+					<div class="article-picture">
+						<img src="#CHEMIN{img/404.jpg}" alt="" />
+					</div>
+				</header>
+				]
+				<div class="article-content">
+					<div class="article-content-inner">
+						<h2 class="basic-title large article-title">Oups, La page demandée n'existe pas...</h2>
+						<br/>
+						<br/>
+						<div class="rechercher">
+						#FORMULAIRE_RECHERCHE
+						</div>
+				</div>
+				</div>
+			</article>
+			<div class="grey-bg block-medium-inner || article-first-grey-block">
+				<a href="#" class="skew-block rel large shad normal-hover">
+					<span class="content black">Services, aides<br>& démarches</span>
+					<span class="skew white-bg"></span>
+				</a>
+								<BOUCLE_sad(DATA)
+				{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=6}
+				{datapath root/children/article}
+				>
+				<article class="basic-block--article-small cf">
+					<header class="col-25 || f-left">
+						<a href="#VALEUR{children/link/0/text}" class="article-picture">
+							<img src="#VALEUR{children/image/0/text}" />
+						</a>
+					</header>
+					<div class="col-70 || f-right">
+						<h4 class="basic-block--article-small-italic"><a href="#VALEUR{children/link/0/text}">#VALEUR{children/titre/0/text}</a></h4>
+						<p>#VALEUR{children/description/0/text}</p>
+					</div>
+				</article>
+				</BOUCLE_sad>
+			</div>
+		</div>
+
+		<!-- end col-left -->
+		<INCLURE{fond=inclure/aside}{env}>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<script type="text/javascript">
+	$("a[href^='#']").click(function (e) {
+		e.preventDefault(); 		
+		window.location.hash = $(this).attr("href");
+		$(window).scrollTop( $(window).scrollTop() - 120 );
+	});
+</script>
+<INCLURE{fond=inclure/footer}{env} />
+</BOUCLE_article>

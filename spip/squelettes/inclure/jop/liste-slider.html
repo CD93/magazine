@@ -1,0 +1,39 @@
+
+<div class="slider-container mb-60">
+				<a class="skew-block abs large shad left btn normal-hover" href="#">
+					<span class="content black">#INFO_TITRE{mot,#ENV{id_mot}}</span>
+					<span class="skew white-bg"></span>
+				</a>
+				<div class="slider basic-slider center-slider cf" data-dots="blue-bg">
+				  <BOUCLE_articlesDIAPO(ARTICLES){id_mot ?}{id_rubrique ?}{0,#ENV{nbr,1}}{!par date}>
+				  <div class="center-slider--slide">
+				  	<a href="#URL_ARTICLE">
+				  		<img class="b-lazy" 
+				  	         src="#CHEMIN{img/load.gif}"
+				  	         data-src="[(#LOGO_ARTICLE_NORMAL|extraire_attribut{src})]"
+				  	         alt="alt-text"
+				  	    />
+				  	 </a>
+				  	<BOUCLE_mA(MOTS){id_article}{0,1}{!par id_mot}>
+				  	<a href="#URL_MOT" class="skew-block category btn" title="">
+						<span class="content white">#TITRE</span>
+						<span class="skew light-blue-bg"></span>
+					</a>
+					</BOUCLE_mA>
+					<div class="article-content">
+					<h2 class="basic-title large"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+					<BOUCLE_mediadia(spip_configarticles){id_article}>
+					<h1><span class="type icon-#TYPE"></span></h1></BOUCLE_mediadia>
+					<p>#CHAPO</p>
+					<div class="article-footer">
+						[(#DATE|affdate)] • 
+					</div>
+					</div>
+				  </div>
+				  </BOUCLE_articlesDIAPO>
+				</div>
+				<div class="large-mb cf">
+					<INCLURE{fond=inclure/jop/touslesarticles}{id_mot}{ajax}/>
+				</div>
+</div>
+			
