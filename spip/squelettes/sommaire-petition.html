@@ -1,0 +1,236 @@
+#SET{vendors,slick.min.js}
+<INCLURE{fond=inclure/header,sommaire=sommaire,page=home,bodyclass=home} />
+<!-- Contenu principal -->
+<INCLURE{fond=inclure/splash-petition2017-2} />
+<section class="container || first-container">
+	<div class="col-row || sep || cf">
+		<div class="col-left">
+			<BOUCLE_uneA(ARTICLES pb_selection){0,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
+			<article class="article-container || cadre-de-vie">
+				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
+				
+				<header>
+					<a href="#URL_ARTICLE" title="" class="article-picture">
+						[(#LOGO_ARTICLE)]
+					</a>
+				</header>
+
+				<div class="article-content">
+					<div class="article-content-inner">
+						<a href="#URL_RUBRIQUE" class="skew-block category btn" title="#INFO_TITRE{rubrique,#ID_SECTEUR}">
+							<span class="content #INFO_COULEURMT{spip_couleurs,#ID_SECTEUR}">[(#INFO_ID_RUBRIQUE{rubrique,#ID_RUBRIQUE}|=={10}|?{'',' '})#INFO_TITRE{rubrique,#ID_RUBRIQUE}]
+							<BOUCLE_mA(MOTS){id_article}{0,1}{!par id_mot}{si #ID_RUBRIQUE|=={10}}>
+									#TITRE
+							</BOUCLE_mA>
+							</span>
+							
+							<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
+						</a>
+						
+						<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+
+						<p>#CHAPO</p>
+
+						<div class="article-footer">
+							[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
+							<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
+						</div>
+					</div>
+				</div>
+			</article>
+			</BOUCLE_uneA>
+			<div class="col-row || cf">
+			<BOUCLE_uneb(ARTICLES pb_selection){1,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
+				<article class="article-container medium-article || col-48 f-left full-m || culture">
+					<header>
+						<a href="#URL_ARTICLE" title="" class="article-picture">
+							[(#LOGO_ARTICLE)]
+						</a>
+					</header>
+					<div class="article-content">
+						<div class="article-content-inner">
+							<a href="#URL_RUBRIQUE" class="skew-block category btn" title="#INFO_TITRE{rubrique,#ID_SECTEUR}">
+								<span class="content #INFO_COULEURMT{spip_couleurs,#ID_SECTEUR}">[(#INFO_ID_RUBRIQUE{rubrique,#ID_RUBRIQUE}|=={10}|?{'',' '})#INFO_TITRE{rubrique,#ID_RUBRIQUE}]
+								<BOUCLE_mB(MOTS){id_article}{0,1}{!par id_mot}{si #ID_RUBRIQUE|=={10}}>
+										#TITRE
+								</BOUCLE_mB>
+								</span>
+								<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
+							</a>
+							<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+							<p>#CHAPO</p>
+							<div class="article-footer">
+							
+								[(#DATE|affdate)] • <BOUCLE_mediab(spip_configarticles){id_article}>
+								<span class="type icon-#TYPE"></span></BOUCLE_mediab>
+							</div>
+						</div>
+					</div>
+				</article>
+			</BOUCLE_uneb>
+			<BOUCLE_unec(ARTICLES pb_selection){2,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
+				<article class="article-container medium-article || col-48 f-right full-m || agenda">
+					<header>
+						<a href="#URL_ARTICLE" title="" class="article-picture">
+							[(#LOGO_ARTICLE)]
+						</a>
+					</header>
+					<div class="article-content">
+						<div class="article-content-inner">
+							<a href="#URL_RUBRIQUE" class="skew-block category btn" title="#INFO_TITRE{rubrique,#ID_SECTEUR}">
+								<span class="content #INFO_COULEURMT{spip_couleurs,#ID_SECTEUR}">[(#INFO_ID_RUBRIQUE{rubrique,#ID_RUBRIQUE}|=={10}|?{'',' '})#INFO_TITRE{rubrique,#ID_RUBRIQUE}]
+								<BOUCLE_mC(MOTS){id_article}{0,1}{!par id_mot}{si #ID_RUBRIQUE|=={10}}>
+										#TITRE
+								</BOUCLE_mC>
+								</span>
+								<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
+							</a>
+
+							<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+
+							<p>#CHAPO</p>
+							<div class="article-footer">
+								[(#DATE|affdate)] • <BOUCLE_mediac(spip_configarticles){id_article}>
+								<span class="type icon-#TYPE"></span></BOUCLE_mediac>
+							</div>
+						</div>
+					</div>
+				</article>
+			</BOUCLE_unec>
+			
+			</div>
+			<INCLURE{fond=inclure/feuilleton}{id_mot=142}/>
+		</div>
+
+		<aside class="col-right || hide-mobile">
+
+			<INCLURE{fond=inclure/weekend}{env} />
+			<INCLURE{fond=inclure/flashinfo}{env} />
+
+		</aside><!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+
+<!-- START BIG SLIDER-->
+<section class="big-slider-container">
+	<span class="skew-block abs large shad">
+		<span class="content black">les dossiers</span>
+		<span class="skew white-bg"></span>
+	</span>
+	<div class="slider basic-slider big-slider cf" data-arrow="true">
+		<BOUCLE_dossier(RUBRIQUES){id_parent=9}{0,3}{!par num titre}{titre!=^[0]+[.][ ]}>
+	    <a href="#URL_RUBRIQUE" class="big-slider--slide" title="Voir le dossier : #TITRE">
+	    	<span class="big-slider--caption">#TITRE</span>
+	    	#LOGO_RUBRIQUE
+	    </a>
+	 	</BOUCLE_dossier>
+	</div>
+</section>
+<!-- END BIG SLIDER-->
+
+<section class="container first-row">
+	<div class="col-row || sep || cf">
+		<!-- start col-left -->
+		<div class="col-left">
+		<BOUCLE_educ(CONFIGUNES){id_rubrique=4}{tous}>
+			<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+		</BOUCLE_educ> 
+		
+			<BOUCLE_culture(CONFIGUNES){id_rubrique=2}{tous}>
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
+			</BOUCLE_culture>
+			
+			<BOUCLE_eco(CONFIGUNES){id_rubrique=5}{tous}>
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+			</BOUCLE_eco>
+			
+			<BOUCLE_cdv(CONFIGUNES){id_rubrique=6}{tous}>
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+			</BOUCLE_cdv>
+						
+			<BOUCLE_sport(CONFIGUNES){id_rubrique=3}{tous}>
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+			</BOUCLE_sport>
+			
+			<BOUCLE_sol(CONFIGUNES){id_rubrique=7}{tous}>
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+			</BOUCLE_sol>
+			<div class="cf mb-80">
+				<div class="col-48 || f-left full-m">
+				<BOUCLE_agenda_UNE(ARTICLES spip_pb_selection){0,1}{spip_pb_selection.id_rubrique=8}{par ordre}>
+					<article class="article-container || cuisine">
+						<header>
+							<a href="#URL_ARTICLE" class="article-picture">
+								#LOGO_ARTICLE
+							</a>
+							<span class="skew-block abs large shad left">
+								<span class="content black">agenda</span>
+								<span class="skew white-bg"></span>
+							</span>
+						</header>
+
+						<div class="article-content">
+							<div class="article-content-inner">
+								<a href="#" class="skew-block category btn">
+									<span class="content">ce week-end</span>
+									<span class="skew green-bg"></span>
+								</a>
+								<BOUCLE_evenement(EVENEMENTS){id_article}>
+								<span class="article-date">[(#DATE_DEBUT|affdate)] [ - (#DATE_FIN|affdate)]</span>
+								</BOUCLE_evenement>
+								<h2 class="basic-title large article-title"><a href="#URL_ARTICLE">#TITRE</a></h2>
+								#CHAPO
+							</div>
+						</div>
+					</article>
+				</BOUCLE_agenda_UNE>
+				</div>
+
+				<div class="col-48 || f-right full-m || cf">
+					#FORMULAIRE_PETIT_AGENDA
+					<BOUCLE_agenda_un(ARTICLES spip_pb_selection){1,1}{spip_pb_selection.id_rubrique=8}{par ordre}>
+					<article class="cf || article-line-small">
+						<div class="col-48 || f-left">
+							<header>
+								<a href="#URL_ARTICLE" class="article-picture">
+									#LOGO_ARTICLE
+								</a>
+							</header>
+							<BOUCLE_m_a(MOTS){id_article}{0,1}{!par id_mot}>
+							<span class="skew-block btn category">
+								<span class="content">#TITRE</span>
+								<span class="skew green-bg"></span>
+							</span>
+							</BOUCLE_m_a>
+						</div>
+						<div class="col-48 || f-right">
+							<h4 class="basic-title article-title medium"><a href="#URL_ARTICLE" >#TITRE</a></h4>
+							#CHAPO
+						</div>
+					</article>
+					</BOUCLE_agenda_un>
+				</div>
+			</div>
+
+		</div>
+		<!-- end col-left -->
+
+		<!-- start col-right -->
+		<aside class="col-right hide-mobile">
+			<!-- start social button -->
+			<INCLURE{fond=inclure/travaux} />
+			<INCLURE{fond=inclure/sad}{env} />
+			<INCLURE{fond=inclure/reseauxsoc} />
+			#FORMULAIRE_ABONEWSLETTER
+			<!-- end social button -->
+			<INCLURE{fond=inclure/nosvideos}{env} />
+			<INCLURE{fond=inclure/rendezvous}{env} />
+			<INCLURE{fond=inclure/facebook}{env} />
+			<INCLURE{fond=inclure/twitter}{env} />
+			
+		</aside>
+		<!-- end col-right -->
+	</div> <!-- end first row-->
+</section> <!-- end container-->
+<!-- avant footer -->
+<INCLURE{fond=inclure/footer}{env} />

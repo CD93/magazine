@@ -1,0 +1,14 @@
+<BOUCLE_couleur(COULEURS){id_couleur=#ENV{id}}>
+<div class="infos">
+[(#SET{texte_objet,<:couleur:titre_couleur:>})]
+<div class="numero"><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_COULEUR</p></div>
+
+	[(#AUTORISER{supprimer, couleur, #ID_COULEUR}|oui)
+		[(#BOUTON_ACTION{
+			[(#CHEMIN_IMAGE{couleur-del-24.png}|balise_img{<:couleur:supprimer_couleur:>}|concat{' ',#VAL{<:couleur:supprimer_couleur:>}|wrap{<b>}}|trim)],
+			#URL_ACTION_AUTEUR{supprimer_couleur, #ID_COULEUR, #URL_ECRIRE{couleurs}},
+			icone s24 horizontale danger couleur-del-24, <:couleur:confirmer_supprimer_couleur:>})]
+	]
+
+</div>
+</BOUCLE_couleur>

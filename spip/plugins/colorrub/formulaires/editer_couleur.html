@@ -1,0 +1,54 @@
+<div class='formulaire_spip formulaire_editer formulaire_#FORM formulaire_#FORM-#ENV{id_couleur,nouveau}'>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV**{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	[(#ENV{editable})
+	<form method="post" action="#ENV{action}"><div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+		<input type="hidden" name="id_couleur" value="#ENV{id_couleur}" />
+		<div class="editer-groupe">
+ 
+			[(#SAISIE{input, couleur,
+				label=<:couleur:champ_couleur_label:>})]
+
+			[<div class="editer editer_rubrique[ (#ENV**{erreurs/id_parent}|oui)erreur]">
+					<label for="id_parent"><:titre_cadre_interieur_rubrique:></label>[
+					<span class="erreur_message">(#ENV**{erreurs/id_parent})</span>
+					]
+					(#VAL|chercher_rubrique{#ENV{id_couleur},#ENV{id_parent},'couleur',#ENV{id_secteur},'',0,form_simple})
+			</div>]
+ 
+			[(#SAISIE{input, col,
+				label=<:couleur:champ_col_label:>})]
+ 
+			[(#SAISIE{input, couleurm,
+				label=<:couleur:champ_couleurm_label:>})]
+ 
+			[(#SAISIE{input, colm,
+				label=<:couleur:champ_colm_label:>})]
+ 
+			[(#SAISIE{input, page,
+				label=<:couleur:champ_page_label:>})]
+ 
+			[(#SAISIE{input, couleurmt,
+				label=<:couleur:champ_couleurmt_label:>})]
+ 
+			[(#SAISIE{input, colmt,
+				label=<:couleur:champ_colmt_label:>})]
+ 
+			[(#SAISIE{input, bodyclass,
+				label=<:couleur:champ_bodyclass_label:>})]
+ 
+			[(#SAISIE{input, utils,
+				label=<:couleur:champ_utils_label:>})]
+ 
+			[(#SAISIE{input, vendors,
+				label=<:couleur:champ_vendors_label:>})]
+
+		</div>
+		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+		<!--extra-->
+		<p class="boutons"><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+	</div></form>
+	]
+</div>

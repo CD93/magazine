@@ -1,0 +1,30 @@
+[(#ID_OBJET|oui)
+	[(#AUTORISER{modifier,configarticle,#ID_CONFIGARTICLE}|sinon_interdire_acces)]
+][(#ID_OBJET|non)
+	[(#AUTORISER{creer,configarticle}|sinon_interdire_acces)]
+]
+ 
+#SET{redirect,#ENV{redirect}|sinon{#ID_CONFIGARTICLE|?{#ID_CONFIGARTICLE|generer_url_entite{configarticle},#URL_ECRIRE{configarticles}}}}
+
+<div class="cadre-formulaire-editer">
+<div class="entete-formulaire">
+	[(#ID_CONFIGARTICLE|oui)
+	[(#GET{redirect}|icone_verticale{Retour,configarticle,'',left retour[(#ENV{retourajax,''}|oui)ajax preload]})]
+	]
+	[
+		[(#ID_CONFIGARTICLE|?{<:configarticle:icone_modifier_configarticle:>,<:configarticle:icone_creer_configarticle:>})]
+		<h1>(#ENV{titre,#INFO_TYPE{configarticle,#ID_CONFIGARTICLE}|sinon{<:info_sans_titre:>}})</h1>
+	]
+</div>
+
+#SET{redirect,#ENV{redirect,#ID_CONFIGARTICLE|generer_url_entite{configarticle}}}
+[(#ENV{retourajax,''}|oui)
+	#SET{redirect,'javascript:if (window.jQuery) jQuery(".entete-formulaire .retour a").followLink();'}
+	<div class="ajax">
+]
+		[(#FORMULAIRE_EDITER_CONFIGARTICLE{#ENV{id_configarticle,oui}, #GET{redirect}, #ENV{associer_objet}})]
+[(#ENV{retourajax,''}|oui)
+	</div>
+	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}');/*\]\]>*/</script>
+]
+</div>

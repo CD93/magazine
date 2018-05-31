@@ -17,7 +17,7 @@
 				[(#GET{type}|?{'',' '})
 				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
 				<header>
-					<div class="article-picture">	
+					<div class="article-picture">
 						#LOGO_ARTICLE
 					</div>
 				</header>
@@ -30,7 +30,7 @@
 							<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_SECTEUR}"></span>
 						</a>
 					</BOUCLE_mA>
-						<h2 class="basic-title large article-title #EDIT{titre}">#TITRE</h2>
+						<h2 class="basic-title large article-title #EDIT{titre}">#TITRE<div class="liencourt"><a title="lien court vers l'article #ID_ARTICLE" href="#URL_ARTICLE">http://ssd.fr/mag#ID_ARTICLE</a></div></h2>
 						<div class="cf article-footer-container">
 													<div class="article-footer">
 														[(#DATE|affdate)] •
@@ -66,7 +66,7 @@
 																	</i>
 																</a>
 															</li>
-															
+
 														</ul>
 													</div>
 												</div>
@@ -139,11 +139,11 @@
 													<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_SECTEUR}"></span>
 												</a>
 											</BOUCLE_mlire>
-				
+
 											<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
-				
+
 											<p>#CHAPO</p>
-				
+
 											<div class="article-footer">
 												[(#DATE|affdate)] • <BOUCLE_media_tout(spip_configarticles){id_article}>
 												<span class="type icon-#TYPE"></span></BOUCLE_media_tout>
@@ -155,7 +155,7 @@
 				</BOUCLE_lire_aussi>
 				[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"</div>"})]
 			</B_lire_aussi>
-			</div>	
+			</div>
 			<BOUCLE_ssd(spip_configunes_liens){id_configune=#ID_RUBRIQUE}>
 			#SET{ssd,#ID_OBJET}
 			</BOUCLE_ssd>
@@ -165,7 +165,7 @@
 					<span class="content black">Services, aides<br>& démarches</span>
 					<span class="skew white-bg"></span>
 				</a>
-				
+
 				<BOUCLE_sad(DATA)
 				{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
 				{datapath root/children/article}
@@ -193,7 +193,7 @@
 </section> <!-- end container-->
 <script type="text/javascript">
 	$("a[href^='#']").click(function (e) {
-		e.preventDefault(); 		
+		e.preventDefault();
 		window.location.hash = $(this).attr("href");
 		$(window).scrollTop( $(window).scrollTop() - 120 );
 	});

@@ -1,0 +1,14 @@
+<BOUCLE_configarticle(CONFIGARTICLES){id_configarticle=#ENV{id}}>
+<div class="infos">
+[(#SET{texte_objet,<:configarticle:titre_configarticle:>})]
+<div class="numero"><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_CONFIGARTICLE</p></div>
+
+	[(#AUTORISER{supprimer, configarticle, #ID_CONFIGARTICLE}|oui)
+		[(#BOUTON_ACTION{
+			[(#CHEMIN_IMAGE{configarticle-del-24.png}|balise_img{<:configarticle:supprimer_configarticle:>}|concat{' ',#VAL{<:configarticle:supprimer_configarticle:>}|wrap{<b>}}|trim)],
+			#URL_ACTION_AUTEUR{supprimer_configarticle, #ID_CONFIGARTICLE, #URL_ECRIRE{configarticles}},
+			icone s24 horizontale danger configarticle-del-24, <:configarticle:confirmer_supprimer_configarticle:>})]
+	]
+
+</div>
+</BOUCLE_configarticle>

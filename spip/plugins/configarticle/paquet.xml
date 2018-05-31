@@ -1,0 +1,34 @@
+<paquet
+	prefix="configarticle"
+	categorie="maintenance"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.1.1;3.1.*]"
+	logo=""
+	documentation=""
+	schema="1.0.0" 
+>
+	<!--
+		Paquet généré le 2016-06-01 15:43:22
+	-->
+
+	<nom>configarticle</nom>
+	
+
+	<auteur>samuel</auteur>
+
+	<licence>GNU/GPL</licence>
+	<necessite nom="saisies" compatibilite="[1.24.0;]" /> 
+
+
+	<pipeline nom="autoriser" inclure="configarticle_autorisations.php" /> 
+
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/configarticle.php" /> 
+	<pipeline nom="declarer_tables_interfaces" inclure="base/configarticle.php" /> 
+	<pipeline nom="declarer_tables_auxiliaires" inclure="base/configarticle.php" /> 
+	<pipeline nom="affiche_milieu" inclure="configarticle_pipelines.php" /> 
+	<pipeline nom="optimiser_base_disparus" inclure="configarticle_pipelines.php" /> 
+
+	<menu nom="configarticles" titre="configarticle:titre_configarticles" parent="menu_edition" icone="images/configarticle-16.png" action="configarticles" /> 
+	<menu nom="configarticle_creer" titre="configarticle:icone_creer_configarticle" parent="outils_rapides" icone="images/configarticle-new-16.png" action="configarticle_edit" parametres="new=oui" /> 
+</paquet>
