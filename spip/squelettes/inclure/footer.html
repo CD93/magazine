@@ -98,33 +98,36 @@
 	<div class="bottom-footer">
 		<div class="container">
 			<ul class="bottom-footer--list">
-				<li><a target="_blank" href="http://seine-saint-denis.fr/Nous-contacter.html">Nous contacter</a></li>
-				<li><a target="_blank" href="#URL_ARTICLE{202}">Mentions l&eacute;gales</a></li>
-				<li><a target="_blank" href="http://seine-saint-denis.fr/Contacter-le-mediateur.html">Contacter le m&eacute;diateur</a></li>
-				<li><a target="_blank" href="#URL_ARTICLE{202}">T&eacute;l&eacute;charger le magazine du D&eacute;partement</a></li>
-				<li><a target="_blank" href="http://seine-saint-denis.fr/Logos-6069.html">Logos</a></li>
+				<BOUCLE_artfoot(ARTICLES pb_selection){spip_pb_selection.id_rubrique=164}{par ordre}>
+				<li><a target="_blank" href="#URL_ARTICLE">#TITRE</a></li>
+				</BOUCLE_artfoot>
 			</ul>
 		</div>
 	</div>
 </footer>
 
 
+
 		<!-- scripts:vendor -->
 		[<script defer src="(#CHEMIN{js/vendors/modernizr.js})"></script>]
 		[<script defer src="(#CHEMIN{js/vendors/console.js})"></script>]
 		[<script defer src="(#CHEMIN{js/vendors/cookies.js})"></script>]
-		
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/easing/EasePack.min.js"></script>
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ScrollToPlugin.min.js"></script>
+		#SET{urlTweenLite,https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js}
+		#SET{urlEasePack,https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/easing/EasePack.min.js}
+		#SET{urlCSSPlugin,https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js}
+		#SET{urlScrollToPlugin,https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ScrollToPlugin.min.js}
+
+		<script defer src="[(#GET{urlTweenLite}|copie_locale)]"></script>
+		<script defer src="[(#GET{urlEasePack}|copie_locale)]"></script>
+		<script defer src="[(#GET{urlCSSPlugin}|copie_locale)]"></script>
+		<script defer src="[(#GET{urlScrollToPlugin}|copie_locale)]"></script>
 		[<script defer src="(#CHEMIN{js/vendors/slick.min.js})"></script>]
 		[<script defer src="(#CHEMIN{js/vendors/bLazy.js})"></script>]
 		<!-- ./scripts:vendor -->
 
 		<!-- scripts:app -->
 		[<script defer src="(#CHEMIN{js/utils.js})"></script>]
-		
+
 		[<script defer src="(#CHEMIN{js/pages/home.js})"></script>]
 		[<script defer src="(#CHEMIN{js/app.js})"></script>]
 		<!-- ./scripts:app -->
@@ -141,12 +144,12 @@
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		
+
 		  ga('create', 'UA-79646160-1', 'auto');
 		  ga('send', 'pageview');
 		</script>
 		<!-- Google Analytics -->
-		
+
 		<script>
 			$('a.spip_out,a.spip_url,a.spip_documents').attr("target", "_blank");
 		</script>
@@ -168,14 +171,14 @@
 		  _paq.push(['trackPageView']);
 		  _paq.push(['enableLinkTracking']);
 		  (function() {
-		    var u="https://visites.qualif.seinesaintdenis.fr/";
+		    var u="https://visites.seinesaintdenis.fr/";
 		    _paq.push(['setTrackerUrl', u+'visite.php']);
-		    _paq.push(['setSiteId', 7]);
+		    _paq.push(['setSiteId', 8]);
 		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 		    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'visite.js'; s.parentNode.insertBefore(g,s);
 		  })();
 		</script>
-		<noscript><p><img src="https://visites.qualif.seinesaintdenis.fr/visite.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+		<noscript><p><img src="https://visites.seinesaintdenis.fr/visite.php?idsite=8" style="border:0;" alt="" /></p></noscript>
 		<!-- End Piwik Code -->
 	</body>
 </html>

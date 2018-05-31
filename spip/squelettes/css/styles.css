@@ -33,6 +33,10 @@ button, input, select {
 .spip-admin-bloc, #spip-admin.spip-admin-float {
     z-index: 1100;
 }
+div.liencourt {
+  display:none;
+  left:-7000px;
+}
 /* HTML5 display-role reset for older browsers */
 main,
 article,
@@ -1398,9 +1402,6 @@ small {
   color: #666666;
 }
 
-.bottom-footer--list li:nth-child(3):after {
-  display: none;
-}
 
 @media (min-width: 73.14286em) {
   .bottom-footer--list li:after {
@@ -1409,9 +1410,7 @@ small {
   .bottom-footer--list li a {
     font-size: 12px;
   }
-  .bottom-footer--list li:nth-child(3):after {
-    display: inline-block;
-  }
+
 }
 
 .block-large-inner {
@@ -2068,11 +2067,8 @@ p {
 }
 .article-content a {
 	color: #222;
+	//text-decoration: none;
 }
-.article-content a:hover {
-  color: #A35FA9;
-}
-
 @media (min-width: 34.28571em) {
   .article-content {
     padding: 0px 20px 0 20px;
@@ -3683,7 +3679,7 @@ li.jop2024 .skew {
 	text-rendering: auto;
 }
 @media (max-width: 70.85714em) {
-	.grid-2 > div {
+	.grid-2 > * {
 		flex: 0 0 auto;
 		margin-left: 30px;
 		display: block;  /* IE fix */
