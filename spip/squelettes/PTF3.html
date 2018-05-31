@@ -1,0 +1,67 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Merriweather:700|Open+Sans');
+#capsuleCG {
+	padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+#capsuleCG .cl-gauche {
+	width: 60%;
+	float: left;
+	}
+#capsuleCG .cl-droite {
+	width: 35%;
+	float: right;
+	margin-left: 4%;
+}
+#capsuleCG img {
+	width: 100%;
+	height: auto;
+}
+#capsuleCG h2 {
+	font-family: 'Merriweather', serif;
+	font-size: 1.8em;
+	font-weight: 900;
+	line-height: 1.1em;
+	}
+
+#capsuleCG h3 {
+		font-family: 'Merriweather', serif;
+		font-size: 1.4em;
+		font-weight: 900;
+		line-height: 1.1em;
+
+	}
+	#capsuleCG h3.actu {
+		background-color: #8695C1;
+		padding: 5px;
+				color: #fff;
+		}
+#capsuleCG h4 {
+	font-family: 'Merriweather', serif;
+	font-size: 1.2em;
+	font-weight: 900;
+	line-height: 1.0em;
+}
+#capsuleCG a{
+	text-decoration: none;
+	color: #005aaa;
+}
+</style>
+<div id="capsuleCG">
+<div class="cl-gauche">
+	<BOUCLE_intro(ARTICLES){id_rubrique=152}>
+	<h2>#TITRE</h2>
+		<p class="chapo">#CHAPO</p>
+		<p>#TEXTE</p>
+	</BOUCLE_intro>
+</div>
+<div class="cl-droite">
+	<h3 class="actu">ACTUALITES</h3>
+	<BOUCLE_select(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=152}{"<hr/>"}>
+		<h4><a href="#URL_ARTICLE" target="_blank">#TITRE</a></h4>
+		<a href="#URL_ARTICLE" target="_blank">#LOGO_ARTICLE</a>
+		#CHAPO
+		<a href="#URL_ARTICLE" target="_blank">Lire la suite</a>
+	</BOUCLE_select>
+</div>
+</div>
