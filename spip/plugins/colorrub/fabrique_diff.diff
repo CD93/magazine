@@ -1,0 +1,57 @@
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_colorrub.php ../tmp/cache/fabrique/.backup/colorrub/base/colorrub.php ../tmp/cache/fabrique/colorrub/base/colorrub.php
+51a52
+> 			'colm'               => 'varchar(7) NOT NULL DEFAULT ""',
+53a55
+> 			'colmt'              => 'varchar(7) NOT NULL DEFAULT ""',
+57,58d58
+< 			'colm'               => 'varchar(7) NOT NULL DEFAULT ""',
+< 			'colmt'              => 'varchar(7) NOT NULL DEFAULT ""',
+67c67
+< 		'champs_editables'  => array('couleur', 'col', 'couleurm', 'page', 'couleurmt', 'bodyclass', 'utils', 'vendors', 'colm', 'colmt'),
+---
+> 		'champs_editables'  => array('couleur', 'col', 'couleurm', 'colm', 'page', 'couleurmt', 'colmt', 'bodyclass', 'utils', 'vendors'),
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_colorrub.php ../tmp/cache/fabrique/.backup/colorrub/formulaires/editer_couleur.html ../tmp/cache/fabrique/colorrub/formulaires/editer_couleur.html
+26a27,29
+> 			[(#SAISIE{input, colm,
+> 				label=<:couleur:champ_colm_label:>})]
+>
+32a36,38
+> 			[(#SAISIE{input, colmt,
+> 				label=<:couleur:champ_colmt_label:>})]
+>
+41,46d46
+<
+< 			[(#SAISIE{input, colm,
+< 				label=<:couleur:champ_colm_label:>})]
+<
+< 			[(#SAISIE{input, colmt,
+< 				label=<:couleur:champ_colmt_label:>})]
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_colorrub.php ../tmp/cache/fabrique/.backup/colorrub/paquet.xml ../tmp/cache/fabrique/colorrub/paquet.xml
+12c12
+< 		Paquet généré le 2016-07-04 17:14:40
+---
+> 		Paquet généré le 2016-07-04 17:15:02
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_colorrub.php ../tmp/cache/fabrique/.backup/colorrub/prive/objets/contenu/couleur.html ../tmp/cache/fabrique/colorrub/prive/objets/contenu/couleur.html
+17a18,22
+> [<div class="champ contenu_colm[ (#COLM*|strlen|?{'',vide})]">
+> 	<label><:couleur:champ_colm_label:> : </label>
+> 	<span dir="#LANG_DIR" class="#EDIT{colm} colm">(#COLM)</span>
+> </div>]
+>
+27a33,37
+> [<div class="champ contenu_colmt[ (#COLMT*|strlen|?{'',vide})]">
+> 	<label><:couleur:champ_colmt_label:> : </label>
+> 	<span dir="#LANG_DIR" class="#EDIT{colmt} colmt">(#COLMT)</span>
+> </div>]
+>
+43,52d52
+< [<div class="champ contenu_colm[ (#COLM*|strlen|?{'',vide})]">
+< 	<label><:couleur:champ_colm_label:> : </label>
+< 	<span dir="#LANG_DIR" class="#EDIT{colm} colm">(#COLM)</span>
+< </div>]
+<
+< [<div class="champ contenu_colmt[ (#COLMT*|strlen|?{'',vide})]">
+< 	<label><:couleur:champ_colmt_label:> : </label>
+< 	<span dir="#LANG_DIR" class="#EDIT{colmt} colmt">(#COLMT)</span>
+< </div>]
+<

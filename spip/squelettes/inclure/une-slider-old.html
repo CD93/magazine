@@ -1,0 +1,95 @@
+<BOUCLE_mrubrique(RUBRIQUES){id_rubrique}>
+	#SET{tab_articles,#ARRAY}
+	<BOUCLE_articles_select(ARTICLES spip_pb_selection){spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{par ordre}{doublons}>
+		#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+	</BOUCLE_articles_select>
+	<BOUCLE_articles_par_date_inverse(ARTICLES){id_rubrique=#ID_RUBRIQUE}{par num titre}{!par date}{0,10}{doublons}>
+		#SET{tab_articles,#GET{tab_articles}|push{#ID_ARTICLE}}
+	</BOUCLE_articles_par_date_inverse>
+<div class="slider-container mb-60">
+				<a class="skew-block abs large shad left btn normal-hover" href="#URL_RUBRIQUE">
+					<span class="content black">#TITRE</span>
+					<span class="skew white-bg"></span>
+				</a>
+				<div class="slider basic-slider center-slider cf" data-dots="blue-bg">
+				  <BOUCLE_articlesDIAPO(ARTICLES){id_article IN #GET{tab_articles}}{0,#INFO_NBR_ART_DIAPO{configunes,#ID_RUBRIQUE}}>
+				  <div class="center-slider--slide">
+				  	[(#LOGO_ARTICLE_NORMAL|#URL_ARTICLE)]
+				  	<BOUCLE_mA(MOTS){id_article}{0,1}{!par id_mot}>
+				  	<a href="#URL_MOT" class="skew-block category btn" title="">
+						<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesDIAPO:ID_RUBRIQUE}">#TITRE</span>
+						<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesDIAPO:ID_RUBRIQUE}"></span>
+					</a>
+					</BOUCLE_mA>
+					<div class="article-content">
+					<h2 class="basic-title large"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>	
+					<p>#CHAPO</p>
+					<div class="article-footer">
+						[(#DATE|affdate)] • <BOUCLE_mediadia(spip_configarticles){id_article}>
+						<span class="type icon-#TYPE"></span></BOUCLE_mediadia>
+					</div>
+					</div>
+				  </div>
+				  </BOUCLE_articlesDIAPO>
+				</div>
+			</div>
+
+			<div class="large-mb cf">
+				<div class="col-48 f-left full-m">
+				<BOUCLE_articlesA(ARTICLES){id_article IN #GET{tab_articles}}{#INFO_NBR_ART_DIAPO{configunes,#ID_RUBRIQUE},#INFO_NBR_ART{configunes,#ID_RUBRIQUE}}{1/2}>
+					<article class="article-container">
+						<header>
+							<a href="#URL_ARTICLE" title="" class="article-picture">
+								#LOGO_ARTICLE_NORMAL
+							</a>
+						</header>
+
+						<div class="article-content">
+							<div class="article-content-inner">
+							<BOUCLE_mB(MOTS){id_article}{0,1}{!par id_mot}>
+								<a href="#URL_MOT" class="skew-block category btn" title="">
+									<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesA:ID_RUBRIQUE}">#TITRE</span>
+									<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesA:ID_RUBRIQUE}"></span>
+								</a>
+							</BOUCLE_mB>
+								<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+								<p>#CHAPO</p>
+								<div class="article-footer">
+									[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
+									<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
+								</div>
+							</div>
+						</div>
+					</article>
+				</BOUCLE_articlesA>
+				</div>
+				<div class="col-48 f-right full-m">
+				<BOUCLE_articlesB(ARTICLES){id_article IN #GET{tab_articles}}{#INFO_NBR_ART_DIAPO{configunes,#ID_RUBRIQUE},#INFO_NBR_ART{configunes,#ID_RUBRIQUE}}{2/2}>
+					<article class="article-container">
+							<header>
+								<a href="#URL_ARTICLE" title="" class="article-picture">
+									#LOGO_ARTICLE_NORMAL
+								</a>
+							</header>
+	
+							<div class="article-content">
+								<div class="article-content-inner">
+								<BOUCLE_mC(MOTS){id_article}{0,1}{!par id_mot}>
+									<a href="#URL_MOT" class="skew-block category btn" title="">
+										<span class="content #INFO_COULEURMT{spip_couleurs,#_articlesB:ID_RUBRIQUE}">#TITRE</span>
+										<span class="skew #INFO_COULEURM{spip_couleurs,#_articlesB:ID_RUBRIQUE}"></span>
+									</a>
+								</BOUCLE_mC>
+									<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
+									<p>#CHAPO</p>
+									<div class="article-footer">
+										[(#DATE|affdate)]• <BOUCLE_mediaB(spip_configarticles){id_article}>
+										<span class="type icon-#TYPE"></span></BOUCLE_mediaB>
+									</div>
+								</div>
+							</div>
+						</article>
+				</BOUCLE_articlesB>
+				</div>
+			</div>
+</BOUCLE_mrubrique>

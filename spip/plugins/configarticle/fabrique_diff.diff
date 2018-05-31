@@ -1,0 +1,56 @@
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_configarticle.php ../plugins/fabrique_auto/.backup/configarticle/lang/configarticle_fr.php ../plugins/fabrique_auto/configarticle/lang/configarticle_fr.php
+10c10
+< 	'ajouter_lien_configarticle' => 'Ajouter ce configarticle',
+---
+> 	'ajouter_lien_configarticle' => 'Ajouter ce médias',
+14c14
+< 	'confirmer_supprimer_configarticle' => 'Confirmez-vous la suppression de cet configarticle ?',
+---
+> 	'confirmer_supprimer_configarticle' => 'Confirmez-vous la suppression de ce média ?',
+17,22c17,22
+< 	'icone_creer_configarticle' => 'Créer un configarticle',
+< 	'icone_modifier_configarticle' => 'Modifier ce configarticle',
+< 	'info_1_configarticle' => 'Un configarticle',
+< 	'info_aucun_configarticle' => 'Aucun configarticle',
+< 	'info_configarticles_auteur' => 'Les configarticles de cet auteur',
+< 	'info_nb_configarticles' => '@nb@ configarticles',
+---
+> 	'icone_creer_configarticle' => 'Créer un média',
+> 	'icone_modifier_configarticle' => 'Modifier ce média',
+> 	'info_1_configarticle' => 'Un média',
+> 	'info_aucun_configarticle' => 'Aucun média',
+> 	'info_configarticles_auteur' => 'Les médias de cet auteur',
+> 	'info_nb_configarticles' => '@nb@ médias',
+25,26c25,26
+< 	'retirer_lien_configarticle' => 'Retirer ce configarticle',
+< 	'retirer_tous_liens_configarticles' => 'Retirer tous les configarticles',
+---
+> 	'retirer_lien_configarticle' => 'Retirer ce médias',
+> 	'retirer_tous_liens_configarticles' => 'Retirer tous les médias',
+29c29
+< 	'supprimer_configarticle' => 'Supprimer cet configarticle',
+---
+> 	'supprimer_configarticle' => 'Supprimer ce média',
+32,34c32,34
+< 	'texte_ajouter_configarticle' => 'Ajouter un configarticle',
+< 	'texte_changer_statut_configarticle' => 'Ce configarticle est :',
+< 	'texte_creer_associer_configarticle' => 'Créer et associer un configarticle',
+---
+> 	'texte_ajouter_configarticle' => 'Ajouter un média',
+> 	'texte_changer_statut_configarticle' => 'Ce média est :',
+> 	'texte_creer_associer_configarticle' => 'Créer et associer un média',
+36,37c36,37
+< 	'titre_configarticle' => 'Configarticle',
+< 	'titre_configarticles' => 'Configarticles',
+---
+> 	'titre_configarticle' => 'média',
+> 	'titre_configarticles' => 'médias',
+40c40
+< 	'titre_logo_configarticle' => 'Logo de ce configarticle',
+---
+> 	'titre_logo_configarticle' => 'Logo de ce média',
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_configarticle.php ../plugins/fabrique_auto/.backup/configarticle/paquet.xml ../plugins/fabrique_auto/configarticle/paquet.xml
+12c12
+< 		Paquet généré le 2016-06-01 15:38:46
+---
+> 		Paquet généré le 2016-06-01 15:43:22

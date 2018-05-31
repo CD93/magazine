@@ -1,0 +1,20 @@
+<BOUCLE_test_multiple(CONDITION){si #ENV{multiple}|=={on}|oui}>
+	[(#SET{valeur,[(#ENV*{valeur}|is_array|?{[(#ENV*{valeur})],[(#ENV*{valeur}|explode{','})]})]})]
+	<B_configunes_selectionnes>
+	<ul>
+	<BOUCLE_configunes_selectionnes(CONFIGUNES){id_configune IN #GET*{valeur}}
+		{par num , }{tout}>
+		<li class="choix"># (#ID_CONFIGUNE)</li>
+	</BOUCLE_configunes_selectionnes>
+	</ul>
+	</B_configunes_selectionnes>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_configunes_selectionnes>
+</BOUCLE_test_multiple>
+	<BOUCLE_configune_selectionne(CONFIGUNES){id_configune=#ENV{valeur}}
+		{par num , }{tout}>
+	  	<p># (#ID_CONFIGUNE)</p>
+	</BOUCLE_configune_selectionne>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_configune_selectionne>
+<//B_test_multiple>

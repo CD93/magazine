@@ -30,7 +30,7 @@
 	<meta name="twitter:description" content="[(#CHAPO|attribut_html)]">
 	<meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]">
   </BOUCLE_article>
-  <!-- json-ld --> 
+  <!-- json-ld -->
   <BOUCLE_artagjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique=8}>
     <script type="application/ld+json">
     { "@context" : "http://schema.org",
@@ -67,10 +67,10 @@
       "publisher" : {
       	"@type" : "Organization",
         "name" : "Conseil départemental de la Seine-Saint-Denis",
-        "url" : "http://lemag.seinesaintdenis.fr/",
+        "url" : "#URL_SITE_SPIP",
         "logo" : {
         	"@type" : "ImageObject",
-        	"url" : "http://lemag.seinesaintdenis.fr/squelettes/img/layout/main-logo.png"
+        	"url" : "#URL_SITE_SPIP/squelettes/img/layout/main-logo.png"
         },
         "address": {
     	    "@type": "PostalAddress",
@@ -105,12 +105,12 @@
 		    <meta property="og:url" content="[(#URL_RUBRIQUE|url_absolue)]"/>
 		    <meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]"/>
 		    <meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
-		    <meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+		    <meta property="og:description" content="[(#TEXTE|attribut_html)]"/>
 		    <!-- Twitter meta cards -->
 		    <meta name="twitter:card" content="summary">
 		    <meta name="twitter:site" content="@seinesaintdenis">
 		    <meta name="twitter:title" content="[(#TITRE|attribut_html)]">
-		    <meta name="twitter:description" content="[(#DESCRIPTIF|attribut_html)]">
+		    <meta name="twitter:description" content="[(#TEXTE|attribut_html)]">
 		    <meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]">
 		</BOUCLE_rubtete>
 		<BOUCLE_mot(MOTS){id_mot=#ID_MOT}>
@@ -139,7 +139,7 @@
 		<!-- Test it: https://developers.facebook.com/tools/debug/og/object/ -->
 		<!-- ./END OpenGraph -->
 
-		
+
 		<!-- Doc: https://dev.twitter.com/cards/overview -->
 		<!-- Test: https://cards-dev.twitter.com/validator -->
 		<!-- ./END Twitter meta cards -->
@@ -148,35 +148,39 @@
 		<!-- http://realfavicongenerator.net/ pour générer les favicons -->
 		#INSERT_HEAD
 		<script src="#CHEMIN{js/vendors/jquery-ui.min.js}"></script>
-		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css" />
-		<link rel="stylesheet" href="#CHEMIN{css/pages/#ENV{page}.css}" type="text/css" />
+    #SET{urlfont,https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300}
+		[<link href='(#GET{urlfont}|copie_locale)' rel='stylesheet' type='text/css'>]
+    <link rel="stylesheet" href="#CHEMIN{css/impression.css}" type="text/css" media="print" />
+    <link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css" media="screen" />
+		<link rel="stylesheet" href="#CHEMIN{css/pages/#ENV{page}.css}" type="text/css" media="screen"/>
 		#INSERT_HEAD_CSS
 		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      #SET{urlshim,http://html5shim.googlecode.com/svn/trunk/html5.js}
+			<script src="#GET{urlshim}|copie_locale"></script>
 			<script src="#CHEMIN{js/vendor/selectivizr.js}"></script>
-			
+
 		<![endif]-->
 	</head>
 	<body class="#ENV{bodyclass,home}">
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
+	[(#REM)<div id="fb-root"></div>]
+<!--	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
 	  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.7&appId=216034751744021";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
+-->
 		<header class="main-header">
 					<div class="top-header">
-		
+
 						<span class="burger-menu hide-normal">
 							<span></span>
 						</span>
 						<a href="#URL_SITE_SPIP" class="main-logo">
 							<img src="#CHEMIN{img/layout/main-logo.png}" alt="Seine-Saint-Denis" width="156" height="18">
 						</a>
-						
+
 						<span class="category-menu-scroll || hide-mobile">
 							<span class="skew-block">
 								<span class="content yellow">Catégories</span>
@@ -184,14 +188,14 @@
 							</span>
 							<ul class="category-menu-scroll--list">
 								<BOUCLE_minimenu(RUBRIQUES couleurs){racine}{tous}{par num titre}{id_rubrique !IN 1,10}>
-								
+
 									<li>
 										<a href="#URL_RUBRIQUE" class="#COULEUR" >
 												#TITRE
 										</a>
 									</li>
 								</BOUCLE_minimenu>
-								<BOUCLE_jopmini(RUBRIQUES){id_rubrique=74}{tout}>
+								<BOUCLE_jopmini(RUBRIQUES){id_rubrique=75}{tout}>
 									<li >
 										<a href="#URL_RUBRIQUE" class="white">
 											#TITRE
@@ -207,7 +211,7 @@
 								</svg>
 							</i>
 						</a>
-						
+
 						<a href="#URL_PAGE{recherche}" class="hide-normal abs" id="search-mobile">
 							<i class="icon icon_loupe">
 								<svg viewBox="0 0 475.084 475.084" class="svg_loupe">
@@ -215,9 +219,9 @@
 								</svg>
 							</i>
 						</a>
-						
+
 						<div class="top-header-right">
-							<a href="http://seine-saint-denis.fr" title="services, aides et démarches" class="skew-block btn" id="services-aides" target="_blank">
+							<a href="http://seinesaintdenis.fr" title="services, aides et démarches" class="skew-block btn" id="services-aides" target="_blank">
 								<span class="content">services, aides et démarches</span>
 								<span class="skew lighter-blue-bg"></span>
 							</a>
@@ -225,7 +229,7 @@
 								<span class="content yellow">le magazine</span>
 								<span class="skew darker-blue-bg"></span>
 							</a>
-							
+
 							<a href="#URL_PAGE{recherche}" class="search-btn">
 								<i class="icon icon_loupe">
 									<svg viewBox="0 0 475.084 475.084" class="svg_loupe">
@@ -233,7 +237,7 @@
 									</svg>
 								</i>
 							</a>
-							
+
 						</div>
 					</div>
 				</header>
@@ -250,7 +254,7 @@
 								</a>
 							</li>
 						</BOUCLE_menu>
-						<BOUCLE_jop(RUBRIQUES){id_rubrique=74}{tout}>
+						<BOUCLE_jop(RUBRIQUES){id_rubrique=75}{tout}>
 							<li class="jop2024">
 								<a href="#URL_RUBRIQUE">
 									<span class="skew-block category btn" title="#TITRE">
@@ -283,8 +287,8 @@
 									<span class="skew #COULEURM"></span>
 								</span>
 							</a>
-						</BOUCLE_menu_mobil>	
-						<BOUCLE_jopmobil(RUBRIQUES){id_rubrique=74}{tout}>
+						</BOUCLE_menu_mobil>
+						<BOUCLE_jopmobil(RUBRIQUES){id_rubrique=0}{tout}>
 						<br/>
 							<a href="#URL_RUBRIQUE" class="item-btn-mobile">
 								<span class="skew-block category btn" title="#TITRE">
@@ -294,12 +298,12 @@
 							</a>
 						</BOUCLE_jopmobil>
 						<hr>
-		
-		
+
+
 						<hr>
-		
+
 						<p class="tac white">Retrouvez toute votre Seine-saint-Denis<br>aussi sur les réseaux sociaux</p>
-		
+
 						<ul class="social-list-mobile">
 							<li><a href="https://www.facebook.com/seinesaintdenisledepartement/">
 								<i class="icon icon_facebook">
@@ -308,7 +312,7 @@
 									</svg>
 								</i>
 							</a></li>
-		
+
 							<li><a href="https://twitter.com/@seinesaintdenis" title="Twitter">
 								<i class="icon icon_twitter">
 									<svg viewBox="0 0 612 612" class="svg_twitter">
@@ -335,9 +339,9 @@
 								</a>
 							</li>
 						</ul>
-						
+
 						<hr class="last">
-		
+
 						<ul class="footer-list-mobile">
 							<li><a href="">Nous contacter</a></li>
 							<li><a href="">Mentions légales</a></li>

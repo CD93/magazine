@@ -1,7 +1,7 @@
 <BOUCLE_article(ARTICLES){id_article} {doublons A}>
 <INCLURE{fond=inclure/header,page=article,id_article=#ID_ARTICLE,rubrique=#INFO_TITRE{rubriques,#ID_SECTEUR},article=#TITRE,bodyclass=article}>
 <section class="container || first-container">
-	
+
 	<div class="col-row || sep || cf">
 		<!-- start col-left -->
 		<div class="col-left">
@@ -10,7 +10,7 @@
 				<div class="col-48 || f-left">
 					[(#GET{video}|?{'',' '})
 					<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
-					<header>	
+					<header>
 						<div class="article-picture">
 							#LOGO_ARTICLE
 							</div>
@@ -25,8 +25,8 @@
 							<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_RUBRIQUE}"></span>
 						</a>
 					</BOUCLE_mA>
-						<h2 class="basic-title large article-title">#TITRE</h2>
-						
+						<h2 class="basic-title large article-title">#TITRE<div class="liencourt"><a title="lien court vers l'article #ID_ARTICLE" href="#URL_ARTICLE">http://ssd.fr/mag#ID_ARTICLE</a></div></h2>
+
 						<div class="fiche-article-intro">
 							<p>#CHAPO</p>
 						</div>
@@ -37,7 +37,7 @@
 							</BOUCLE_eve>
 							</ul>
 						</div>
-						
+
 					</div>
 				</div>
 			</article>
@@ -49,7 +49,7 @@
 							#TEXTE
 						</div>
 						<div class="cf article-footer-container">
-													
+
 													#SET{reg1,'http[s]*:\/\/'}
 													<div class="article-footer social-footer">
 														<span class="inlbl">Partager</span>
@@ -81,14 +81,14 @@
 																	</i>
 																</a>
 															</li>
-															
+
 														</ul>
 													</div>
 												</div>
 					</div>
 				</div>
 			</article>
-			
+			<div class="suite-agenda">
 			<BOUCLE_mois_a(DATA){source table, (#ENV{date}|affdate{"Y-m"}|creer_date_liste)}{0,3}>
 			<div class="cf || mb-20">
 			<BOUCLE_eve_mois_une(EVENEMENTS){par date_debut}{agendafull date_debut, date_fin, mois, #VALEUR|affdate{Y},#VALEUR|affdate{m}}{age_fin <= 0} {doublons une#_mois_a:COMPTEUR_BOUCLE}{id_mot ?}{0,1}>
@@ -104,22 +104,22 @@
 											<span class="skew white-bg"></span>
 										</span>
 									</header>
-			
+
 									<div class="article-content">
 										<div class="article-content-inner">
 											<a href="#URL_ARTICLE" class="skew-block category btn" >
 												<span class="content"><BOUCLE_m_une(MOTS){id_article}{0,1}{!par id_mot}>#TITRE</BOUCLE_m_une></span>
 												<span class="skew green-bg"></span>
 											</a>
-			
+
 											<span class="article-date">[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</span>
 											<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" >#TITRE</a></h2>
-			
+
 											<p>[(#TEXTE|couper{300})]</p>
 										</div>
 									</div>
 								</article>
-							</div>			
+							</div>
 			</BOUCLE_art_mois_une>
 			</BOUCLE_eve_mois_une>
 							<div class="col-48 || f-right full-m || cf">
@@ -182,6 +182,7 @@
 					</B_eve_mois_tout>
 				</div>
 				</BOUCLE_mois_a>
+			</div>
 		</div>
 
 		<!-- end col-left -->

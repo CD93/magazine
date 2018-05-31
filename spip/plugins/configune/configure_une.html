@@ -1,0 +1,61 @@
+[(#HTTP_HEADER{Content-type: text/html[; charset=(#CHARSET)]})]
+#CACHE{0}
+<style>
+	.configunes a{
+		display: inline-block;
+		padding: 3px;
+		font-size: 1.1em;
+		font-weight: bold;
+		border: 1px solid #ccc;
+		border-radius: 2px;
+	}
+	#nbartdiapo, #nbart {
+		font-size: 1.2em;
+		font-weight: bold;	
+	}
+</style>
+<!--
+[<base href="(#VAL{_DIR_PB_REL}|defined|oui|et{#EVAL{_DIR_PB_REL}})" >]
+-->
+<div class="ajax">
+	<B_selection>
+	<div class='configunes'>
+	<BOUCLE_selection(CONFIGUNES){id_rubrique=#ENV{id_rubrique}}>
+	#SET{compos,#COMPOSITION}
+		<div id="choixc"></div>
+		<p class="choisir"><h4>choix de la mise en page en une</h4>
+		  <input type="radio" name="compos" value="liste" id="liste" [(#COMPOSITION|=={liste}|oui)checked]><label for="liste">liste simple (2 premières avec image)</label><br>
+		  <input type="radio" name="compos" value="slider" id="slider" [(#COMPOSITION|=={slider}|oui)checked]><label for="slider">slider puis articles</label><br>
+		  <input type="radio" name="compos" value="verticale" id="verticale" [(#COMPOSITION|=={verticale}|oui)checked="checked"]><label for="verticale">grand article vertical</label>
+		</p>
+		Nombre d'articles en une : <span id="nbart">#NBR_ART</span> <a title='ajouter' onclick="$('#nbart').load('?action=gestion_une&amp;id_rubrique=#ENV{id_rubrique}&amp;nbr=nbr_art&amp;type=ajouter');" href="#"> + </a>
+		<a title='retirer' onclick="$('#nbart').load('?action=gestion_une&amp;id_rubrique=#ENV{id_rubrique}&amp;nbr=nbr_art&amp;type=retrait');" href="#"> - </a>
+		<br/>
+		
+		<p id="choix_diapo">
+			nombre d'articles slider en une: <span id="nbartdiapo">#NBR_ART_DIAPO</span>
+			<a title='ajouter' onclick="$('#nbartdiapo').load('?action=gestion_une&amp;id_rubrique=#ENV{id_rubrique}&amp;nbr=nbr_art_diapo&amp;type=ajouter');" href="#"> + </a>
+			<a title='retirer' onclick="$('#nbartdiapo').load('?action=gestion_une&amp;id_rubrique=#ENV{id_rubrique}&amp;nbr=nbr_art_diapo&amp;type=retrait');" href="#"> - </a>
+			<br/>
+		</p>
+	</BOUCLE_selection>
+	</div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function()
+        
+        {
+            $('#choix_diapo').hide(200);
+            [(#GET{compos}|=={slider}|oui)$('#choix_diapo').show(200);]
+            $('input[type=radio]').change(function()
+            {
+                str = $(this).val();
+                if(str=="slider") {
+               	 $('#choix_diapo').show(200);
+                }else {
+                	$('#choix_diapo').hide(200);
+                }
+                $('#choixc').load('?action=gestion_une&id_rubrique=#ENV{id_rubrique}&compos='+str+'&type=choixc');
+             });
+         });
+</script>

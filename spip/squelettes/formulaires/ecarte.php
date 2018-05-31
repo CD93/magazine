@@ -21,17 +21,16 @@ function formulaires_ecarte_traiter_dist(){
 	$nom_dest = _request('nom_dest');
 	$nom_exp = _request('nom_exp');
 	$message = _request('message');
-	$message = str_replace("œ","oe",$message);
-	//spip_log($message,_LOG_ERREUR);
+	$message = str_replace("œ","oe",$message);	
 	$message=utf8_decode($message);
 	$message=nl2br($message);
 	$subject='Bonjour '.$nom_dest.', '.$nom_exp.' vous a envoyé une e-carte !';
 	$subject=utf8_decode($subject);
 	$corp ='
-	<img src="http://lemag.seinesaintdenis.fr/squelettes/img/voeux2017/E-Carte-2017.jpg"/><br/>
-	<p class="texte" style="font-size:14px;padding:10px;border:2px solid #ddd; width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#66347D;">'
+	<img src="http://lemag.seinesaintdenis.fr/squelettes/images/voeux2017/E-Carte-2017.jpg"/><br/>
+	<p class="texte" style="font-size:14px;padding:10px;border:2px solid #ddd; width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#005DCE;">'
 	.$message.'
-	</p><strong style="font-size:14px;padding:10px;width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#66347D;">'.$nom_exp.'</strong><br/><br/><p>Envoy&eacute; depuis <a href="http://lemag.seinesaintdenis.fr/?utm_campaign=Voeux_2015&utm_medium=e-mail&utm_source=EmailVoeux">lemag.seinesaintdenis.fr</a></p>';
+	</p><strong style="font-size:14px;padding:10px;width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#005DCE;">'.$nom_exp.'</strong><br/><br/><p>Envoy&eacute; depuis <a href="http://lemag.seinesaintdenis.fr/?utm_campaign=Voeux_2017&utm_medium=e-mail&utm_source=EmailVoeux">lemag.seinesaintdenis.fr</a></p>';
 			
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";

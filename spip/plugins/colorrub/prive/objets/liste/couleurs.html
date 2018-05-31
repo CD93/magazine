@@ -1,0 +1,33 @@
+[(#SET{defaut_tri,#ARRAY{
+	id_couleur,1,
+	points,-1
+}})]<B_liste_couleurs>
+#ANCRE_PAGINATION
+<div class="liste-objets couleurs">
+<table class="spip liste">
+	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{couleur:info_1_couleur,couleur:info_nb_couleurs}})</strong></caption>]
+	<thead>
+		<tr class="first_row">
+			<th class="picto" scope="col"></th>
+			<th class="" scope="col">[(#TRI{,<:couleur:champ__label:>,ajax})]</th>
+			<th class="id" scope="col">[(#TRI{id_couleur,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_couleurs(COULEURS){id_rubrique?}{id_mot?}{id_auteur?}{where?}{recherche?}{tri #ENV{par,num },#GET{defaut_tri}}{par }{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class="picto">[(#CHEMIN_IMAGE{couleur-16.png}|balise_img)]</td>
+			<td class=" principale">[(#LOGO_COULEUR|image_reduire{20,26})]<a href="[(#ID_COULEUR|generer_url_entite{couleur})]" title="<:info_numero_abbreviation|attribut_html:> #ID_COULEUR">[(#RANG). ]#</a></td>
+			<td class="id">[(#AUTORISER{modifier,couleur,#ID_COULEUR}|?{
+				<a href="[(#URL_ECRIRE{couleur_edit,id_couleur=#ID_COULEUR})]">#ID_COULEUR</a>,
+				#ID_COULEUR
+			})]</td>
+		</tr>
+	</BOUCLE_liste_couleurs>
+	</tbody>
+</table>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+</div>
+</B_liste_couleurs>[
+<div class="liste-objets couleurs caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_couleurs>
