@@ -8,7 +8,7 @@
 			<BOUCLE_uneA(ARTICLES pb_selection){0,1}{spip_pb_selection.id_rubrique=1}{par ordre}>
 			<article class="article-container || cadre-de-vie">
 				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
-				
+
 				<header>
 					<a href="#URL_ARTICLE" title="" class="article-picture">
 						[(#LOGO_ARTICLE)]
@@ -23,10 +23,10 @@
 									#TITRE
 							</BOUCLE_mA>
 							</span>
-							
+
 							<span class="skew #INFO_COULEURM{spip_couleurs,#ID_SECTEUR}"></span>
 						</a>
-						
+
 						<h2 class="basic-title large article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
 
 						<p>#CHAPO</p>
@@ -60,7 +60,7 @@
 							<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
 							<p>#CHAPO</p>
 							<div class="article-footer">
-							
+
 								[(#DATE|affdate)] • <BOUCLE_mediab(spip_configarticles){id_article}>
 								<span class="type icon-#TYPE"></span></BOUCLE_mediab>
 							</div>
@@ -97,9 +97,9 @@
 					</div>
 				</article>
 			</BOUCLE_unec>
-			
+
 			</div>
-			<INCLURE{fond=inclure/feuilleton}{id_mot=142}/>
+			<INCLURE{fond=inclure/feuilleton}{id_mot=269}/>
 		</div>
 
 		<aside class="col-right || hide-mobile">
@@ -133,27 +133,27 @@
 		<!-- start col-left -->
 		<div class="col-left">
 		<BOUCLE_educ(CONFIGUNES){id_rubrique=4}{tous}>
-			<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
-		</BOUCLE_educ> 
-		
+			<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
+		</BOUCLE_educ>
+
 			<BOUCLE_culture(CONFIGUNES){id_rubrique=2}{tous}>
 				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
 			</BOUCLE_culture>
-			
+
 			<BOUCLE_eco(CONFIGUNES){id_rubrique=5}{tous}>
-				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
 			</BOUCLE_eco>
-			
+
 			<BOUCLE_cdv(CONFIGUNES){id_rubrique=6}{tous}>
-				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
 			</BOUCLE_cdv>
-						
+
 			<BOUCLE_sport(CONFIGUNES){id_rubrique=3}{tous}>
-				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
 			</BOUCLE_sport>
-			
+
 			<BOUCLE_sol(CONFIGUNES){id_rubrique=7}{tous}>
-				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />	
+				<INCLURE{fond=inclure/une-#COMPOSITION}{id_rubrique=#ID_RUBRIQUE} />
 			</BOUCLE_sol>
 			<div class="cf mb-80">
 				<div class="col-48 || f-left full-m">
@@ -227,7 +227,7 @@
 			<INCLURE{fond=inclure/rendezvous}{env} />
 			<INCLURE{fond=inclure/facebook}{env} />
 			<INCLURE{fond=inclure/twitter}{env} />
-			
+
 		</aside>
 		<!-- end col-right -->
 	</div> <!-- end first row-->
