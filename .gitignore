@@ -11,6 +11,7 @@
 /spip/plugins/
 !/spip/plugins/
 /spip/plugins/auto
+/spip/plugins/fabrique_auto
 .DS_Store
 package-lock.json
 !/spip/CHANGELOG.txt
