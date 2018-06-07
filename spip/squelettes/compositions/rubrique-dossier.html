@@ -12,7 +12,7 @@
 				<span class="skew-block abs large shad">
 					<span class="content black">Les Dossiers</span>
 					<span class="skew white-bg"></span>
-				</span>				
+				</span>
 				<header>
 					<a href="#URL_RUBRIQUE" title="" class="article-picture">
 						#LOGO_RUBRIQUE
@@ -28,8 +28,8 @@
 						</BOUCLE_mA>						<h2 class="basic-title large article-title"><a href="#URL_RUBRIQUE" title="">#TITRE</a></h2>
 						<p>#TEXTE</p>
 						<div class="article-footer">
-							[(#DATE|affdate)] • 
-							
+							[(#DATE|affdate)] •
+
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 					</div>
 				</article>
 				</BOUCLE_articlesB>
-				
+
 			</div>
 			<div class="col-row || cf">
 			<BOUCLE_articlesC(RUBRIQUES){id_parent}{3,1}{!par num titre}{titre!=^[0]+[.][ ]}>
@@ -85,7 +85,7 @@
 							<p>#TEXTE</p>
 
 							<div class="article-footer">
-								[(#DATE|affdate)] • 
+								[(#DATE|affdate)] •
 							</div>
 						</div>
 					</div>
@@ -93,15 +93,15 @@
 			</BOUCLE_articlesC>
 				<div class="col-48 || f-right">
 					<!-- start Services aides et démarches -->
-					
+
 					<div class="grey-bg block-medium-inner mb-60">
 						<span class="skew-block rel medium shad">
 							<span class="content black">Services, aides<br>& démarches</span>
 							<span class="skew white-bg"></span>
 						</span>
-						
+
 						<BOUCLE_sad(DATA)
-						{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=6}
+						{source simplexml, https://seinesaintdenis.fr/spip.php?page=fluxmag&id_rubrique=6}
 						{datapath root/children/article}
 						>
 						<article class="basic-block--article-small cf">
@@ -120,8 +120,8 @@
 					<!-- end Services aides et démarches -->
 				</div>
 		</div>
-		
-						
+
+
 						<BOUCLE_articles_tout(RUBRIQUES){id_parent}{4,20}{!par num titre}{titre!=^[0]+[.][ ]}>
 						[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
 										<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
@@ -138,13 +138,13 @@
 															<span class="skew #INFO_COULEURM{spip_couleurs,#_articles_tout:ID_RUBRIQUE}"></span>
 														</a>
 													</BOUCLE_mtout>
-						
+
 													<h2 class="basic-title medium article-title"><a href="#URL_RUBRIQUE" title="">#TITRE</a></h2>
-						
+
 													<p>#TEXTE</p>
-						
+
 													<div class="article-footer">
-														[(#DATE|affdate)] • 
+														[(#DATE|affdate)] •
 													</div>
 												</div>
 											</div>

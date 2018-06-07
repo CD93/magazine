@@ -33,7 +33,7 @@
   <!-- json-ld -->
   <BOUCLE_artagjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique=8}>
     <script type="application/ld+json">
-    { "@context" : "http://schema.org",
+    { "@context" : "https://schema.org",
       "@type": "Event",
       "name": [(#TITRE|json_encode)],
       "url": "[(#URL_ARTICLE|url_absolue)]",
@@ -47,7 +47,7 @@
   </BOUCLE_artagjsonld>
   <BOUCLE_artjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique!=8}>
     <script type="application/ld+json">
-    { "@context" : "http://schema.org",
+    { "@context" : "https://schema.org",
       "@type" : "Article",
       "name" : [(#TITRE|json_encode)],
       "url" : "[(#URL_ARTICLE|url_absolue)]",
@@ -145,7 +145,7 @@
 		<!-- ./END Twitter meta cards -->
 
 		<link rel="shortcut icon" href="favicon.ico">
-		<!-- http://realfavicongenerator.net/ pour générer les favicons -->
+		<!-- https://realfavicongenerator.net/ pour générer les favicons -->
 		#INSERT_HEAD
 		<script src="#CHEMIN{js/vendors/jquery-ui.min.js}"></script>
     #SET{urlfont,https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300}
@@ -155,7 +155,7 @@
 		<link rel="stylesheet" href="#CHEMIN{css/pages/#ENV{page}.css}" type="text/css" media="screen"/>
 		#INSERT_HEAD_CSS
 		<!--[if lt IE 9]>
-      #SET{urlshim,http://html5shim.googlecode.com/svn/trunk/html5.js}
+      #SET{urlshim,https://html5shim.googlecode.com/svn/trunk/html5.js}
 			<script src="#GET{urlshim}|copie_locale"></script>
 			<script src="#CHEMIN{js/vendor/selectivizr.js}"></script>
 
@@ -221,7 +221,7 @@
 						</a>
 
 						<div class="top-header-right">
-							<a href="http://seinesaintdenis.fr" title="services, aides et démarches" class="skew-block btn" id="services-aides" target="_blank">
+							<a href="https://seinesaintdenis.fr" title="services, aides et démarches" class="skew-block btn" id="services-aides" target="_blank">
 								<span class="content">services, aides et démarches</span>
 								<span class="skew lighter-blue-bg"></span>
 							</a>
@@ -330,7 +330,7 @@
 							</a>
 							</li>
 							<li>
-								<a href="http://www.dailymotion.com/Seine-Saint-Denis" title="dailymotion">
+								<a href="https://www.dailymotion.com/Seine-Saint-Denis" title="dailymotion">
 									<i class="icon icon_youtube">
 										<svg viewBox="0 0 30 21.4" class="svg_youtube">
 											<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-youtube"></use>

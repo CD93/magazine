@@ -16,7 +16,7 @@
 			<article class="article-container fiche-article || #INFO_TITRE{rubrique,#ID_RUBRIQUE}">
 				[(#GET{type}|?{'',' '})
 				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
-				<header>	
+				<header>
 					<div class="article-picture">
 						<img src="#CHEMIN{img/404.jpg}" alt="" />
 					</div>
@@ -39,7 +39,7 @@
 					<span class="skew white-bg"></span>
 				</a>
 								<BOUCLE_sad(DATA)
-				{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=6}
+				{source simplexml, https://seinesaintdenis.fr/spip.php?page=fluxmag&id_rubrique=6}
 				{datapath root/children/article}
 				>
 				<article class="basic-block--article-small cf">
@@ -64,7 +64,7 @@
 </section> <!-- end container-->
 <script type="text/javascript">
 	$("a[href^='#']").click(function (e) {
-		e.preventDefault(); 		
+		e.preventDefault();
 		window.location.hash = $(this).attr("href");
 		$(window).scrollTop( $(window).scrollTop() - 120 );
 	});

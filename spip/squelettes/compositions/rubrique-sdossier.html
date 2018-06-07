@@ -37,7 +37,7 @@
 						<div class="article-footer">
 							[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
 							<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
-							
+
 						</div>
 					</div>
 				</div>
@@ -72,7 +72,7 @@
 					</div>
 				</article>
 				</BOUCLE_articlesB>
-				
+
 			</div>
 			<div class="col-row || cf">
 			<BOUCLE_articlesC(ARTICLES){id_rubrique}{3,1}{!par date}>
@@ -111,9 +111,9 @@
 							<span class="content black">Services, aides<br>& démarches</span>
 							<span class="skew white-bg"></span>
 						</span>
-						
+
 						<BOUCLE_sad(DATA)
-						{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd,6}}
+						{source simplexml, https://seinesaintdenis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd,6}}
 						{datapath root/children/article}
 						>
 						<article class="basic-block--article-small cf">
@@ -132,8 +132,8 @@
 					<!-- end Services aides et démarches -->
 				</div>
 		</div>
-		
-						
+
+
 						<BOUCLE_articles_tout(ARTICLES){id_rubrique}{4,20}{!par date}>
 						[(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{"<div class='col-row || cf || mb-40'>"})]
 										<article class="article-container medium-article || col-48 || [(#COMPTEUR_BOUCLE|modulo{2}=={1}|?{f-left,f-right})]">
@@ -150,11 +150,11 @@
 															<span class="skew #INFO_COULEURM{spip_couleurs,#_articles_tout:ID_SECTEUR}"></span>
 														</a>
 													</BOUCLE_mtout>
-						
+
 													<h2 class="basic-title medium article-title"><a href="#URL_ARTICLE" title="">#TITRE</a></h2>
-						
+
 													<p>#CHAPO</p>
-						
+
 													<div class="article-footer">
 														[(#DATE|affdate)] • <BOUCLE_media_tout(spip_configarticles){id_article}>
 														<span class="type icon-#TYPE"></span></BOUCLE_media_tout>
@@ -196,7 +196,7 @@
 					</ul>-->
 				<!-- end col-left -->
 		</div>
-		
+
 		<!-- end col-right -->
 	</div> <!-- end first row-->
 </section> <!-- end container-->

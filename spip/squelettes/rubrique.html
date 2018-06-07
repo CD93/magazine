@@ -26,8 +26,8 @@
 						#LOGO_ARTICLE_NORMAL
 					</a>
 				</header>
-				
-	
+
+
 				<div class="article-content">
 					<div class="article-content-inner">
 						<BOUCLE_mA(MOTS){id_article}{!par id_mot}{0,1}>
@@ -40,7 +40,7 @@
 						<div class="article-footer">
 							[(#DATE|affdate)] • <BOUCLE_mediaA(spip_configarticles){id_article}>
 							<span class="type icon-#TYPE"></span></BOUCLE_mediaA>
-							
+
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 					</div>
 				</article>
 				</BOUCLE_articlesB>
-				
+
 			</div>
 			<div class="col-row || cf">
 			<BOUCLE_articlesC(ARTICLES){id_article IN #GET{tab_articles}}{3,1}>
@@ -114,9 +114,9 @@
 							<span class="content black">Services, aides<br>& démarches</span>
 							<span class="skew white-bg"></span>
 						</span>
-						
+
 						<BOUCLE_sad(DATA)
-						{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
+						{source simplexml, https://seinesaintdenis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
 						{datapath root/children/article}
 						>
 						<article class="basic-block--article-small cf">
@@ -135,8 +135,8 @@
 					<!-- end Services aides et démarches -->
 				</div>
 		</div>
-		
-				<INCLURE{fond=inclure/touslesarticles}{ajax}{env}/>		
+
+				<INCLURE{fond=inclure/touslesarticles}{ajax}{env}/>
 		<!-- end col-left -->
 		</div>
 		<INCLURE{fond=inclure/aside}{env}>
