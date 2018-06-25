@@ -12,6 +12,7 @@
 	width: 35%;
 	float: right;
 	margin-left: 4%;
+	font-size: 0.9em;
 }
 #capsuleCG img {
 	width: 100%;
@@ -60,7 +61,7 @@
 	<BOUCLE_select(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=152}{"<hr/>"}>
 		<h4><a href="#URL_ARTICLE" target="_blank">#TITRE</a></h4>
 		<a href="#URL_ARTICLE" target="_blank">#LOGO_ARTICLE</a>
-		#CHAPO
+		[(#CHAPO|couper{200})]
 		<a href="#URL_ARTICLE" target="_blank">Lire la suite</a>
 	</BOUCLE_select>
 </div>
