@@ -8,7 +8,7 @@ function formulaires_ecarte_verifier_dist(){
 	// verifier que les champs obligatoires sont bien la :
 	foreach(array('mail_dest','mail_exp') as $obligatoire)
 		if (!_request($obligatoire)) $erreurs[$obligatoire] = 'Ce champ est obligatoire';
-	
+
 	// verifier que si un email a été saisi, il est bien valide :
 	if (count($erreurs))
 		$erreurs['message_erreur'] = 'Votre saisie contient des erreurs !';
@@ -21,17 +21,17 @@ function formulaires_ecarte_traiter_dist(){
 	$nom_dest = _request('nom_dest');
 	$nom_exp = _request('nom_exp');
 	$message = _request('message');
-	$message = str_replace("œ","oe",$message);	
+	$message = str_replace("œ","oe",$message);
 	$message=utf8_decode($message);
 	$message=nl2br($message);
 	$subject='Bonjour '.$nom_dest.', '.$nom_exp.' vous a envoyé une e-carte !';
 	$subject=utf8_decode($subject);
 	$corp ='
-	<img src="http://lemag.seinesaintdenis.fr/squelettes/images/voeux2017/E-Carte-2017.jpg"/><br/>
+	<img src="https://lemag.seinesaintdenis.fr/squelettes/images/voeux2017/E-Carte-2017.jpg"/><br/>
 	<p class="texte" style="font-size:14px;padding:10px;border:2px solid #ddd; width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#005DCE;">'
 	.$message.'
-	</p><strong style="font-size:14px;padding:10px;width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#005DCE;">'.$nom_exp.'</strong><br/><br/><p>Envoy&eacute; depuis <a href="http://lemag.seinesaintdenis.fr/?utm_campaign=Voeux_2017&utm_medium=e-mail&utm_source=EmailVoeux">lemag.seinesaintdenis.fr</a></p>';
-			
+	</p><strong style="font-size:14px;padding:10px;width:522px;font-family:\'Arial Black\', Gadget, sans-serif; color:#005DCE;">'.$nom_exp.'</strong><br/><br/><p>Envoy&eacute; depuis <a href="https://lemag.seinesaintdenis.fr/?utm_campaign=Voeux_2017&utm_medium=e-mail&utm_source=EmailVoeux">lemag.seinesaintdenis.fr</a></p>';
+
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			//$headers .= 'To: '.$mail_dest."\r\n";

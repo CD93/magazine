@@ -14,3 +14,5 @@
 /spip/plugins/fabrique_auto
 .DS_Store
 package-lock.json
+!/spip/CHANGELOG.txt
+config

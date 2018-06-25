@@ -22,8 +22,8 @@ function formulaires_abonewsletter_charger_dist($lien = '', $class=''){
 	else
 		$lang='';
 
-	$action = 'http://seine-saint-denis.fr/10732'; # action specifique, ne passe pas par Verifier, ni Traiter
-	return 
+	$action = 'https://seinesaintdenis.fr/10732'; # action specifique, ne passe pas par Verifier, ni Traiter
+	return
 		array(
 			'action' => $action,
 			'formu' => _request('formu'),

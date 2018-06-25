@@ -30,10 +30,10 @@
 	<meta name="twitter:description" content="[(#CHAPO|attribut_html)]">
 	<meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]">
   </BOUCLE_article>
-  <!-- json-ld --> 
+  <!-- json-ld -->
   <BOUCLE_artagjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique=8}>
     <script type="application/ld+json">
-    { "@context" : "http://schema.org",
+    { "@context" : "https://schema.org",
       "@type": "Event",
       "name": [(#TITRE|json_encode)],
       "url": "[(#URL_ARTICLE|url_absolue)]",
@@ -47,7 +47,7 @@
   </BOUCLE_artagjsonld>
   <BOUCLE_artjsonld(ARTICLES){id_article=#ID_ARTICLE}{id_rubrique!=8}>
     <script type="application/ld+json">
-    { "@context" : "http://schema.org",
+    { "@context" : "https://schema.org",
       "@type" : "Article",
       "name" : [(#TITRE|json_encode)],
       "url" : "[(#URL_ARTICLE|url_absolue)]",
@@ -67,10 +67,10 @@
       "publisher" : {
       	"@type" : "Organization",
         "name" : "Conseil départemental de la Seine-Saint-Denis",
-        "url" : "http://lemag.seinesaintdenis.fr/",
+        "url" : "https://lemag.seinesaintdenis.fr/",
         "logo" : {
         	"@type" : "ImageObject",
-        	"url" : "http://lemag.seinesaintdenis.fr/squelettes/img/layout/main-logo.png"
+        	"url" : "https://lemag.seinesaintdenis.fr/squelettes/img/layout/main-logo.png"
         },
         "address": {
     	    "@type": "PostalAddress",
@@ -139,13 +139,13 @@
 		<!-- Test it: https://developers.facebook.com/tools/debug/og/object/ -->
 		<!-- ./END OpenGraph -->
 
-		
+
 		<!-- Doc: https://dev.twitter.com/cards/overview -->
 		<!-- Test: https://cards-dev.twitter.com/validator -->
 		<!-- ./END Twitter meta cards -->
 
 		<link rel="shortcut icon" href="favicon.ico">
-		<!-- http://realfavicongenerator.net/ pour générer les favicons -->
+		<!-- https://realfavicongenerator.net/ pour générer les favicons -->
 		#INSERT_HEAD
 		<script src="#CHEMIN{js/vendors/jquery-ui.min.js}"></script>
 		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300' rel='stylesheet' type='text/css'>
@@ -155,12 +155,12 @@
 		<style>
 			a:focus {
 				color :#24e5c3
-			}		
+			}
 		</style>
 		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="#CHEMIN{js/vendor/selectivizr.js}"></script>
-			
+
 		<![endif]-->
 	</head>
 	<body class="#ENV{bodyclass,home}">
@@ -174,23 +174,23 @@
 	}(document, 'script', 'facebook-jssdk'));</script>
 		<header class="main-header">
 					<div class="top-header">
-		
+
 
 						<a href="#URL_SITE_SPIP" class="main-logo">
 							<img src="#CHEMIN{img/layout/main-logo.png}" alt="Seine-Saint-Denis" width="156" height="18">
 						</a>
-						
-						
-												
+
+
+
 						<div class="top-header-right">
-							
+
 							<a href="#URL_SITE_SPIP" title="le magazine" class="skew-block btn">
 								<span class="content yellow">le magazine</span>
 								<span class="skew darker-blue-bg"></span>
 							</a>
-							
-							
-							
+
+
+
 						</div>
 					</div>
 				</header>
@@ -216,4 +216,3 @@
 						</div>
 					</div>
 				</div>
-				

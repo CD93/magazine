@@ -30,7 +30,7 @@
 							<span class="skew #INFO_COULEURM{spip_couleurs,#_article:ID_SECTEUR}"></span>
 						</a>
 					</BOUCLE_mA>
-						<h2 class="basic-title large article-title #EDIT{titre}">#TITRE<div class="liencourt"><a title="lien court vers l'article #ID_ARTICLE" href="#URL_ARTICLE">http://ssd.fr/mag#ID_ARTICLE</a></div></h2>
+						<h2 class="basic-title large article-title #EDIT{titre}">#TITRE<div class="liencourt"><a title="lien court vers l'article #ID_ARTICLE" href="#URL_ARTICLE">https://ssd.fr/mag#ID_ARTICLE</a></div></h2>
 						<div class="cf article-footer-container">
 													<div class="article-footer">
 														[(#DATE|affdate)] •
@@ -49,7 +49,7 @@
 																</a>
 															</li>
 															<li class="social-list--item">
-																<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+																<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
 																	<i class="icon icon_twitter">
 																		<svg viewBox="0 0 612 612" class="svg_twitter">
 																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
@@ -93,7 +93,7 @@
 											</a>
 										</li>
 										<li class="social-list--item">
-											<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+											<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93,InSeineSaintDenis&original_referer=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
 												<i class="icon icon_twitter">
 													<svg viewBox="0 0 612 612" class="svg_twitter">
 														<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
@@ -167,7 +167,7 @@
 				</a>
 
 				<BOUCLE_sad(DATA)
-				{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
+				{source simplexml, https://seinesaintdenis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
 				{datapath root/children/article}
 				>
 				<article class="basic-block--article-small cf">

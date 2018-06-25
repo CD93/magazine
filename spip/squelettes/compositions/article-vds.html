@@ -18,7 +18,7 @@
 				[(#GET{type}|?{'',' '})
 				<img src="#CHEMIN{img/layout/logo-ssd.png}" alt="Seine Saint-Denis" id="logo-ssd" width="317" height="279">
 				<header>
-					<div class="article-picture">	
+					<div class="article-picture">
 						#LOGO_ARTICLE
 					</div>
 				</header>
@@ -50,7 +50,7 @@
 																</a>
 															</li>
 															<li class="social-list--item">
-																<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+																<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
 																	<i class="icon icon_twitter">
 																		<svg viewBox="0 0 612 612" class="svg_twitter">
 																			<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
@@ -67,7 +67,7 @@
 																	</i>
 																</a>
 															</li>
-															
+
 														</ul>
 													</div>
 												</div>
@@ -94,7 +94,7 @@
 											</a>
 										</li>
 										<li class="social-list--item">
-											<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
+											<a data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[https://lemag.seinesaintdenis.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" title="Twitter">
 												<i class="icon icon_twitter">
 													<svg viewBox="0 0 612 612" class="svg_twitter">
 														<use xlink:href="#CHEMIN{svg/sprite.svg}#svg-twitter"></use>
@@ -117,7 +117,7 @@
 						</div>
 					</div>
 				</div>
-			</article>	
+			</article>
 			<div class="grey-bg block-medium-inner || article-first-grey-block">
 				<a href="#" class="skew-block rel large shad normal-hover">
 					<span class="content black">Services, aides<br>& démarches</span>
@@ -127,7 +127,7 @@
 				#SET{ssd,#ID_OBJET}
 				</BOUCLE_ssd>
 				<BOUCLE_sad(DATA)
-				{source simplexml, http://seine-saint-denis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
+				{source simplexml, https://seinesaintdenis.fr/spip.php?page=fluxmag&id_rubrique=#GET{ssd}}
 				{datapath root/children/article}
 				>
 				<article class="basic-block--article-small cf">
@@ -152,7 +152,7 @@
 </section> <!-- end container-->
 <script type="text/javascript">
 	$("a[href^='#']").click(function (e) {
-		e.preventDefault(); 		
+		e.preventDefault();
 		window.location.hash = $(this).attr("href");
 		$(window).scrollTop( $(window).scrollTop() - 120 );
 	});
