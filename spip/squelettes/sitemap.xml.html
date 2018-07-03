@@ -26,7 +26,7 @@
 </url>
 
 [(#REM) Rubriques ]
-<BOUCLE_r(RUBRIQUES){!par date}{0,1000}{id_rubrique!=1}{id_rubrique!=10}{id_rubrique!=15}>
+<BOUCLE_r(RUBRIQUES){!par date}{0,1000}{id_parent!IN 1,10,15}>
 <url>
 	[<loc>(#URL_RUBRIQUE|url_absolue)</loc>]
 </url>
@@ -34,7 +34,7 @@
 
 [(#REM) Articles ]
 [(#SET{recent,[(#VAL{Y-m-d H:i:s}|date{#VAL{"-1 year"}|strtotime})]})]
-<BOUCLE_a(ARTICLES){!par date_modif}{!par date}{0,2000}{id_rubrique!=1}{id_rubrique!=10}{id_rubrique!=15}>
+<BOUCLE_a(ARTICLES){!par date_modif}{!par date}{0,2000}{id_parent!IN 1,10,15}>
 <url>
 	[<loc>(#URL_ARTICLE|url_absolue)</loc>]
 	[(#DATE_MODIF**|>{#GET{recent}}
@@ -46,8 +46,5 @@
 <BOUCLE_m(MOTS){0,1000}>[
 <url><loc>(#URL_MOT|url_absolue)</loc></url>]</BOUCLE_m>
 
-[(#REM) Breves ]
-<BOUCLE_b(BREVES){!par date}{0,1000}{id_rubrique!=1}{id_rubrique!=10}{id_rubrique!=15}>[
-<url><loc>(#URL_BREVE|url_absolue)</loc></url>]</BOUCLE_b>
 
 </urlset>
