@@ -14,20 +14,19 @@
 	<!-- OpenGraph -->
   <BOUCLE_article(ARTICLES){id_article=#ID_ARTICLE}>
     <title>[(#TITRE|textebrut)][ - (#TITRE_PARENT|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
-	<meta name="description" content="[(#CHAPO|couper{150}|attribut_html|textebrut)]">
-	<link rel="canonical" href="#URL_SITE_SPIP/#URL_ARTICLE{#ID_ARTICLE}">
-	#SET{intro,(#DESCRIPTIF)}
+	<meta name="description" content="[(#INTRODUCTION{300}|attribut_html)]">
+	<link rel="canonical" href="[(#URL_ARTICLE{#ID_ARTICLE}|url_absolue)]">
 	<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]" />
 	<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
 	<meta property="og:url" content="[(#URL_ARTICLE|url_absolue)]"/>
 	<meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]"/>
 	<meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
-	<meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+	<meta property="og:description" content="[(#INTRODUCTION{300}|attribut_html)]"/>
 	<!-- Twitter meta cards -->
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@seinesaintdenis">
 	<meta name="twitter:title" content="[(#TITRE|attribut_html)]">
-	<meta name="twitter:description" content="[(#CHAPO|attribut_html)]">
+	<meta name="twitter:description" content="[(#INTRODUCTION{300}|attribut_html)]">
 	<meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]">
   </BOUCLE_article>
   <!-- json-ld -->
@@ -37,7 +36,7 @@
       "@type": "Event",
       "name": [(#TITRE|json_encode)],
       "url": "[(#URL_ARTICLE|url_absolue)]",
-      "description": [(#CHAPO|concat{' '}|concat{#TEXTE}|textebrut|json_encode)],
+      "description": [(#INTRODUCTION{300}|textebrut|json_encode)],
     <BOUCLE_eve(EVENEMENTS){id_article}>
       "startDate": "[(#DATE_DEBUT|affdate{c})]",
       "endDate": "[(#DATE_FIN|affdate{c})]"
@@ -97,9 +96,8 @@
  </BOUCLE_artjsonld>
 		<BOUCLE_rubtete(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}{tous}>
 		<title>[(#TITRE|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
-		<meta name="description" content="[(#TEXTE|couper{150}|attribut_html|textebrut)]" />
-		<link rel="canonical" href="#URL_SITE_SPIP/#URL_RUBRIQUE{#ID_RUBRIQUE}">
-		#SET{intro,(#TEXTE)}
+		<meta name="description" content="[(#TEXTE|couper{300}|attribut_html|textebrut)]" />
+		<link rel="canonical" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|url_absolue)]">
 		<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|image_passe_partout{300,300}|image_recadre{300,300,'top left','transparent'}|extraire_attribut{src})]" />
 			<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
 		    <meta property="og:url" content="[(#URL_RUBRIQUE|url_absolue)]"/>
@@ -115,25 +113,24 @@
 		</BOUCLE_rubtete>
 		<BOUCLE_mot(MOTS){id_mot=#ID_MOT}>
 		<title>[(#TITRE|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
-		<meta name="description" content="[(#DESCRIPTIF|couper{150}|attribut_html|textebrut)]">
-		<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT{#ID_MOT}">
-		#SET{intro,(#DESCRIPTIF)}
+		<meta name="description" content="[(#DESCRIPTIF|couper{300}|attribut_html|textebrut)]">
+		<link rel="canonical" href="[(#URL_MOT{#ID_MOT}|url_absolue)]">
 		<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_MOT|extraire_attribut{src})]" />
 			<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
 		    <meta property="og:url" content="[(#URL_MOT|url_absolue)]"/>
    		    <meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_MOT|extraire_attribut{src})]"/>
 		    <meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
-		    <meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+		    <meta property="og:description" content="[(#DESCRIPTIF|couper{300}|attribut_html|textebrut)]"/>
 		    <!-- Twitter meta cards -->
 		    <meta name="twitter:card" content="summary">
 		    <meta name="twitter:site" content="@seinesaintdenis">
 		    <meta name="twitter:title" content="[(#TITRE|attribut_html)]">
-		    <meta name="twitter:description" content="[(#DESCRIPTIF|attribut_html)]">
+		    <meta name="twitter:description" content="[(#DESCRIPTIF|couper{300}|attribut_html|textebrut)]">
 		    <meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_MOT|extraire_attribut{src})]">
 		</BOUCLE_mot>
 		[(#ENV{sommaire}|=={sommaire}|oui)
 		<title>#NOM_SITE_SPIP</title>
-		<meta name="description" content="[(#DESCRIPTIF_SITE_SPIP|couper{150}|attribut_html|textebrut)]" />
+		<meta name="description" content="[(#DESCRIPTIF_SITE_SPIP|couper{300}|attribut_html|textebrut)]" />
 		<link rel="canonical" href="#URL_SITE_SPIP/">
 		]
 		<!-- Test it: https://developers.facebook.com/tools/debug/og/object/ -->
