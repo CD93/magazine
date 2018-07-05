@@ -25,13 +25,6 @@
 	<changefreq>hourly</changefreq>
 </url>
 
-[(#REM) Rubriques ]
-<BOUCLE_r(RUBRIQUES){!par date}{0,1000}{id_parent!IN 1,10,15}>
-<url>
-	[<loc>(#URL_RUBRIQUE|url_absolue)</loc>]
-</url>
-</BOUCLE_r>
-
 [(#REM) Articles ]
 [(#SET{recent,[(#VAL{Y-m-d H:i:s}|date{#VAL{"-1 year"}|strtotime})]})]
 <BOUCLE_a(ARTICLES){!par date_modif}{!par date}{0,2000}{id_parent!IN 1,10,15}>
@@ -41,10 +34,5 @@
 |?{[<lastmod>(#DATE_MODIF**|date_iso)</lastmod>]})]
 </url>
 </BOUCLE_a>
-
-[(#REM) Mots ]
-<BOUCLE_m(MOTS){0,1000}>[
-<url><loc>(#URL_MOT|url_absolue)</loc></url>]</BOUCLE_m>
-
 
 </urlset>
