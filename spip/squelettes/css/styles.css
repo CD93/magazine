@@ -1043,6 +1043,7 @@ small {
 .slider-control .loin {
   position: absolute;
   left: -7000px;
+  font-size: 8px;
 }
 .slider-control button {
   background-color: #fff;
