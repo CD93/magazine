@@ -153,6 +153,13 @@ App = function(parent, child) {
 			    // }
 			    ]
 			});
+			$('.slider-pause').on('click',function(event){
+				$('.slider').slick('slickPause');
+			});
+			$('.slider-play').on('click',function(event){
+				$('.slider').slick('slickPlay');
+			});
+
 	});
 
 	 console.log(Vars.parent);

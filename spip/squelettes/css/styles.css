@@ -1037,6 +1037,24 @@ small {
   width: 70%;
 }
 
+.slider-control {
+  display: inline;
+}
+.slider-control .loin {
+  position: absolute;
+  left: -7000px;
+}
+.slider-control button {
+  background-color: #fff;
+  color: #000;
+}
+.slider-play::before {
+  content: "\23E9";
+}
+.slider-pause::before {
+  content: "\23F8";
+}
+
 @media (max-width: 73.14286em) {
   .full-m {
     width: 100%;

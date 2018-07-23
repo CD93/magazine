@@ -1,11 +1,16 @@
 <!-- start ce week-end -->
 <div class="slider-container mb-60">
 	<span class="skew-block abs medium shad">
-		<span class="content black">Rendez-vous</span>
+		<span class="content black">Rendez-vous
+				<div class="slider-control">
+						<button class="slider-play" type="button" role="button" ><span class="loin">démarrer</span></button>
+						<button class="slider-pause" type="button" role="button" ><span class="loin">mettre en pause</span></button>
+					</div>
+		</span>
 		<span class="skew white-bg"></span>
 	</span>
 	<div class="slider basic-slider center-slider cf" data-autoplay="true" data-speed="5000">
-	<BOUCLE_agenda_en_une(ARTICLES spip_pb_selection){0,5}{spip_pb_selection.id_rubrique=8}>
+		<BOUCLE_agenda_en_une(ARTICLES spip_pb_selection){0,5}{spip_pb_selection.id_rubrique=8}>
 	  <div class="center-slider--slide">
 	  	#LOGO_ARTICLE
 	  	<BOUCLE_m_agenda(MOTS){id_article}{0,1}{!par id_mot}>
@@ -16,7 +21,7 @@
 		</BOUCLE_m_agenda>
 		<h2 class="basic-title medium"><a href="#URL_ARTICLE" >#TITRE</a></h2>	
 	  </div>
-	  </BOUCLE_agenda_en_une>
+		</BOUCLE_agenda_en_une>
 	</div>
 </div>
 <!-- end ce week-end -->

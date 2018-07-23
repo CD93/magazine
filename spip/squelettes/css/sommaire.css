@@ -1,6 +1,5 @@
 .nav-sommaire {border: none;}
 .nav-sommaire h2 {font-size: inherit;text-transform: uppercase;}
-.nav-sommaire ul {}
 
 .sommaire-back {color:#DDD;display:block;width:16px;height:16px;background:url(img/sommaire-up-16.png) no-repeat center;float: right;opacity:0.5;}
 
